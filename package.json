@@ -1,0 +1,18 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Brandon Smith",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "1.19.X",
+    "express": "4.17.X",
+    "markdown-it": "8.4.X",
+    "markdown-it-meta": "0.0.X",
+    "pretty": "^2.0.0"
+  }
+}

@@ -1,0 +1,61 @@
+
+
+/* reset some stuff */
+nav h1 {
+    margin:0;
+}
+nav ul {
+    padding:0;
+    margin:0;
+}
+nav li {
+    list-style-type: none;
+}
+
+
+nav {
+    display:flex;
+    align-items: stretch;
+    padding: var(--frame-padding);
+    border-bottom: 3px solid var(--accent-color);
+}
+nav h1 {
+    margin-right:0.5em;
+}
+nav > ul.links {
+    display:flex;
+    align-items: stretch;
+}
+
+nav .dropdown {
+    position: relative;
+}
+nav .dropdown > a::after {
+    content: ' ▼';
+    user-select: none;
+}
+nav .dropdown > ul.dropdown-contents {
+    position:absolute;
+    top:100%;
+    left:0;
+    background-color:var(--background-color);
+
+    opacity:0;
+    pointer-events: none;
+}
+nav .dropdown:hover > ul.dropdown-contents {
+    opacity:1;
+    pointer-events: all;
+}
+
+nav > ul.links li {
+    display:flex;
+    align-items: center;
+    transition: background-color 0.1s ease-out;
+}
+nav > ul.links li > a {
+    padding:0.25em 0.5em;
+}
+nav > ul.links li:hover {
+    background-color:var(--background-color-alt);
+}

@@ -1,0 +1,26 @@
+
+body {
+    --accent-color: rgb(64,163,104);
+    --frame-padding: 1em;
+}
+
+
+body {
+    --text-color: #111;
+    --background-color: #eee;
+    --background-color-alt: #ccc;
+    
+    --link-color: var(--text-color);
+    --link-color-visited: var(--text-color);
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        --text-color: #eee;
+        --background-color: #111;
+        --background-color-alt: #333;
+        
+        --link-color: var(--text-color);
+        --link-color-visited: var(--text-color);
+    }
+}

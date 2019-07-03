@@ -1,0 +1,33 @@
+
+a {
+    color: var(--link-color);
+}
+a:visited {
+    color: var(--link-color-visited);
+}
+
+body {
+    font-family: sans-serif;
+    margin:0;
+
+    color: var(--text-color);
+    background-color:var(--background-color);
+}
+
+article.blog {
+    padding: var(--frame-padding);
+    max-width: 800px;
+}
+
+article.blog > .blog-title {
+    margin-top:0;
+}
+
+
+form {
+    padding: var(--frame-padding);
+}
+
+footer {
+    padding: var(--frame-padding);
+}
