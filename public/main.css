@@ -1,33 +1,23 @@
 
-a {
-    color: var(--link-color);
-}
-a:visited {
-    color: var(--link-color-visited);
-}
 
-body {
+html {
     font-family: sans-serif;
-    margin:0;
-
     color: var(--text-color);
     background-color:var(--background-color);
 }
 
-article.blog {
+
+@keyframes fade-in {
+    0% { opacity: 0 }
+    100% { opacity: 1 }
+}
+
+.main {
+    animation: fade-in 0.2s ease-out;
     padding: var(--frame-padding);
     max-width: 800px;
 }
 
 article.blog > .blog-title {
     margin-top:0;
-}
-
-
-form {
-    padding: var(--frame-padding);
-}
-
-footer {
-    padding: var(--frame-padding);
 }

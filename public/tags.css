@@ -1,0 +1,26 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin:0;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+a:visited {
+    color: var(--accent-color);
+}
+
+code {
+    background-color: var(--background-color-alt);
+    border-radius: 0.2em;
+    padding: 0 0.2em;
+}
+
+footer {
+    padding: var(--frame-padding);
+}

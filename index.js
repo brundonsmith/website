@@ -8,6 +8,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 // render templates
 const { index } = require('./render/index')
+const { about } = require('./render/about')
 const { blog } = require('./render/blog')
 const { blogList } = require('./render/blogList')
 const { contact } = require('./render/contact')
@@ -19,6 +20,8 @@ const { getAllBlogPosts, getBlogPost } = require('./loading')
 app.get('/', (req, res) => 
     res.send(index()))
 
+app.get('/about', (req, res) =>
+    res.send(about()))
 
 app.get('/blog', (req, res) => 
     getAllBlogPosts()

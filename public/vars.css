@@ -1,26 +1,30 @@
 
-body {
-    --accent-color: rgb(64,163,104);
+html {
+    --accent-color: orange;
     --frame-padding: 1em;
 }
 
 
-body {
+/* light and dark themes */
+/*
+html {
     --text-color: #111;
     --background-color: #eee;
     --background-color-alt: #ccc;
+    --overlay-color: rgba(0, 0, 0, 0.2);
     
     --link-color: var(--text-color);
     --link-color-visited: var(--text-color);
 }
 
-@media (prefers-color-scheme: dark) {
-    body {
+@media (prefers-color-scheme: dark) {*/
+    html {
         --text-color: #eee;
         --background-color: #111;
         --background-color-alt: #333;
+        --overlay-color: rgba(255, 255, 255, 0.2);
         
         --link-color: var(--text-color);
         --link-color-visited: var(--text-color);
     }
-}
+/*}*/

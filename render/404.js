@@ -1,6 +1,6 @@
 
-const { html } = require('./pieces/utils');
-const { boilerplate } = require('./pieces/boilerplate')
+const { html } = require('./misc/utils');
+const { boilerplate } = require('./fragments/boilerplate')
 
 const fourOhFour = () =>
     boilerplate(html`
