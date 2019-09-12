@@ -19,7 +19,7 @@ Promise.resolve()
     .then(() => fs.mkdir('./dist/blog', { recursive: true }))
     .then(() => ncpPromise('./src/static', './dist'))                              // copy statics
     .then(() => Promise.all(                                                       // generate plain pages
-        [ '404', 'about', 'contact', 'index' ].map(pageName =>
+        [ '404', 'about', 'contact', 'index', 'resume' ].map(pageName =>
             require(`./render/${pageName}.html.js`)()
                 .then(html => fs.writeFile(`./dist/${pageName}.html`, html)))))
     .then(() =>                                                                    // generate blog pages
