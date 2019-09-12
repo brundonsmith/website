@@ -1,0 +1,10 @@
+
+.post-preview {
+    display:flex;
+    padding:1rem;
+    font-family: var(--title-font);
+}
+
+.post-preview:not(:first-of-type) {
+    border-top: 1px solid var(--color-divider);
+}

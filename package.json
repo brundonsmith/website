@@ -2,9 +2,9 @@
   "name": "website",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node ./src/index.js"
   },
   "author": "Brandon Smith",
   "license": "ISC",
@@ -13,6 +13,8 @@
     "express": "4.17.X",
     "markdown-it": "8.4.X",
     "markdown-it-meta": "0.0.X",
+    "markdown-it-prism": "^2.0.2",
+    "ncp": "^2.0.0",
     "pretty": "^2.0.0"
   }
 }

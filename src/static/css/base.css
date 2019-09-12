@@ -1,0 +1,87 @@
+
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    color: var(--text-color);
+    background-color:var(--background-color);
+
+}
+
+body {
+    font-family: var(--content-font);
+    background-color: var(--color-background);
+    margin:0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--title-font);
+}
+
+h1 {
+    padding: 0.25em 0;
+    border-bottom: 1px solid var(--color-divider);
+}
+
+.main {
+    padding: var(--section-padding);
+    max-width: 800px;
+    animation: fade-in 0.3s ease-out;
+}
+
+@keyframes fade-in {
+    0% { opacity:0; }
+    100% { opacity:1; }
+}
+
+article {
+    
+}
+
+a {
+    color: var(--current-accent-color);
+    text-decoration: none;
+}
+a:visited {
+    color: var(--current-accent-color);
+}
+
+
+pre > code,
+blockquote,
+img {
+    display:block;
+    background-color: var(--color-background-alt);
+    border-radius: var(--border-radius);
+    margin: 0 auto;
+    border: 1px solid var(--color-divider);
+}
+
+code {
+    font: 0.6rem 'Consolas', 'Lucida Console', 'Monaco', 'Courier New';
+    background-color: var(--color-background-alt);
+    padding: 0.1em 0.25em;
+    border-radius: 0.25em;
+}
+
+pre > code {
+    padding: 1rem;
+}
+
+blockquote {
+    padding: 1rem;
+}
+
+blockquote > p {
+    margin:0;
+}
+
+img {
+    height: 15em;
+}
+
+footer {
+    padding: var(--section-padding);
+}

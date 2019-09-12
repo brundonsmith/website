@@ -4,14 +4,18 @@ const fs = require('fs').promises
 // markdown-it
 const MarkdownIt = require('markdown-it')
 const meta = require('markdown-it-meta')
+const prism = require('markdown-it-prism')
+
 const markdownRenderer = new MarkdownIt()
 markdownRenderer.use(meta)
+markdownRenderer.use(prism)
+
 
 const getAllBlogPosts = () =>
-    fs.readdir(`./blog`)
+    fs.readdir(`./src/blog`)
         .then(files => 
             Promise.all(files.map(f => 
-                fs.readFile(`./blog/${f}`)
+                fs.readFile(`./src/blog/${f}`)
                     .then(buf => buf.toString('utf-8'))
                     .then(md => {
                         let html = markdownRenderer.render(md)
@@ -19,7 +23,7 @@ const getAllBlogPosts = () =>
                     }))))
 
 const getBlogPost = (postName) =>
-    fs.readFile(`./blog/${postName}.md`)
+    fs.readFile(`./src/blog/${postName}.md`)
         .then(buf => buf.toString('utf-8'))
         .then(md => {
             let html = markdownRenderer.render(md)

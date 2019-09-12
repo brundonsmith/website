@@ -1,0 +1,38 @@
+
+html {
+    --text-color: rgb(0, 0, 0);
+    --color-background: rgb(255, 255, 255);
+    --color-divider: rgba(0, 0, 0, 0.1);
+
+    --orange-1: rgb(249, 160, 67);
+    --orange-2: rgb(244, 99, 66);
+    --orange-3: rgb(237, 20, 64);
+    --orange-4: rgb(255, 246, 69);
+
+    --purple-1: rgb(139, 77, 172);
+    --purple-2: rgb(174, 178, 224);
+    --purple-3: rgb(44, 92, 179);
+    --purple-4: rgb(161, 210, 242);
+
+    --blue-1: rgb(25, 114, 196);
+    --blue-2: rgb(81, 200, 245);
+    --blue-3: rgb(48, 136, 209);
+    --blue-4: rgb(128, 214, 247);
+
+    --current-accent-color: var(--orange-1);
+
+    --section-padding: 2rem;
+    --border-radius: 5px;
+
+    --title-font: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    --content-font: Cambria, Georgia, serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        --text-color: rgb(255, 255, 255);
+        --color-background: rgb(20, 20, 20);
+        --color-background-alt: rgb(0, 0, 0);
+        --color-divider: rgba(255, 255, 255, 0.3);
+    }
+}
