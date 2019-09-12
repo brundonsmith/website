@@ -26,8 +26,9 @@ h1 {
 }
 
 .main {
-    padding: var(--section-padding);
     max-width: 800px;
+    margin:0 auto;
+    padding: var(--section-padding);
     animation: fade-in 0.3s ease-out;
 }
 
@@ -36,50 +37,12 @@ h1 {
     100% { opacity:1; }
 }
 
-article {
-    
-}
-
 a {
     color: var(--current-accent-color);
     text-decoration: none;
 }
 a:visited {
     color: var(--current-accent-color);
-}
-
-
-pre > code,
-blockquote,
-img {
-    display:block;
-    background-color: var(--color-background-alt);
-    border-radius: var(--border-radius);
-    margin: 0 auto;
-    border: 1px solid var(--color-divider);
-}
-
-code {
-    font: 0.6rem 'Consolas', 'Lucida Console', 'Monaco', 'Courier New';
-    background-color: var(--color-background-alt);
-    padding: 0.1em 0.25em;
-    border-radius: 0.25em;
-}
-
-pre > code {
-    padding: 1rem;
-}
-
-blockquote {
-    padding: 1rem;
-}
-
-blockquote > p {
-    margin:0;
-}
-
-img {
-    height: 15em;
 }
 
 footer {

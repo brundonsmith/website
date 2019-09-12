@@ -21,8 +21,7 @@ html {
 
     --current-accent-color: var(--orange-1);
 
-    --section-padding: 2rem;
-    --border-radius: 5px;
+    --section-padding: 3rem;
 
     --title-font: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
     --content-font: Cambria, Georgia, serif;

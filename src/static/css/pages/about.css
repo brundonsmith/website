@@ -2,3 +2,16 @@
 html {
     --current-accent-color: var(--purple-1);
 }
+
+.main > img.me {
+    width:300px;
+    max-width:40%;
+    margin-right: 1rem;
+    margin-bottom:1rem;
+    border-radius:1rem;
+    float:left;
+}
+.main > h1 {
+    margin-top:0;
+    display:inline-block;
+}

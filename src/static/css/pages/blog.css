@@ -1,0 +1,40 @@
+
+article h1.blog-heading {
+    display:flex;
+    align-items:baseline;
+}
+article h1.blog-heading > .date {
+    opacity:0.6;
+    font-size:0.6em;
+}
+
+article pre > code,
+article blockquote,
+article img {
+    display:block;
+    margin: 0;
+    width:100%;
+    border-radius: 5px;
+
+    background-color: var(--color-background-alt);
+    border: 1px solid var(--color-divider);
+}
+
+article code {
+    font: 0.6rem 'Consolas', 'Lucida Console', 'Monaco', 'Courier New';
+    background-color: var(--color-background-alt);
+    padding: 0.1em 0.25em;
+    border-radius: 0.25em;
+}
+
+article pre > code {
+    padding: 1rem;
+}
+
+article blockquote {
+    padding: 1rem;
+}
+
+article blockquote > p {
+    margin:0;
+}

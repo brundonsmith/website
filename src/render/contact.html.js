@@ -13,6 +13,8 @@ module.exports = () => Promise.resolve(
                 ${nav()}
                 
                 <div class="main">
+                    <link rel="stylesheet" type="text/css" href="/css/pages/contact.css">
+
                     <form action="/contact" method="POST">
                         <div>
                             <label for="responseEmail">Your email:</label>

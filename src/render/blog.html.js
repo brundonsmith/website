@@ -13,22 +13,24 @@ module.exports = (postName) =>
                 ${head()}
 
                 <body>
+                    <link rel="stylesheet" type="text/css" href="/css/pages/blog.css">
+
                     ${nav()}
                     
-                    <div class="main">
-                        <article class="blog singleton">
-                            <h1>
-                                <span>${post.meta.title}</span>
+                    <article class="main">
+                        <h1 class="blog-heading">
+                            <span>${post.meta.title}</span>
 
-                                <div class="flex-expander"></div>
+                            <div class="flex-spacer"></div>
 
-                                <span>${post.meta.date}</span>
-                            </h1>
+                            <span class="date">
+                                ${post.meta.date}
+                            </span>
+                        </h1>
 
-                            ${post.html}
+                        ${post.html}
 
-                        </article>
-                    </div>
+                    </article>
                     
                     ${footer()}
                 </body>
