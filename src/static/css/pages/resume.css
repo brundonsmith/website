@@ -1,12 +1,70 @@
 
 
-body {
+.resume {
+    position:relative;
     display:flex;
     width: 8.5in;
     height: 11in;
+    margin:1rem auto;
     box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.2);
+    border:1px solid var(--color-divider);
+    --orange-1: rgb(255, 130, 0); /* needed more readability */
+}
+.resume svg {
+    width:1em;
+    height:1em;
+}
+.resume svg * {
+    fill: var(--color-text);
 }
 
+.print-button {
+    position: absolute;
+    display: flex;
+    padding: 0.5em;
+    align-items: center;
+    top: -0.7rem;
+    left: 1rem;
+    -webkit-appearance: none;
+    font-size: 1rem;
+    background-color: var(--current-accent-color);
+    color: white;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+    cursor:pointer;
+    transition: all 0.2s ease-out;
+    z-index:10;
+}
+.print-button:hover {
+    transform:scale(1.03);
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.4);
+}
+.print-button:active {
+    transform:scale(0.97);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+}
+.print-button > svg > path {
+    fill: white;
+}
+
+@media print {
+    .print-button {
+        display:none;
+    }
+    .resume {
+        box-shadow: none;
+        border:none;
+        margin:0;
+    }
+    nav {
+        display:none;
+    }
+    footer {
+        display:none;
+    }
+}
+@page {
+    margin:0;
+}
 
 
 .bullets {
@@ -14,7 +72,7 @@ body {
     flex-grow:0;
     flex-shrink:0;
     padding:1rem;
-    border-right: 1px solid var(--color-divider);
+    background-color: rgba(0, 0, 0, 0.03);
 }
 
 .bullets h4 {
@@ -40,7 +98,7 @@ body {
 .main img.me {
     float:right;
     width:30%;
-    border-radius:3px;
+    border-radius:5px;
     margin-left: 1em;
     margin-right: 1em;
 }
@@ -52,10 +110,10 @@ body {
 
 .main .blurbs .blurb {
     position:relative;
-    border: 3px solid var(--blurb-color);
     width:90%;
     padding:1rem;
-    border-radius:3px;
+    border-radius:5px;
+    overflow: hidden;
 }
 .main .blurbs .blurb:not(:first-of-type) {
     margin-top:1rem;
@@ -72,8 +130,13 @@ body {
 }
 .main .blurbs .blurb h2 {
     margin-top:0;
-    opacity:0.7;
+    margin-bottom: 10px;
+    opacity:0.5;
     color: var(--blurb-color);
+    text-transform: lowercase;
+}
+.main .blurbs .blurb p {
+    margin:0;
 }
 
 .main .blurbs .blurb:nth-child(1) {

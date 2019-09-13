@@ -57,29 +57,10 @@ nav > ul.links > li.contact > a {
 
 nav > ul.links > li.github   svg,
 nav > ul.links > li.linkedin svg {
-    width: 1em;
-    height: 1em;
-    vertical-align: middle;
     transition: opacity 0.2s ease-out;
 }
 
 nav > ul.links > li.github   svg:not(:hover),
 nav > ul.links > li.linkedin svg:not(:hover) {
     opacity: 0.8;
-}
-
-nav > ul.links > li.github svg * {
-    fill: var(--text-color);
-    stroke: var(--text-color);
-}
-
-/* square */
-nav > ul.links > li.linkedin svg #path14 {
-    fill: var(--text-color);
-}
-
-/* letters */
-nav > ul.links > li.linkedin svg #path28,
-nav > ul.links > li.linkedin svg #path30 {
-    fill: var(--color-background);
 }

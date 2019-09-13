@@ -1,0 +1,27 @@
+
+
+svg.github,
+svg.linkedin,
+svg.printer,
+svg.link {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+}
+
+svg.github *,
+svg.printer * {
+    fill: var(--text-color);
+    stroke: var(--text-color);
+}
+
+/* square */
+svg.linkedin #path14 {
+    fill: var(--text-color);
+}
+
+/* letters */
+svg.linkedin #path28,
+svg.linkedin #path30 {
+    fill: var(--color-background);
+}
