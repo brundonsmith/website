@@ -114,7 +114,7 @@ module.exports = () => Promise.resolve(
                             <div class="blurb">
                                 <h2>Engineer</h2>
                                 <p>
-                                    I'm always seeking to learn new things and grow in my craft. Most recently I've 
+                                    I'm always seeking to learn new things and grow in my craft. Most recently in my spare time I've 
                                     been implementing Perlin Noise and other image-generation algorithms in Rust, as a 
                                     way of learning both the language and a new programming domain. I find that diversifying 
                                     my language knowledge has a way of shaping my thinking and giving me concepts that I 
