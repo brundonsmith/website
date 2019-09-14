@@ -6,7 +6,7 @@ const { GITHUB_SVG, LINKEDIN_SVG, PRINTER_SVG, LINK_SVG } = require('./fragments
 module.exports = () => Promise.resolve(
     html`
         <!DOCTYPE html>
-        <html>
+        <html lang="en">
 
             ${head()}
 

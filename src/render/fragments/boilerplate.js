@@ -6,9 +6,10 @@ const head = () =>
     html`
         <head>
             <title>Brandon Smith's Website</title>
+            <meta name="Description" content="Personal website of Brandon Smtih">
 
             <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                         
             <link rel="stylesheet" type="text/css" href="/css/base.css">
             <link rel="stylesheet" type="text/css" href="/css/utils.css">
@@ -26,24 +27,24 @@ const nav = () =>
         <nav>
             <ul class="links">
                 <li class="home">
-                    <a href="/">Home</a>
+                    <a href="/" aria-label="Home">Home</a>
                 </li>
                 <li class="about">
-                    <a href="/about">About</a>
+                    <a href="/about" aria-label="About">About</a>
                 </li>
                 <li class="contact">
-                    <a href="/contact">Contact</a>
+                    <a href="/contact" aria-label="Contact">Contact</a>
                 </li>
 
                 <div class="flex-spacer"></div>
 
                 <li class="linkedin">
-                    <a href="https://www.linkedin.com/in/brandon-smith-9589706b/" target="_blank">
+                    <a href="https://www.linkedin.com/in/brandon-smith-9589706b/" target="_blank" rel="noopener" aria-label="LinkedIn">
                         ${LINKEDIN_SVG}
                     </a>
                 </li>
                 <li class="github">
-                    <a href="https://github.com/brundonsmith" target="_blank">
+                    <a href="https://github.com/brundonsmith" target="_blank" rel="noopener" aria-label="Github">
                         ${GITHUB_SVG}
                     </a>
                 </li>

@@ -11,7 +11,7 @@ module.exports = () =>
         .then(posts =>
             html`
                 <!DOCTYPE html>
-                <html>
+                <html lang="en">
 
                     ${head()}
 

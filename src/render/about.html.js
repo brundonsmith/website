@@ -5,7 +5,7 @@ const { head, nav, footer } = require('./fragments/boilerplate')
 module.exports = () => Promise.resolve(
     html`
         <!DOCTYPE html>
-        <html>
+        <html lang="en">
 
             ${head()}
 

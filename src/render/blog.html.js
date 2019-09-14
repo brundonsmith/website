@@ -8,7 +8,7 @@ module.exports = (postName) =>
     getBlogPost(postName)
         .then(post => html`
             <!DOCTYPE html>
-            <html>
+            <html lang="en">
 
                 ${head()}
 
@@ -23,9 +23,9 @@ module.exports = (postName) =>
 
                             <div class="flex-spacer"></div>
 
-                            <span class="date">
+                            <time datetime="2018-08-03" itemProp="datePublished">
                                 ${post.meta.date}
-                            </span>
+                            </time>
                         </h1>
 
                         ${post.html}

@@ -7,7 +7,7 @@ nav > ul.links {
     display:flex;
     padding:0;
     margin: 0 var(--section-padding);
-    border-bottom: 1px solid var(--current-accent-color);
+    border-bottom: 3px solid var(--color-divider);
 
     font-size: 1.4em;
 }
@@ -25,20 +25,25 @@ nav > ul.links > li::after {
     position:absolute;
     bottom:0;
     left:0;
-    width:100%;
+    width:0;
     height:2px;
     transition: width 0.2s ease-out;
 }
 
-nav > ul.links > li:not(:hover)::after {
-    width:0;
+@media (pointer: fine) {
+    nav > ul.links > li:hover::after,
+    nav > ul.links > li:focus::after {
+        width:100%;
+    }
 }
 
+
+
 nav > ul.links > li.home::after {
-    background-color: var(--orange-1);
+    background-color: var(--blue-1);
 }
 nav > ul.links > li.home > a {
-    color: var(--orange-1);
+    color: var(--blue-1);
 }
 
 nav > ul.links > li.about::after {
@@ -49,10 +54,10 @@ nav > ul.links > li.about > a {
 }
 
 nav > ul.links > li.contact::after {
-    background-color: var(--blue-1);
+    background-color: var(--orange-1);
 }
 nav > ul.links > li.contact > a {
-    color: var(--blue-1);
+    color: var(--orange-1);
 }
 
 nav > ul.links > li.github   svg,
@@ -63,4 +68,10 @@ nav > ul.links > li.linkedin svg {
 nav > ul.links > li.github   svg:not(:hover),
 nav > ul.links > li.linkedin svg:not(:hover) {
     opacity: 0.8;
+}
+
+@media (max-width: 480px) {
+    nav > ul.links > li {
+        margin:1rem 0.5rem;
+    }
 }
