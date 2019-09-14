@@ -4,7 +4,8 @@
   "description": "",
   "main": "./src/index.js",
   "scripts": {
-    "start": "node ./src/index.js"
+    "start": "node ./src/index.js",
+    "watch": "nodemon --watch src -e js,css ./src/index.js"
   },
   "author": "Brandon Smith",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "markdown-it-meta": "0.0.X",
     "markdown-it-prism": "^2.0.2",
     "ncp": "^2.0.0",
+    "nodemon": "^1.19.2",
     "pretty": "^2.0.0"
   }
 }
