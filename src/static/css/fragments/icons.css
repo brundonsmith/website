@@ -11,13 +11,13 @@ svg.link {
 
 svg.github *,
 svg.printer * {
-    fill: var(--text-color);
-    stroke: var(--text-color);
+    fill: var(--color-text);
+    stroke: var(--color-text);
 }
 
 /* square */
 svg.linkedin #path14 {
-    fill: var(--text-color);
+    fill: var(--color-text);
 }
 
 /* letters */

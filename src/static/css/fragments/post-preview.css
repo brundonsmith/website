@@ -3,8 +3,23 @@
     display:flex;
     padding:1rem;
     font-family: var(--title-font);
+    transition: background-color 0.1s ease-out;
+}
+
+.post-preview:hover {
+    background-color: var(--color-background-alt);
 }
 
 .post-preview:not(:first-of-type) {
-    border-top: 1px solid var(--color-divider);
+    margin-top: 1em;
+}
+
+.post-preview {
+    border: 1px solid var(--color-divider);
+    border-radius:5px;
+}
+
+.post-preview > time {
+    opacity:0.6;
+    color: var(--color-text);
 }

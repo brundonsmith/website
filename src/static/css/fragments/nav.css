@@ -47,17 +47,17 @@ nav > ul.links > li.home > a {
 }
 
 nav > ul.links > li.about::after {
-    background-color: var(--purple-1);
+    background-color: var(--blue-1);
 }
 nav > ul.links > li.about > a {
-    color: var(--purple-1);
+    color: var(--blue-1);
 }
 
 nav > ul.links > li.contact::after {
-    background-color: var(--orange-1);
+    background-color: var(--blue-1);
 }
 nav > ul.links > li.contact > a {
-    color: var(--orange-1);
+    color: var(--blue-1);
 }
 
 nav > ul.links > li.github   svg,

@@ -1,5 +1,5 @@
 
-const { html, given } = require('../utils/misc')
+const { html } = require('../utils/misc')
 const { getBlogPost } = require('../utils/loading')
 
 const { head, nav, footer } = require('./fragments/boilerplate')
@@ -23,7 +23,7 @@ module.exports = (postName) =>
 
                             <div class="flex-spacer"></div>
 
-                            <time datetime="2018-08-03" itemProp="datePublished">
+                            <time datetime="${post.meta.date}" itemProp="datePublished">
                                 ${post.meta.date}
                             </time>
                         </h1>

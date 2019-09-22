@@ -5,8 +5,14 @@ const fs = require('fs').promises
 const MarkdownIt = require('markdown-it')
 const meta = require('markdown-it-meta')
 const prism = require('markdown-it-prism')
+const anchor = require('markdown-it-anchor')
 
 const markdownRenderer = new MarkdownIt()
+markdownRenderer.use(anchor, {
+    level: 2,
+    permalinkSymbol: '#',
+    permalink: true,
+})
 markdownRenderer.use(meta)
 markdownRenderer.use(prism)
 
@@ -29,6 +35,5 @@ const getBlogPost = (postName) =>
             let html = markdownRenderer.render(md)
             return { html, meta: markdownRenderer.meta, slug: postName }
         })
-
 
 module.exports = { getAllBlogPosts, getBlogPost }

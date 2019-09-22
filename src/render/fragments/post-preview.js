@@ -3,15 +3,13 @@ const { html } = require('../../utils/misc')
 
 module.exports = (post) => 
     html`
-        <div class="post-preview">
-            <a href="/blog/${post.slug}">
-                ${post.meta.title}
-            </a>
+        <a class="post-preview" href="/blog/${post.slug}">
+            ${post.meta.title}
 
             <div class="flex-spacer"></div>
 
-            <span>
+            <time datetime="${post.meta.date}" itemProp="datePublished">
                 ${post.meta.date}
-            </span>
-        </div>
+            </time>
+        </a>
     `

@@ -13,6 +13,7 @@
     "body-parser": "1.19.X",
     "express": "4.17.X",
     "markdown-it": "8.4.X",
+    "markdown-it-anchor": "^5.2.4",
     "markdown-it-meta": "0.0.X",
     "markdown-it-prism": "^2.0.2",
     "ncp": "^2.0.0",

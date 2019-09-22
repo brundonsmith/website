@@ -11,6 +11,7 @@ const head = () =>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                         
+            <link rel="stylesheet" type="text/css" href="/css/article.css">
             <link rel="stylesheet" type="text/css" href="/css/base.css">
             <link rel="stylesheet" type="text/css" href="/css/utils.css">
             <link rel="stylesheet" type="text/css" href="/css/variables.css">
@@ -32,9 +33,11 @@ const nav = () =>
                 <li class="about">
                     <a href="/about" aria-label="About">About</a>
                 </li>
+                <!--
                 <li class="contact">
                     <a href="/contact" aria-label="Contact">Contact</a>
                 </li>
+                -->
 
                 <div class="flex-spacer"></div>
 
