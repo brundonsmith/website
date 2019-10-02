@@ -1,6 +1,7 @@
 ---
 title: Test Post
 date: August 7, 2019
+test: true
 ---
 
 ## Section 1
