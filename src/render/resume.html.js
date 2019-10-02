@@ -10,8 +10,6 @@ module.exports = () => Promise.resolve(
 
             ${head()}
 
-            ${nav()}
-
             <body>
                 <link rel="stylesheet" type="text/css" href="/css/pages/resume.css">
 

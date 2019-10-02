@@ -9,9 +9,7 @@ module.exports = () => Promise.resolve(
 
             ${head()}
 
-            <body>
-                ${nav()}
-                
+            <body>                
                 <div class="main">
                     <link rel="stylesheet" type="text/css" href="/css/pages/contact.css">
 

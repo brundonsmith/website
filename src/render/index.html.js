@@ -2,9 +2,9 @@
 const { html } = require('../utils/misc')
 const { getAllBlogPosts } = require('../utils/loading')
 
-const { head, nav, footer } = require('./fragments/boilerplate')
+const { head, footer } = require('./fragments/boilerplate')
 const postPreview = require('./fragments/post-preview')
-
+const bio = require('./fragments/bio')
 
 module.exports = () =>
     getAllBlogPosts()
@@ -18,7 +18,7 @@ module.exports = () =>
                     <body>
                         <link rel="stylesheet" type="text/css" href="/css/pages/index.css">
 
-                        ${nav()}
+                        ${bio()}
                         
                         <div class="main">
                             ${posts

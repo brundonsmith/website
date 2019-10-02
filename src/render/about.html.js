@@ -1,6 +1,7 @@
 
 const { html } = require('../utils/misc')
 const { head, nav, footer } = require('./fragments/boilerplate')
+const homeLink = require('./fragments/home-link')
 
 module.exports = () => Promise.resolve(
     html`
@@ -11,10 +12,10 @@ module.exports = () => Promise.resolve(
 
             <body>
                 <link rel="stylesheet" type="text/css" href="/css/pages/about.css">
-
-                ${nav()}
                 
                 <article class="main">
+                    ${homeLink()}
+                    
                     <img class="me" src="/img/me.jpeg" />
 
                     <h1>I'm Brandon Smith</h1>

@@ -18,6 +18,8 @@ article h1.blog-heading {
     display:flex;
     align-items:baseline;
     font-size:2em;
+    border-bottom: 1px solid var(--color-divider);
+    margin:0;
 }
 article h1.blog-heading > time {
     opacity:0.6;
@@ -48,7 +50,7 @@ article img {
 
 /* both inline and block-level! */
 article code {
-    font: 0.6rem 'Consolas', 'Lucida Console', 'Monaco', 'Courier New';
+    font: 0.8rem 'Consolas', 'Lucida Console', 'Monaco', 'Courier New';
     padding: 0.1em 0.25em;
     border-radius: 0.25em;
     background-color: var(--color-background-alt);
@@ -58,6 +60,7 @@ article code {
 article pre > code {
     padding: 1rem;
     overflow: auto;
+    font-size: 0.6rem;
 }
 
 article blockquote {

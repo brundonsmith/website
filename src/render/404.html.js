@@ -1,6 +1,7 @@
 
 const { html } = require('../utils/misc');
 const { head, nav, footer } = require('./fragments/boilerplate')
+const homeLink = require('./fragments/home-link')
 
 module.exports = () => Promise.resolve(
     html`
@@ -10,7 +11,7 @@ module.exports = () => Promise.resolve(
             ${head()}
 
             <body>
-                ${nav()}
+                ${homeLink()}
                 
                 <div class="main">
                     Not found!

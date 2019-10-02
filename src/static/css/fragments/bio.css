@@ -1,0 +1,28 @@
+
+.bio img {
+    width:100px;
+    border-radius: 5px;
+    vertical-align: bottom;
+}
+.bio a[href="/about"] {
+    white-space: nowrap;
+}
+@media (min-width: 1200px) {
+    .bio {
+        position: fixed;
+        right: calc(50% + 400px);
+        top: var(--section-padding);
+        max-width: 300px;
+        padding-left: 0.5rem;
+        text-align:right;
+    }
+}
+@media (max-width: 1200px) {
+    .bio {
+        max-width:800px;
+        margin:0 auto;
+        padding: var(--section-padding);
+        background-color: var(--color-background-alt);
+        text-align: center;
+    }
+}

@@ -2,7 +2,9 @@
 const { html } = require('../utils/misc')
 const { getBlogPost } = require('../utils/loading')
 
-const { head, nav, footer } = require('./fragments/boilerplate')
+const { head, footer } = require('./fragments/boilerplate')
+const bio = require('./fragments/bio')
+const homeLink = require('./fragments/home-link')
 
 module.exports = (postName) => 
     getBlogPost(postName)
@@ -15,9 +17,11 @@ module.exports = (postName) =>
                 <body>
                     <link rel="stylesheet" type="text/css" href="/css/pages/blog.css">
 
-                    ${nav()}
-                    
+                    ${bio()}
+
                     <article class="main">
+                        ${homeLink()}
+                    
                         <h1 class="blog-heading">
                             <span>${post.meta.title}</span>
 
