@@ -3,13 +3,17 @@ title: New Website
 date: July 2, 2019
 ---
 
-I decided to rebuild my website today, from scratch.
+I decided to rebuild my website from scratch.
 
-I've been working in the sphere of high-complexity, company-internal JavaScript web apps for a few years now. I've really enjoyed that, but I'm in the mood to try something different.
+For a few years now at my day job I've been working mostly on high-complexity, company-internal JavaScript web apps. I've really enjoyed that, but this felt like a good opportunity to do the complete opposite in a number of ways:
 
-With this website I'm going to seek minimalism. My goals are to:
-- Get back to HTML. Semantic markup; no `<div>`-soup. Let's make View Source meaningful again.
-- Not have any client-side JS or CSS that's absolutely required. HTML alone should provide a reasonable experience.
-- Have as few dependencies as is reasonable - on both the client and server. Probably zero on the client; we'll see.
-- Provide a lean and pleasant blogging experience for myself, with no database to configure and manage.
-- Experiment with emerging web technologies, particularly around HTML and CSS. Try out some new HTML5 tags. Throw in a few bits of unusual delight, without bloating things down. See what the browser can do without being overridden by a JS framework.
+- Server-side rendering instead of client-side rendering
+- Pure JS/CSS with no build steps
+- Semantic HTML instead of `<div>`-soup
+- High accessibility/compatibility instead of something that never has to face the public internet
+
+Chrome seems to think I'm doing a good job so far!
+
+![Great audit results](/img/blog/audit.png)
+
+And now I have an easily-extensible blog that I can post to just by adding a markdown file to the repository. That's pretty exciting. Let's write some stuff!
