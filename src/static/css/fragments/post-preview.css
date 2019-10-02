@@ -10,10 +10,6 @@
     background-color: var(--color-background-alt);
 }
 
-.post-preview:not(:first-of-type) {
-    margin-top: 1em;
-}
-
 .post-preview {
     border: 1px solid var(--color-divider);
     border-radius:5px;

@@ -16,14 +16,19 @@ module.exports = () =>
                     ${head()}
 
                     <body>
+                        <link rel="stylesheet" type="text/css" href="/css/pages/index.css">
 
                         ${bio()}
                         
                         <div class="main">
-                            ${posts
-                                .sort((a, b) => new Date(b.meta.Date) - new Date(a.meta.Date))
-                                .map(post => postPreview(post))
-                                .join('\n')}
+                            <ul class="post-list">
+                                ${posts
+                                    .sort((a, b) => new Date(b.meta.Date) - new Date(a.meta.Date))
+                                    .map(post => html`
+                                        <li>${postPreview(post)}</li>
+                                    `)
+                                    .join('\n')}
+                            </ul>
                         </div>
                         
                         ${footer()}

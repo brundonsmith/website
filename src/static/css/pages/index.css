@@ -1,0 +1,12 @@
+
+ul.post-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+ul.post-list > li {
+    display: block;
+}
+ul.post-list > li:not(:first-of-type) {
+    margin-top: 1em;
+}

@@ -16,7 +16,7 @@ module.exports = () => Promise.resolve(
                 <article class="main">
                     ${homeLink()}
                     
-                    <img class="me" src="/img/me.jpeg" />
+                    <img class="me" src="/img/me.jpeg" height="176px" />
 
                     <h1>I'm Brandon Smith</h1>
                     <p>

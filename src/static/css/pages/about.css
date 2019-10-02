@@ -4,12 +4,11 @@ html {
 }
 
 .main > img.me {
-    width:11em;
-    max-width:40%;
     margin:0;
     margin-right: 1rem;
     border-radius: 5px;
     float:left;
+    width:auto;
 }
 article.main > h1 {
     margin:0;

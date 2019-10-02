@@ -7,7 +7,7 @@ module.exports = () =>
         <div class="bio">
 
             <a href="/">
-                <img src="/img/me.jpeg" />
+                <img src="/img/me.jpeg" height="100px" />
             </a>
 
             <p>
