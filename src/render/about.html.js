@@ -16,14 +16,14 @@ module.exports = () => Promise.resolve(
                 <article class="main">
                     ${homeLink()}
                     
-                    <img class="me" src="/img/me.jpeg" height="176px" />
+                    <img class="me" src="/img/me.jpeg" height="176px" alt="Me" />
 
                     <h1>I'm Brandon Smith</h1>
                     <p>
                         As a programmer I'm 
-                        <a href="https://josephg.com/blog/3-tribes/" target="_blank"  rel="noopener">equal parts type 1 and type 3</a>.
+                        <a href="https://josephg.com/blog/3-tribes/" target="_blank" rel="noopener">equal parts type 1 and type 3</a>.
                         Professionally I'm a web developer; at home I dabble in mostly game and 
-                        <a href="https://github.com/brundonsmith/raytracer" target="_blank"  rel="noopener">graphics programming</a>.
+                        <a href="https://github.com/brundonsmith/raytracer" target="_blank" rel="noopener">graphics programming</a>.
                     </p>
                     <p>
                         This is my semi-professional blog for thoughts on programming, but also on life and whatever 

@@ -6,12 +6,12 @@ module.exports = () =>
     html`
         <div class="bio">
 
-            <a href="/">
-                <img src="/img/me.jpeg" height="100px" />
+            <a href="/" aria-label="Home">
+                <img src="/img/me.jpeg" height="100px" alt="Me" />
             </a>
 
             <p>
-                I'm Brandon Smith, a software developer in Austin, Texas. <a href="/about">More about me.</a>
+                I'm Brandon Smith, a software developer in Austin, Texas. <a href="/about" aria-label="About me">More about me.</a>
             </p>
 
             <div>

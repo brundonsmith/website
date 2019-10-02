@@ -18,7 +18,6 @@ const head = () =>
             <link rel="stylesheet" type="text/css" href="/css/fragments/bio.css">
             <link rel="stylesheet" type="text/css" href="/css/fragments/home-link.css">
             <link rel="stylesheet" type="text/css" href="/css/fragments/icons.css">
-            <link rel="stylesheet" type="text/css" href="/css/fragments/nav.css">
             <link rel="stylesheet" type="text/css" href="/css/fragments/post-preview.css">
             <link rel="stylesheet" type="text/css" href="/css/fragments/prism.css">
         </head>
