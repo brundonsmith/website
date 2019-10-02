@@ -11,7 +11,6 @@ module.exports = () => Promise.resolve(
 
             <body>                
                 <div class="main">
-                    <link rel="stylesheet" type="text/css" href="/css/pages/contact.css">
 
                     <form action="/contact" method="POST">
                         <div>

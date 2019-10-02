@@ -11,10 +11,11 @@ module.exports = () => Promise.resolve(
             ${head()}
 
             <body>
-                ${homeLink()}
                 
                 <div class="main">
-                    Not found!
+                    ${homeLink()}
+
+                    <h1>Page not found!</h1>
                 </div>
                 
                 ${footer()}

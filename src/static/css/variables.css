@@ -4,6 +4,7 @@ html {
     --color-background: rgb(255, 255, 255);
     --color-background-alt: rgb(250, 250, 250);
     --color-divider: rgba(0, 0, 0, 0.1);
+    --color-accent: var(--blue-1);
 
     --orange-1: rgb(249, 160, 67);
     --orange-2: rgb(244, 99, 66);
@@ -19,8 +20,6 @@ html {
     --blue-2: rgb(81, 200, 245);
     --blue-3: rgb(48, 136, 209);
     --blue-4: rgb(128, 214, 247);
-
-    --current-accent-color: var(--blue-1); /* default */
 
     --section-padding: 3rem;
 

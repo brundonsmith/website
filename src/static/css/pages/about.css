@@ -1,6 +1,6 @@
 
 html {
-    --current-accent-color: var(--blue-1);
+    --color-accent: var(--blue-1);
 }
 
 .main > img.me {

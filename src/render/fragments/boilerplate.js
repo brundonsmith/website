@@ -1,6 +1,5 @@
 
 const { html } = require('../../utils/misc')
-const { GITHUB_SVG, LINKEDIN_SVG, HOME_SVG } = require('./icons')
 
 const head = () => 
     html`
@@ -25,39 +24,6 @@ const head = () =>
         </head>
     `
 
-const nav = () =>
-    html`
-        <nav>
-            <ul class="links">
-                <li class="home">
-                    <a href="/" aria-label="Home">
-                        ${HOME_SVG}
-                    </a>
-                </li>
-
-
-                <div class="flex-spacer"></div>
-
-
-                <li class="linkedin">
-                    <a href="https://www.linkedin.com/in/brandon-smith-9589706b/" target="_blank" rel="noopener" aria-label="LinkedIn">
-                        ${LINKEDIN_SVG}
-                    </a>
-                </li>
-
-                &nbsp;
-                &nbsp;
-                &nbsp;
-
-                <li class="github">
-                    <a href="https://github.com/brundonsmith" target="_blank" rel="noopener" aria-label="Github">
-                        ${GITHUB_SVG}
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    `
-
 const footer = () =>
     html`
         <footer>
@@ -65,4 +31,4 @@ const footer = () =>
         </footer>
     `
 
-module.exports = { head, nav, footer }
+module.exports = { head, footer }

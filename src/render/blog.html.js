@@ -15,7 +15,6 @@ module.exports = (postName) =>
                 ${head()}
 
                 <body>
-                    <link rel="stylesheet" type="text/css" href="/css/pages/blog.css">
 
                     ${bio()}
 

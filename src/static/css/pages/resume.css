@@ -27,7 +27,7 @@
     left: 1rem;
     -webkit-appearance: none;
     font-size: 1rem;
-    background-color: var(--current-accent-color);
+    background-color: var(--color-accent);
     color: white;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
     cursor:pointer;
