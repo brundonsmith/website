@@ -1,6 +1,6 @@
 ---
 title: New Website
-date: July 2, 2019
+date: October 1, 2019
 ---
 
 I decided to rebuild my website from scratch.
