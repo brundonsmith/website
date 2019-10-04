@@ -1,8 +1,4 @@
 
-html {
-    --color-accent: var(--blue-1);
-}
-
 .main > img.me {
     margin:0;
     margin-right: 1rem;

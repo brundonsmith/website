@@ -8,7 +8,6 @@
     margin:1rem auto;
     box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.2);
     border:1px solid var(--color-divider);
-    --orange-1: rgb(255, 130, 0); /* needed more readability */
 }
 .resume svg {
     width:1em;
@@ -140,13 +139,13 @@
 }
 
 .main .blurbs .blurb:nth-child(1) {
-    --blurb-color: var(--purple-1);
+    --blurb-color: rgb(139, 77, 172);
     align-self: flex-end;
 }
 .main .blurbs .blurb:nth-child(2) {
-    --blurb-color: var(--blue-1);
+    --blurb-color: rgb(25, 114, 196);
 }
 .main .blurbs .blurb:nth-child(3) {
-    --blurb-color: var(--orange-1);
+    --blurb-color: rgb(255, 130, 0);
     align-self: flex-end;
 }
