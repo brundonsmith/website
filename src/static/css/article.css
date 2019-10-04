@@ -60,6 +60,9 @@ article code {
     background-color: var(--color-background-alt);
     border: 1px solid var(--color-divider);
 }
+article :not(pre) > code {
+    color: var(--color-accent);
+}
 /* just block-level */
 article pre > code {
     padding: 1rem;

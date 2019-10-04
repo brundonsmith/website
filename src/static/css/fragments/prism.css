@@ -1,110 +1,158 @@
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
 
-code  /* symbol */,
-code .token.parameter,
-code .token.constant {
-   color: var(--blue-1);
+
+/* Same in both themes */
+.token.important,
+.token.bold {
+    font-weight: bold;
 }
-code .token.punctuation {
-    color: #263238;
-}
-code .token.function {
-    color: var(--orange-3);
-}
-code .token.keyword {
-    color: var(--purple-1);
-}
-code .token.comment,
-code .token.string {
-    color: var(--blue-2);
-}
-code .token.comment {
-    opacity: 0.7;
-}
-code .token.operator,
-code .token.number {
-    color: var(--orange-1);
+.token.italic {
+    font-style: italic;
 }
 
-/*
-code  /* symbol ,
-code .token.parameter,
-code .token.constant {
-   color: #0D47A1;
+.token.entity {
+    cursor: help;
 }
-code .token.punctuation {
-    color: #263238;
+
+
+
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: slategray;
 }
-code .token.function {
-    color: #E91E63;
+
+.token.punctuation {
+    color: #999;
 }
-code .token.keyword {
-    color: #AA00FF;
+
+.namespace {
+    opacity: .7;
 }
-code .token.comment,
-code .token.string {
-    color: #388E3C;
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #905;
 }
-code .token.comment {
-    opacity: 0.6;
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #690;
 }
-code .token.operator,
-code .token.number {
-    color: #EF6C00;
-}*/
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #9a6e3a;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #07a;
+}
+
+.token.function,
+.token.class-name {
+    color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #e90;
+}
+
+
 
 
 @media (prefers-color-scheme: dark) {
+    /**
+    * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML
+    * Based on https://github.com/chriskempson/tomorrow-theme
+    * @author Rose Pritchard
+    */
 
-    code  /* symbol */,
-    code .token.parameter,
-    code .token.constant {
-        color: var(--blue-1);
-    }
-    code .token.punctuation {
-        color: white;
-    }
-    code .token.function {
-        color: var(--orange-3);
-    }
-    code .token.keyword {
-        color: var(--purple-1);
-    }
-    code .token.comment,
-    code .token.string {
-        color: var(--blue-2);
-    }
-    code .token.comment {
-        opacity: 0.7;
-    }
-    code .token.operator,
-    code .token.number {
-        color: var(--orange-1);
+    .token.comment,
+    .token.block-comment,
+    .token.prolog,
+    .token.doctype,
+    .token.cdata {
+        color: #999;
     }
 
-    /*
-    code  /* symbol ,
-    code .token.parameter,
-    code .token.constant {
-    color: #90CAF9;
+    .token.punctuation {
+        color: #ccc;
     }
-    code .token.punctuation {
-        color: white;
+
+    .namespace {
+        opacity: 1;
     }
-    code .token.function {
-        color: #F48FB1;
+
+    .token.tag,
+    .token.attr-name,
+    .token.namespace,
+    .token.deleted {
+        color: #e2777a;
     }
-    code .token.keyword {
-        color: #EA80FC;
+
+    .token.function-name {
+        color: #6196cc;
     }
-    code .token.comment,
-    code .token.string {
-        color: #81C784;
+
+    .token.boolean,
+    .token.number,
+    .token.function {
+        color: #f08d49;
     }
-    code .token.comment {
-        opacity: 0.7;
+
+    .token.property,
+    .token.class-name,
+    .token.constant,
+    .token.symbol {
+        color: #f8c555;
     }
-    code .token.operator,
-    code .token.number {
-        color: #FFB74D;
-    }*/
+
+    .token.selector,
+    .token.important,
+    .token.atrule,
+    .token.keyword,
+    .token.builtin {
+        color: #cc99cd;
+    }
+
+    .token.string,
+    .token.char,
+    .token.attr-value,
+    .token.regex,
+    .token.variable {
+        color: #7ec699;
+    }
+
+    .token.operator,
+    .token.entity,
+    .token.url {
+        color: #67cdcc;
+    }
+
+    .token.inserted {
+        color: green;
+    }
 }
