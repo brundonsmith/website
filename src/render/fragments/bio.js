@@ -11,7 +11,7 @@ module.exports = () =>
             </a>
 
             <p>
-                I'm Brandon Smith, a software developer in Austin, Texas. <a href="/about" aria-label="About me">More about me.</a>
+                I'm Brandon Smith, a programmer in Austin, Texas. <a href="/about" aria-label="About me">More about me.</a>
             </p>
 
             <div>
