@@ -1,9 +1,13 @@
 
+article {
+    --line-height: 1.8em;
+}
+
 article > * {
     margin:0;
 }
 article > :not(:first-child) {
-    margin-block-start: 1em;
+    margin-block-start: var(--line-height);
 }
 article > h1:not(:first-child), 
 article > h2:not(:first-child), 
@@ -38,7 +42,7 @@ article .header-anchor:not(:hover) {
 }
 
 article p {
-    line-height: 1.8em;
+    line-height: var(--line-height);
 }
 
 article pre > code,
