@@ -16,13 +16,13 @@ module.exports = () =>
 
             <div>
 
-                <a href="https://www.linkedin.com/in/brandon-smith-9589706b/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <a class="icon-link" href="https://www.linkedin.com/in/brandon-smith-9589706b/" target="_blank" rel="noopener" aria-label="LinkedIn">
                     ${LINKEDIN_SVG}
                 </a>
 
                 &nbsp;
 
-                <a href="https://github.com/brundonsmith" target="_blank" rel="noopener" aria-label="Github">
+                <a class="icon-link" href="https://github.com/brundonsmith" target="_blank" rel="noopener" aria-label="Github">
                     ${GITHUB_SVG}
                 </a>
 

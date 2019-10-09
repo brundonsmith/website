@@ -6,6 +6,13 @@
 .bio a[href="/about"] {
     white-space: nowrap;
 }
+.bio .icon-link {
+    transition: opacity 0.2s ease-out;
+}
+.bio .icon-link:not(:hover) {
+    opacity:0.8;
+}
+
 @media (min-width: 1200px) {
     .bio {
         position: fixed;
