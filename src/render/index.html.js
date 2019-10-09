@@ -24,7 +24,7 @@ module.exports = () =>
                             <ul class="post-list">
                                 ${posts
                                     .filter(p => !p.meta.test) // filter out test-only posts
-                                    .sort((a, b) => new Date(b.meta.Date) - new Date(a.meta.Date))
+                                    .sort((a, b) => new Date(b.meta.date).valueOf() - new Date(a.meta.date).valueOf())
                                     .map(post => html`
                                         <li>${postPreview(post)}</li>
                                     `)
