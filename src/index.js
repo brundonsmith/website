@@ -38,15 +38,13 @@ Promise.resolve()
     .then(() =>                                                                    // start server
         app.listen(PORT, () => console.log(`Website listening on port ${PORT}!`)))
 
-
-
-
-
 /*
 .catch(err => {
     console.error(err)
     res.status(500).send(err)
-}))*/
+}))
 
 app.post('/contact', (req, res) => 
     res.send(req.body))
+*/
+

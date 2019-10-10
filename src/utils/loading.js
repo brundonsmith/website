@@ -19,23 +19,31 @@ markdownRenderer.use(meta)
 markdownRenderer.use(prism)
 
 
+
 const getAllBlogPosts = () =>
     fs.readdir(`./src/blog`)
         .then(files => 
-            Promise.all(files.map(f => 
-                fs.readFile(`./src/blog/${f}`)
+            Promise.all(files.map(fileName => 
+                fs.readFile(`./src/blog/${fileName}`)
                     .then(buf => buf.toString('utf-8'))
-                    .then(md => {
-                        let html = markdownRenderer.render(md)
-                        return { html, meta: markdownRenderer.meta, slug: f.split('.')[0] }
-                    }))))
+                    .then(md => markdownToBlogPost(fileName.split('.')[0], md)))))
 
 const getBlogPost = (postName) =>
     fs.readFile(`./src/blog/${postName}.md`)
         .then(buf => buf.toString('utf-8'))
-        .then(md => {
-            let html = markdownRenderer.render(md)
-            return { html, meta: markdownRenderer.meta, slug: postName }
-        })
+        .then(md => markdownToBlogPost(postName, md))
 
+const markdownToBlogPost = (slug, md) => {
+    let html = markdownRenderer.render(md)
+    return {
+        html,
+        meta: markdownRenderer.meta,
+        slug,
+        wordCount: wordCount(md)
+    }
+}
+
+const wordCount = (str) =>
+    str.split(/[\W]+/gi).length
+      
 module.exports = { getAllBlogPosts, getBlogPost }

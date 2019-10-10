@@ -1,6 +1,7 @@
 
 .post-preview {
     display:flex;
+    align-items: flex-end;
     padding:1rem;
     font-family: var(--title-font);
     transition: background-color 0.1s ease-out;
@@ -15,7 +16,18 @@
     border-radius:5px;
 }
 
+.post-preview > .flex-spacer {
+    min-width:1em;
+}
+
+.post-preview > .read-length,
 .post-preview > time {
     opacity:0.6;
     color: var(--color-text);
+    flex-shrink:0;
+}
+
+.post-preview > .read-length {
+    font-style: italic;
+    font-size: 0.8em;
 }
