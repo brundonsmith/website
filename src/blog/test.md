@@ -1,6 +1,7 @@
 ---
 title: Test Post
 date: August 7, 2019
+tags: [ "foo", "bar" ]
 test: true
 ---
 
