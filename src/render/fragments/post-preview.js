@@ -1,6 +1,6 @@
 
 const { html } = require('../../utils/misc')
-const author = require('./fragments/author')
+const author = require('./author')
 
 module.exports = (post) => 
     html`
