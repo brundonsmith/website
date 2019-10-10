@@ -38,7 +38,7 @@ the get-go_.
 ## Sane Software
 
 If you've worked on code that's been around for more than a couple years, you've 
-encountered something similar: systems that have evolve gradually -
+encountered something similar: systems that have evolved gradually -
 feature by feature, fix by fix - until the end result of all those changes 
 makes no sense when taken as a whole.
 
