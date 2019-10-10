@@ -5,11 +5,11 @@ const head = () =>
     html`
         <head>
             <title>Brandon Smith's Website</title>
-            <meta name="Description" content="Personal website of Brandon Smtih">
+            <meta name="description" content="Personal website of Brandon Smtih">
 
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                        
+
             <link rel="stylesheet" type="text/css" href="/css/article.css">
             <link rel="stylesheet" type="text/css" href="/css/base.css">
             <link rel="stylesheet" type="text/css" href="/css/utils.css">

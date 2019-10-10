@@ -5,12 +5,13 @@ const { getBlogPost } = require('../utils/loading')
 const { head, footer } = require('./fragments/boilerplate')
 const bio = require('./fragments/bio')
 const homeLink = require('./fragments/home-link')
+const author = require('./fragments/author')
 
 module.exports = (postName) => 
     getBlogPost(postName)
         .then(post => html`
             <!DOCTYPE html>
-            <html lang="en">
+            <html itemscope itemtype="http://schema.org/Article" lang="en">
 
                 ${head()}
 
@@ -18,13 +19,19 @@ module.exports = (postName) =>
 
                     ${bio()}
 
-                    <article class="main">
+                    <article class="main" itemProp="articleBody">
                         ${homeLink()}
                     
                         <h1 class="blog-heading">
-                            <span>${post.meta.title}</span>
+                            <span itemProp="headling">
+                                ${post.meta.title}
+                            </span>
+
+                            <span style="display:none" itemProp="wordCount">${post.wordCount}</span>
 
                             <div class="flex-spacer"></div>
+
+                            ${author()}
 
                             <time datetime="${post.meta.date}" itemProp="datePublished">
                                 ${post.meta.date}

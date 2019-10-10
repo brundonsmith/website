@@ -26,7 +26,9 @@ module.exports = () =>
                                     .filter(p => !p.meta.test) // filter out test-only posts
                                     .sort((a, b) => new Date(b.meta.date).valueOf() - new Date(a.meta.date).valueOf())
                                     .map(post => html`
-                                        <li>${postPreview(post)}</li>
+                                        <li>
+                                            ${postPreview(post)}
+                                        </li>
                                     `)
                                     .join('\n')}
                             </ul>
