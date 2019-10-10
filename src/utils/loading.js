@@ -7,7 +7,9 @@ const meta = require('markdown-it-meta')
 const prism = require('markdown-it-prism')
 const anchor = require('markdown-it-anchor')
 
-const markdownRenderer = new MarkdownIt()
+const markdownRenderer = new MarkdownIt({
+    html: true,
+})
 markdownRenderer.use(anchor, {
     level: 2,
     permalinkSymbol: '#',
