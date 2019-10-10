@@ -2,7 +2,8 @@
 const { html } = require('../utils/misc')
 const { getAllBlogPosts } = require('../utils/loading')
 
-const { head, footer } = require('./fragments/boilerplate')
+const head = require('./fragments/head')
+const footer = require('./fragments/footer')
 const postPreview = require('./fragments/post-preview')
 const bio = require('./fragments/bio')
 

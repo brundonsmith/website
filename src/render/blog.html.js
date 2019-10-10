@@ -2,7 +2,8 @@
 const { html } = require('../utils/misc')
 const { getBlogPost } = require('../utils/loading')
 
-const { head, footer } = require('./fragments/boilerplate')
+const head = require('./fragments/head')
+const footer = require('./fragments/footer')
 const bio = require('./fragments/bio')
 const homeLink = require('./fragments/home-link')
 const author = require('./fragments/author')

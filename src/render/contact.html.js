@@ -1,6 +1,7 @@
 
 const { html } = require('../utils/misc');
-const { head, nav, footer } = require('./fragments/boilerplate')
+const head = require('./fragments/head')
+const footer = require('./fragments/footer')
 
 module.exports = () => Promise.resolve(
     html`

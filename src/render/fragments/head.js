@@ -1,7 +1,7 @@
 
 const { html } = require('../../utils/misc')
 
-const head = () => 
+module.exports = () => 
     html`
         <head>
             <title>Brandon Smith's Website</title>
@@ -22,12 +22,3 @@ const head = () =>
             <link rel="stylesheet" type="text/css" href="/css/fragments/prism.css">
         </head>
     `
-
-const footer = () =>
-    html`
-        <footer>
-            
-        </footer>
-    `
-
-module.exports = { head, footer }

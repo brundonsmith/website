@@ -1,6 +1,7 @@
 
 const { html } = require('../utils/misc')
-const { head, nav, footer } = require('./fragments/boilerplate')
+const head = require('./fragments/head')
+const footer = require('./fragments/footer')
 const { GITHUB_SVG, LINKEDIN_SVG, PRINTER_SVG, LINK_SVG } = require('./fragments/icons')
 
 module.exports = () => Promise.resolve(
