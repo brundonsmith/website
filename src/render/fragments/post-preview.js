@@ -11,6 +11,7 @@ module.exports = (post) =>
             </span>
 
             &nbsp;
+            &nbsp;
 
             <span class="read-length">
                 ${Math.max(Math.round(post.wordCount / 200), 1)} minute read
