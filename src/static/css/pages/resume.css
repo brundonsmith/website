@@ -81,6 +81,10 @@
     margin-top:0;
 }
 
+.bullets ul.experience-list > li:not(:first-child) {
+    margin-top: 1em;
+}
+
 
 
 .main {

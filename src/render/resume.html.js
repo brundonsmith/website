@@ -4,6 +4,9 @@ const head = require('./fragments/head')
 const footer = require('./fragments/footer')
 const { GITHUB_SVG, LINKEDIN_SVG, PRINTER_SVG, LINK_SVG } = require('./fragments/icons')
 
+const formattedPhone = (phone) =>
+    `(${phone.substr(0, 3)}) ${phone.substr(3, 3)}-${phone.substr(6, 4)}`
+
 module.exports = () => Promise.resolve(
     html`
         <!DOCTYPE html>
@@ -26,11 +29,35 @@ module.exports = () => Promise.resolve(
                         <h3>The bullet points</h3>
 
                         <h4>Experience:</h4>
-                        <ul>
-                            <li>B.S. in Computer Science from <u>Baylor University (2014)</u></li>
-                            <li><u>Broadleaf Commerce</u>, worked on Java e-commerce framework <u>(2014-2016)</u></li>
-                            <li><u>Freelanced</u>, built website for local business among other things <u>(2016)</u></li>
-                            <li><u>Cycorp</u>, architected collection of React-based dev tools for symbolic AI system <u>(2016-present)</u></li>
+                        <ul class="experience-list">
+                            <li>
+                                B.S. in Computer Science from <u>Baylor University (2014)</u>
+                                <br>
+                                <span style="opacity:0.8">
+                                    Used: C++, Java, Python, MySQL, PHP, NodeJS, Angular 1.0
+                                </span>
+                            </li>
+                            <li>
+                                <u>Broadleaf Commerce</u>, worked on Java e-commerce framework <u>(2014-2016)</u>
+                                <br>
+                                <span style="opacity:0.8">
+                                    Used: Java/Spring, MySQL, jQuery
+                                </span>
+                            </li>
+                            <li>
+                                <u>Freelanced</u>, built a website for a local business and did contract work <u>(2016)</u>
+                                <br>
+                                <span style="opacity:0.8">
+                                    Used: NodeJS, MongoDB, Angular
+                                </span>
+                            </li>
+                            <li>
+                                <u>Cycorp</u>, architected collection of React-based dev tools for symbolic AI system <u>(2016-present)</u>
+                                <br>
+                                <span style="opacity:0.8">
+                                    Using: React, TypeScript, MobX, Webpack/Babel
+                                </span>
+                            </li>
                         </ul>
 
                         <h4>Major skills:</h4>
@@ -68,10 +95,10 @@ module.exports = () => Promise.resolve(
 
                         <h4>Contact info:</h4>
                         <div>
-                            Email: <a href="mailto:foo@bar.com">foo@bar.com</a>
+                            Email: <a href="mailto:${process.env.EMAIL}">${process.env.EMAIL}</a>
                         </div>
                         <div>
-                            Tel: <a href="tel:+1XXXXXXXXXX">(XXX) XXX-XXXX</a>
+                            Tel: <a href="tel:+1${process.env.PHONE}">${formattedPhone(process.env.PHONE)}</a>
                         </div>
 
                     </div>
@@ -114,10 +141,9 @@ module.exports = () => Promise.resolve(
                                 <h2>Engineer</h2>
                                 <p>
                                     I'm always seeking to learn new things and grow in my craft. Most recently in my spare time I've 
-                                    been implementing Perlin Noise and other image-generation algorithms in Rust, as a 
-                                    way of learning both the language and a new programming domain. I find that diversifying 
-                                    my language knowledge has a way of shaping my thinking and giving me concepts that I 
-                                    can integrate back into what I do at work.
+                                    been writing a raytracing renderer in Rust, as a way of learning both the language and a new 
+                                    programming domain. I find that diversifying my language knowledge has a way of shaping my 
+                                    thinking and giving me concepts that I can integrate back into what I do at work.
                                 </p>
                             </div>
                         </div>
