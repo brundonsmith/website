@@ -5,7 +5,9 @@ const footer = require('./fragments/footer')
 const { GITHUB_SVG, LINKEDIN_SVG, PRINTER_SVG, LINK_SVG } = require('./fragments/icons')
 
 const formattedPhone = (phone) =>
-    `(${phone.substr(0, 3)}) ${phone.substr(3, 3)}-${phone.substr(6, 4)}`
+    phone 
+        ? `(${phone.substr(0, 3)}) ${phone.substr(3, 3)}-${phone.substr(6, 4)}` 
+        : `(XXX) XXX-XXXX`
 
 module.exports = () => Promise.resolve(
     html`
