@@ -13,6 +13,12 @@ code that walks through steps line by line and produces side-effects. So what I'
 here is how, within this non-pure reality, you can get some of the benefits of the functional style. 
 Oh, and I'm also going to talk about data.
 
+<aside>
+    I'm using the word "procedural", but you may be more familiar with the word "imperative". I use
+    them interchangeably to talk about "traditional" code: a <strong>sequence</strong> of steps that 
+    accomplish their goal by <strong>changing</strong> things.
+</aside>
+
 ## What makes functional programming so great?
 
 I won't deep-dive into this question. Hundreds of bloggers have done it already, most of them probably
