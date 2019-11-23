@@ -21,13 +21,15 @@
 }
 
 .post-preview > .read-length,
+.post-preview > .external-site,
 .post-preview > time {
     opacity:0.6;
     color: var(--color-text);
     flex-shrink:0;
 }
 
-.post-preview > .read-length {
+.post-preview > .read-length,
+.post-preview > .external-site {
     font-style: italic;
     font-size: 0.8em;
 }

@@ -23,10 +23,12 @@ const markdown = (md) => markdownRenderer.render(md)
 const getAllBlogPosts = () =>
     fs.readdir(`./src/blog`)
         .then(files => 
-            Promise.all(files.map(fileName => 
-                fs.readFile(`./src/blog/${fileName}`)
-                    .then(buf => buf.toString('utf-8'))
-                    .then(md => markdownToBlogPost(fileName.split('.')[0], md)))))
+            Promise.all(files
+                .filter(fileName => fileName.includes('.md'))
+                .map(fileName => 
+                    fs.readFile(`./src/blog/${fileName}`)
+                        .then(buf => buf.toString('utf-8'))
+                        .then(md => markdownToBlogPost(fileName.split('.')[0], md)))))
 
 const getBlogPost = (postName) =>
     fs.readFile(`./src/blog/${postName}.md`)

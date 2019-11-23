@@ -1,0 +1,26 @@
+[
+    {
+        "meta": {
+            "title": "Content Jumping (and How To Avoid It)",
+            "date": "June 21, 2016",
+            "tags": [ "programming", "web" ],
+            "href": "https://css-tricks.com/content-jumping-avoid/"
+        }
+    },
+    {
+        "meta": {
+            "title": "Using CSS Transitions on Auto Dimensions",
+            "date": "March 10, 2017",
+            "tags": [ "programming", "web" ],
+            "href": "https://css-tricks.com/using-css-transitions-auto-dimensions/"
+        }
+    },
+    {
+        "meta": {
+            "title": "CSS is Awesome",
+            "date": "July 3, 2017",
+            "tags": [ "programming", "web" ],
+            "href": "https://css-tricks.com/css-is-awesome/"
+        }
+    }
+]

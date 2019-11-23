@@ -24,6 +24,7 @@ module.exports = () =>
                         <div class="main">
                             <ul class="post-list">
                                 ${posts
+                                    .concat(require('../blog/external.json'))
                                     .filter(p => !p.meta.test) // filter out test-only posts
                                     .sort((a, b) => new Date(b.meta.date).valueOf() - new Date(a.meta.date).valueOf())
                                     .map(post => html`

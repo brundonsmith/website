@@ -31,6 +31,7 @@ Promise.resolve()
     .then(() =>                                                                    // generate blog pages
         fs.readdir(`./src/blog`).then(files => Promise.all(
             files
+                .filter(fileName => fileName.includes('.md'))
                 .map(file => file.substr(0, file.length - 3))
                 .map(post => 
                     blog(post)
