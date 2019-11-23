@@ -1,7 +1,7 @@
 ---
 title: New Website
 date: October 1, 2019
-tags: []
+tags: [ "programming" ]
 ---
 
 I decided to rebuild my website from scratch.

@@ -18,7 +18,7 @@ markdownRenderer.use(anchor, {
 markdownRenderer.use(meta)
 markdownRenderer.use(prism)
 
-
+const markdown = (md) => markdownRenderer.render(md)
 
 const getAllBlogPosts = () =>
     fs.readdir(`./src/blog`)
@@ -34,7 +34,7 @@ const getBlogPost = (postName) =>
         .then(md => markdownToBlogPost(postName, md))
 
 const markdownToBlogPost = (slug, md) => {
-    let html = markdownRenderer.render(md)
+    let html = markdown(md)
     return {
         html,
         meta: markdownRenderer.meta,
@@ -46,4 +46,4 @@ const markdownToBlogPost = (slug, md) => {
 const wordCount = (str) =>
     str.split(/[\W]+/gi).length
       
-module.exports = { getAllBlogPosts, getBlogPost }
+module.exports = { markdown, getAllBlogPosts, getBlogPost }
