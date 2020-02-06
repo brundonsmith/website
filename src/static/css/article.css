@@ -6,7 +6,7 @@ article {
 article > * {
     margin:0;
 }
-article > :not(:first-child) {
+article > :not(:first-child):not(ul) {
     margin-block-start: var(--line-height);
 }
 article > h1:not(:first-child), 
