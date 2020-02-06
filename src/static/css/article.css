@@ -15,7 +15,7 @@ article > h3:not(:first-child),
 article > h4:not(:first-child), 
 article > h5:not(:first-child), 
 article > h6:not(:first-child) {
-    margin-block-start: 1.5em;
+    margin-block-start: 2em;
 }
 
 article h1.blog-heading {
