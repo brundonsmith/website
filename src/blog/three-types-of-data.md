@@ -4,7 +4,7 @@ date: February 5, 2020
 tags: [ "programming", "software-engineering" ]
 ---
 
-In my work I've developed a mental framework around data modelling, which has helped greatly
+In my work I've developed a mental framework around data modeling, which has helped greatly
 both when coming up with a model and when making decisions about how to use that model. Here I 
 will establish three different categories of data in software: Constants, State, and Cached Values. 
 By "data" I generally mean "variables in code", but the same principles could be applied to files on 
