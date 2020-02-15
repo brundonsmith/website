@@ -4,8 +4,8 @@ date: February 5, 2020
 tags: [ "programming", "software-engineering" ]
 ---
 
-In my work I've developed a mental framework around data modeling, which has helped greatly
-both when coming up with a model and when making decisions about how to use that model. Here I 
+In my work I've developed a mental framework related to data modeling, which has helped greatly
+both when coming up with a model and when making decisions down the road about how to use that model. Here I 
 will establish three different categories of data in software: Constants, State, and Cached Values. 
 By "data" I generally mean "variables in code", but the same principles could be applied to files on 
 a disk, or tables in a database, or whatever else.
@@ -16,17 +16,17 @@ this constraint via the type system or otherwise, so it's better to think of it 
 a frame of mind (though if you *can* actually enforce it, that is of course all the better). Always
 ask yourself which category a given piece of data belongs to, and then adhere to the rules around
 that category when working with it. In my experience, any program's data needs can be roughly 
-split up in this way. 
+expressed in terms of these three categories alone. 
 
 It's important to note that these are high-level categories of usage: what purpose is served, what
 operations should or should not be allowed, what assumptions can be made. These **are not** directly 
 equivalent to other uses of the terms "constant", "state", and "cache", and while concepts like 
-immutability may be loosely relevant, I'm purposely expressing these ideas in a language- and 
+immutability may be loosely relevant, I'm purposely expressing these ideas in a language-agnostic and 
 style-agnostic way.
 
-I also want to note that there's a lot of philosophical overlap between this and my previous post.
-That one focused on *logic* where this one focuses on *data*, but the ideas are very similar. 
-Still, I felt that this framing was independently useful enough to deserve its own post.
+I also want to note that there's a lot of philosophical overlap between this and my previous post ("Procedures, Functions, Data").
+That one categorized *logic* where this one categorizes *data*, but the ideas are very similar. 
+Still, I felt that the ideas contained here were independently useful enough to deserve their own post.
 
 Let's get started.
 
@@ -67,19 +67,22 @@ language feature as your State, because at the top level, it can and will change
 it would be a Constant!).
 
 A Cached Value is like State that should only ever changed in one specific way: the re-computation 
-of its value as a result of a change in *actual* State. It should never be mutated, only replaced.
+of its value as a result of a change in *actual* State (usually via a pure function). It should 
+never be mutated, only replaced.
 It is a good use-case for an immutable data structure, with one important stipulation: unlike
 State, *its new value should never depend on its previous value*.
 
-Cached Values are an optimization over pure function calls (including stateless API requests). 
-In most cases you could decide not to use them at all and always make the pure function calls 
-directly, you would just repeat a lot of work. As such, they should be treated as *always* disposable. 
+Cached Values are an optimization over pure function calls (or stateless API requests, database reads, etc.). 
+In most cases you could decide not to use them at all and always make the pure calls 
+directly, you would just repeat work and/or have to wait on the network again. As such, they should 
+be treated as *always* disposable. 
 Unlike State, which embodies an untraceable accumulation of past things that have happened to it 
 (or in Haskell's case a traceable accumulation), Cached Values are *trash*. They can disappear and 
-be re-computed at any time. This is why they must never be relied upon as State: changes to them 
+be re-computed at any time, for any reason. This is why they must never be relied upon as State: changes to them 
 can and will be thrown away without notice.
 
-They *are* in some sense a duplication of State, but it's okay because they're a special, 
+They *are* in some sense a duplication of information - which we said in the case of State is 
+always to be avoided - but it's okay because they're a special, 
 *disposable* duplication of State. "Synchronizing" them is always as simple as a single, 
 controlled operation. It can happen anywhere, at any time, with no concerns to anything 
 except performance (wasting effort).
@@ -87,8 +90,8 @@ except performance (wasting effort).
 ## Summary
 To summarize:
 - Constants are neither replaceable nor mutable
-- Cached Values are replaceable under specific circumstances but not mutable
 - State is arbitrarily replaceable and mutable
+- Cached Values are replaceable under specific circumstances but not mutable
 
 Every piece of data in a program can be framed as a member of one of these categories (technically 
 every piece of data could be framed as State, but that's what we're trying to minimize). But what 
@@ -112,7 +115,7 @@ an annotation, for example), without restructuring your code
 By adding constraints we subtract possiblities, which means both we and our code can do certain 
 things that would be intractably risky otherwise.
 
-Any piece of State that can be converted to a Cached Value should be. Any Cached Value that can 
+Any piece of State that can be converted to a Cached Value should be. Any piece of State or Cached Value that can 
 be converted to a Constant, should be. By ushering parts of our program into more and more 
 constrained possibility spaces we simplify it, and with simplicity comes fewer bugs, easier 
 refactoring, and better understandability.
