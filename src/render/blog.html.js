@@ -24,7 +24,7 @@ module.exports = (postName) =>
                         ${homeLink()}
                     
                         <h1 class="blog-heading">
-                            <span itemProp="heading">
+                            <span itemProp="headline">
                                 ${post.meta.title}
                             </span>
 
