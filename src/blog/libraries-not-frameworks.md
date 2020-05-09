@@ -4,9 +4,9 @@ date: May 8, 2020
 tags: [ "programming" ]
 ---
 
-Normally when I write about something on here I take the time to think out a 
-handsomely-formed point, make a strong argument, and address all the major sides 
-of the issue that I can think of.
+Normally when I write about something on here I take the time to fully think-out 
+a point, make a case, address all the major sides of the issue that I can think 
+of, etc.
 
 But I am exhausted from fighting with a codebase this week, so this is not going 
 to be one of those posts. I'm going to try a little stream-of-consciousness 
