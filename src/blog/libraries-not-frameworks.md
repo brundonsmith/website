@@ -1,5 +1,5 @@
 ---
-title: "Write Libraries Not Frameworks"
+title: "Write Libraries, Not Frameworks"
 date: May 8, 2020
 tags: [ "programming" ]
 ---
