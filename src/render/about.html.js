@@ -11,9 +11,7 @@ module.exports = () => Promise.resolve(
 
             ${head()}
 
-            <body>
-                <link rel="stylesheet" type="text/css" href="/css/pages/about.css">
-                
+            <body>                
                 <article class="main">
                     ${homeLink()}
                     

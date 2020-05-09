@@ -6,12 +6,14 @@
   "main": "./src/index.js",
   "scripts": {
     "start": "node ./src/index.js",
-    "watch": "nodemon --watch src -e js,json,css,md,png ./src/index.js"
+    "watch": "npm run clean ; nodemon --watch src -e js,json,css,md,png ./src/index.js",
+    "clean": "rm -rf dist"
   },
   "author": "Brandon Smith",
   "license": "ISC",
   "dependencies": {
     "body-parser": "1.19.X",
+    "clean-css": "^4.2.3",
     "express": "4.17.X",
     "markdown-it": "8.4.X",
     "markdown-it-anchor": "^5.2.4",

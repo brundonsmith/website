@@ -17,7 +17,6 @@ module.exports = () =>
                     ${head()}
 
                     <body>
-                        <link rel="stylesheet" type="text/css" href="/css/pages/index.css">
 
                         ${bio()}
                         
