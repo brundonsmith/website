@@ -19,27 +19,29 @@ module.exports = (post) =>
             &nbsp;
             &nbsp;
 
-            ${post.wordCount ? 
-                html`<span class="read-length">
-                        ${Math.max(Math.round(post.wordCount / 200), 1)} minute read
-                        <span style="display:none" itemProp="wordCount">${post.wordCount}</span>
-                    </span>`
-            : ''}
-
-            ${post.meta.href ?
-                html`
-                    <span class="external-site">
-                        ${/\/\/([a-z0-9\-]+\.[a-z]+)\//i.exec(post.meta.href)[1]}
-                    </span>
-                `
-            : ''}
-
             <div class="flex-spacer"></div>
 
-            ${author()}
+            <div class="details">
+                ${author()}
 
-            <time datetime="${post.meta.date}" itemProp="datePublished">
-                ${post.meta.date}
-            </time>
+                <time datetime="${post.meta.date}" itemProp="datePublished">
+                    ${post.meta.date}
+                </time>
+
+                ${post.wordCount ? 
+                    html`<div class="read-length">
+                            ${Math.max(Math.round(post.wordCount / 200), 1)} minute read
+                            <span style="display:none" itemProp="wordCount">${post.wordCount}</span>
+                        </div>`
+                : ''}
+
+                ${post.meta.href ?
+                    html`
+                        <div class="external-site">
+                            ${/\/\/([a-z0-9\-]+\.[a-z]+)\//i.exec(post.meta.href)[1]}
+                        </div>
+                    `
+                : ''}
+            </div>
         </a>
     `

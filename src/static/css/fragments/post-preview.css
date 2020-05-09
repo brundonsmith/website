@@ -1,7 +1,7 @@
 
 .post-preview {
     display:flex;
-    align-items: flex-end;
+    align-items: center;
     padding:1rem;
     font-family: var(--title-font);
     transition: background-color 0.1s ease-out;
@@ -20,16 +20,21 @@
     min-width:1em;
 }
 
-.post-preview > .read-length,
-.post-preview > .external-site,
-.post-preview > time {
+.post-preview > .details {
+    text-align:right;
+    white-space: nowrap;
+}
+
+.post-preview .read-length,
+.post-preview .external-site,
+.post-preview time {
     opacity:0.6;
     color: var(--color-text);
     flex-shrink:0;
 }
 
-.post-preview > .read-length,
-.post-preview > .external-site {
+.post-preview .read-length,
+.post-preview .external-site {
     font-style: italic;
     font-size: 0.8em;
 }
