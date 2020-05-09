@@ -25,15 +25,14 @@ const getAllBlogPosts = () =>
         .then(files => 
             Promise.all(files
                 .filter(fileName => fileName.includes('.md'))
-                .map(fileName => 
-                    fs.readFile(`./src/blog/${fileName}`)
-                        .then(buf => buf.toString('utf-8'))
-                        .then(md => markdownToBlogPost(fileName.split('.')[0], md)))))
+                .map(readBlogPostFile)))
 
-const getBlogPost = (postName) =>
-    fs.readFile(`./src/blog/${postName}.md`)
+const getBlogPost = (postName) => readBlogPostFile(postName + '.md')
+
+const readBlogPostFile = (fileName) =>
+    fs.readFile(`./src/blog/${fileName}`)
         .then(buf => buf.toString('utf-8'))
-        .then(md => markdownToBlogPost(postName, md))
+        .then(md => markdownToBlogPost(fileName.split('.')[0], md))
 
 const markdownToBlogPost = (slug, md) => {
     let html = markdown(md)
