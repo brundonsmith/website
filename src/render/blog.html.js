@@ -28,14 +28,15 @@ module.exports = (postName) =>
                                 ${post.meta.title}
                             </span>
 
-                            <span style="display:none" itemProp="wordCount">${post.wordCount}</span>
-
-                            ${author()}
-
                             <time datetime="${post.meta.date}" itemProp="datePublished">
                                 ${post.meta.date}
                             </time>
                         </h1>
+                    
+                        <span style="display:none" itemProp="wordCount">${post.wordCount}</span>
+
+                        ${author()}
+
 
                         ${post.html}
 
