@@ -1,25 +1,45 @@
 
-
-// express
+// dependencies
 const fs = require('fs').promises
 const fsOriginal = require('fs')
 const path = require('path')
 
 const ncp = require('ncp').ncp;
+const ncpPromise = (from, to, options = {}) => new Promise(res => ncp(from, to, options, res)); 
+
 const express = require('express')
-const bodyParser = require('body-parser')
 const CleanCSS = require('clean-css')
 
+// project imports
 const blog = require('./render/blog.html')
+const { readStaticFile } = require('./utils/loading');
 
 const app = express()
-app.use(express.static('dist', { extensions: [ 'html' ] }))
-app.use(bodyParser.urlencoded({ extended: true }))
+
+// hand-wrote replacement for express.static, so that files can be cached in 
+// memory instead of reloaded from disk
+const staticCache = { };
+app.use((req, res, next) => {
+    const filePath = (req.path.length < 2 ? '/index.html' : req.path.includes('.') ? req.path : req.path + '.html').substr(1);
+
+    const cached = staticCache[filePath];
+
+    (cached ? Promise.resolve(cached) : readStaticFile(filePath))
+        .then(file => {
+            res.set('Content-Type', file.contentType);
+
+            const responseBuf = Buffer.alloc(file.contents.byteLength);
+            file.contents.copy(responseBuf);
+            res.send(responseBuf);
+        })
+        .catch(() => next()) // fallthrough to 404
+})
+
+// handle 404s
 app.use((req, res) => res.status(404).sendFile(path.resolve(__dirname, '../dist/404.html')))
 
 const PORT = process.env.PORT || 3000
 
-const ncpPromise = (from, to, options = {}) => new Promise(res => ncp(from, to, options, res)); 
 
 
 Promise.resolve()

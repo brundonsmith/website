@@ -1,5 +1,6 @@
 
 const fs = require('fs').promises
+const path = require('path')
 
 // markdown-it
 const MarkdownIt = require('markdown-it')
@@ -19,6 +20,22 @@ markdownRenderer.use(meta)
 markdownRenderer.use(prism)
 
 const markdown = (md) => markdownRenderer.render(md)
+
+const CONTENT_TYPES = {
+    'html': 'text/html',
+    'css': 'text/css',
+    'js': 'application/javascript',
+    'png': 'image/png',
+    'jpg': 'image/jpg',
+    'jpeg': 'image/jpeg',
+}
+
+const readStaticFile = (filePath) => 
+    fs.readFile(path.resolve(__dirname, '../../dist', filePath))
+        .then(contents => ({ 
+            contentType: CONTENT_TYPES[path.extname(filePath).substr(1)], 
+            contents 
+        }))
 
 const getAllBlogPosts = () =>
     fs.readdir(`./src/blog`)
@@ -47,4 +64,4 @@ const markdownToBlogPost = (slug, md) => {
 const wordCount = (str) =>
     str.split(/[\W]+/gi).length
       
-module.exports = { markdown, getAllBlogPosts, getBlogPost }
+module.exports = { markdown, readStaticFile, getAllBlogPosts, getBlogPost }
