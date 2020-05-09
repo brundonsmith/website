@@ -24,13 +24,11 @@ module.exports = (postName) =>
                         ${homeLink()}
                     
                         <h1 class="blog-heading">
-                            <span itemProp="headling">
+                            <span itemProp="heading">
                                 ${post.meta.title}
                             </span>
 
                             <span style="display:none" itemProp="wordCount">${post.wordCount}</span>
-
-                            <div class="flex-spacer"></div>
 
                             ${author()}
 
