@@ -32,7 +32,7 @@ Rather than *providing* a set of new things the programmer can do, they
 establish a *boundary* on the things the programmer can do. In exchange for 
 flexibility they often eliminate boilerplate, establish a touchstone for new 
 libraries to be built on top of them, and allow a programmer's skills to become 
-more transferrable beteen projects. In fact, sometimes the limitations 
+more transferrable between projects. In fact, sometimes the limitations 
 themselves are desirable! After all, type systems are nothing but a way of 
 imposing limitations on code. Limitations are not intrinsically *bad*.
 
