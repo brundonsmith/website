@@ -1,5 +1,9 @@
 ---
 title: "Write Libraries, Not Frameworks"
+description: "When a programmer thinks to herself 'I've got some code or an 
+idea for some code here that I think will make others' lives easier', there 
+are generally two broad-strokes forms that code can take: a library, or a 
+framework."
 date: May 8, 2020
 tags: [ "programming" ]
 ---
