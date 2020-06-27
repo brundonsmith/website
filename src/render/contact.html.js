@@ -8,7 +8,7 @@ module.exports = () => Promise.resolve(
         <!DOCTYPE html>
         <html lang="en">
 
-            ${head()}
+            ${head({ title: 'Contact' })}
 
             <body>                
                 <div class="main">

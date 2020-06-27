@@ -9,7 +9,7 @@ module.exports = () => Promise.resolve(
         <!DOCTYPE html>
         <html lang="en">
 
-            ${head()}
+            ${head({ title: 'Page not found' })}
 
             <body>
                 

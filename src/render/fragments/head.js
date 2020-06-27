@@ -1,11 +1,12 @@
 
 const { html } = require('../../utils/misc')
+const { DEFAULT_TITLE, DEFAULT_DESCRIPTION } = require('../../utils/constants')
 
-module.exports = () => 
+module.exports = ({ title, description } = {}) => 
     html`
         <head>
-            <title>Brandon Smith's Website</title>
-            <meta name="description" content="Personal website of Brandon Smtih">
+            <title>${title ? `${title} | ${DEFAULT_TITLE}` : DEFAULT_TITLE}</title>
+            <meta name="description" content="${description || DEFAULT_DESCRIPTION}">
 
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />

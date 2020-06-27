@@ -9,9 +9,9 @@ module.exports = () => Promise.resolve(
         <!DOCTYPE html>
         <html lang="en">
 
-            ${head()}
+            ${head({ title: 'About me' })}
 
-            <body>                
+            <body>
                 <article class="main">
                     ${homeLink()}
                     
