@@ -102,6 +102,15 @@ differently. I just regret the way things turned out.
 
 But at the very least, I think it's increasingly important - as more and more 
 languages adopt this syntax - that people are aware of how it can easily be 
-misused. If you're ever not sure how your code is behaving, look at the 
-waterfall graph and see if you have an easy opportunity to make your 
+misused.
+
+## Mitigating the problem
+
+If you're ever not sure how your code is behaving, look at the 
+waterfall graph and see if you might have an easy opportunity to make your 
 application much faster.
+
+You can also use this rule of thumb: If an `await`ed 
+function call doesn't use the result from another `await`ed function call (or 
+something derived from the result), you should use `Promise.all()` to make 
+them happen at the same time.
