@@ -54,7 +54,7 @@ be worth it.
 
 And then different projects have different needs: just as an athlete may need 
 a larger percentage of protein, or individuals may have certain nutrient 
-deficiencies, a project may have a very small functional subset, or may not
+deficiencies, a project may only have a very small functional subset, or may not
 be able to afford to return new values each time due to data size or 
 performance-sensitivity. There's nothing wrong with that.
 
