@@ -5,7 +5,7 @@ tags: [ "programming", "software-engineering" ]
 ---
 
 There's a well-known quote by author [Michael Pollan](https://en.wikipedia.org/wiki/Michael_Pollan):
-"Eat food. Not too much. Mostly Plants." I like it because it doesn't 
+"Eat food. Not too much. Mostly plants." I like it because it doesn't 
 attempt to be dogmatic: it encapsulates some basic guiding principles that get 
 you 90% of the way there 90% of the time. Wikipedia describes the book the quote 
 is from (emphasis mine):
