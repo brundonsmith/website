@@ -28,6 +28,7 @@ const CONTENT_TYPES = {
     'png': 'image/png',
     'jpg': 'image/jpg',
     'jpeg': 'image/jpeg',
+    'xml': 'application/rss+xml',
 }
 
 const readStaticFile = (filePath) => 

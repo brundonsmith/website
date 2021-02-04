@@ -4,7 +4,8 @@ svg.github,
 svg.linkedin,
 svg.printer,
 svg.home,
-svg.link {
+svg.link,
+svg.rss {
     width: 1.5em;
     height: 1.5em;
     vertical-align: middle;
@@ -12,10 +13,13 @@ svg.link {
 
 svg.github *,
 svg.printer *,
-svg.home * {
+svg.home *,
+svg.rss * {
     fill: var(--color-text);
     stroke: var(--color-text);
 }
+
+
 
 /* square */
 svg.linkedin #path14 {

@@ -68,9 +68,9 @@ Promise.resolve()
         return fs.writeFile(path.resolve(`./dist/css`, bundleName), allCSS);
     })
     .then(() => Promise.all(                                                       // generate plain pages
-        [ '404', 'about', 'contact', 'index' ].map(pageName =>
-            require(`./render/${pageName}.html.js`)()
-                .then(html => fs.writeFile(`./dist/${pageName}.html`, html)))))
+        [ '404.html', 'about.html', 'contact.html', 'index.html', 'feed.xml' ].map(pageName =>
+            require(`./render/${pageName}.js`)()
+                .then(html => fs.writeFile(`./dist/${pageName}`, html)))))
     .then(() =>                                                                    // generate blog pages
         fs.readdir(`./src/blog`).then(files => Promise.all(
             files

@@ -18,4 +18,14 @@ const log = (val) => {
     return val;
 }
 
-module.exports = { html, given, log }
+
+const FIRST_PARAGRAPH_EXPRESSION = /<p>((?:.|[\r\n])*?)<\/p>/im;
+const TAGS_EXPRESSION = /<\/?[^>]+>/ig;
+
+const getFirstParagraph = (html) =>
+    given(new RegExp(FIRST_PARAGRAPH_EXPRESSION).exec(html), result => 
+    given(result[1], blurb => 
+        blurb.trim().replace(new RegExp(TAGS_EXPRESSION), '')))
+
+        
+module.exports = { html, given, log, getFirstParagraph }

@@ -1,6 +1,6 @@
 const { html } = require('../../utils/misc')
 
-const { GITHUB_SVG, LINKEDIN_SVG } = require('./icons')
+const { GITHUB_SVG, LINKEDIN_SVG, RSS_SVG } = require('./icons')
 
 module.exports = () =>
     html`
@@ -15,6 +15,11 @@ module.exports = () =>
             </p>
 
             <div>
+                <a class="icon-link" href="/feed.xml" rel="noopener" aria-label="RSS">
+                    ${RSS_SVG}
+                </a>
+
+                &nbsp;
 
                 <a class="icon-link" href="https://www.linkedin.com/in/brandon-smith-9589706b/" target="_blank" rel="noopener" aria-label="LinkedIn">
                     ${LINKEDIN_SVG}
