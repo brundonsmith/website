@@ -58,15 +58,15 @@ async function generateSite() {
         const CSS_BUNDLE_NAME = '_all.css';
         let allCSS = ``;
 
-        ['article.css', 'base.css', 'utils.css', 'variables.css', 'fragments/bio.css', 
+        await Promise.all(['article.css', 'base.css', 'utils.css', 'variables.css', 'fragments/bio.css', 
             'fragments/home-link.css', 'fragments/icons.css', 
             'fragments/post-preview.css', 'fragments/prism.css', 'pages/about.css',
-            'pages/index.css'].forEach(async file => {
+            'pages/index.css'].map(async file => {
             if(file !== CSS_BUNDLE_NAME) {
                 const fullPath = path.resolve(`./dist/css`, file);
                 allCSS += await fs.readFile(fullPath);
             }
-        })
+        }))
 
         allCSS = new CleanCSS({}).minify(allCSS).styles;
 
