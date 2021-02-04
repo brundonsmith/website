@@ -14,9 +14,11 @@ const CleanCSS = require('clean-css')
 const blog = require('./render/blog.html')
 const { readStaticFile } = require('./utils/loading');
 
+
+
 const app = express()
 
-// hand-wrote replacement for express.static, so that files can be cached in 
+// hand-wrote a replacement for express.static, so that files can be cached in 
 // memory instead of reloaded from disk
 const staticCache = { };
 app.use((req, res, next) => {
@@ -38,58 +40,59 @@ app.use((req, res, next) => {
 // handle 404s
 app.use((req, res) => res.status(404).sendFile(path.resolve(__dirname, '../dist/404.html')))
 
-const PORT = process.env.PORT || 3000
 
 
+async function generateSite() {
 
-Promise.resolve()
-    .then(() => fs.rmdir('./dist',      { recursive: true }))                      // clean old dist
-    .then(() => fs.mkdir('./dist',      { recursive: true }))                      // make sure dirs exist
-    .then(() => fs.mkdir('./dist/blog', { recursive: true }))
-    .then(() => ncpPromise('./src/static', './dist'))                              // copy statics
-    .then(() => {                                                                  // bundle and minify CSS
-        const bundleName = '_all.css';
+    // clean and make directories
+    await fs.rmdir('./dist',      { recursive: true });
+
+    await fs.mkdir('./dist',      { recursive: true });
+    await fs.mkdir('./dist/blog', { recursive: true });
+
+    // copy static files
+    await ncpPromise('./src/static', './dist');
+
+    // build CSS bundle
+    {
+        const CSS_BUNDLE_NAME = '_all.css';
         let allCSS = ``;
 
         ['article.css', 'base.css', 'utils.css', 'variables.css', 'fragments/bio.css', 
-         'fragments/home-link.css', 'fragments/icons.css', 
-         'fragments/post-preview.css', 'fragments/prism.css', 'pages/about.css',
-         'pages/index.css'].forEach(file => {
-            if(file !== bundleName) {
+            'fragments/home-link.css', 'fragments/icons.css', 
+            'fragments/post-preview.css', 'fragments/prism.css', 'pages/about.css',
+            'pages/index.css'].forEach(async file => {
+            if(file !== CSS_BUNDLE_NAME) {
                 const fullPath = path.resolve(`./dist/css`, file);
-                allCSS += fsOriginal.readFileSync(fullPath);
+                allCSS += await fs.readFile(fullPath);
             }
         })
 
-        fsOriginal.rmdirSync(`./dist/css`, { recursive: true });
-        fsOriginal.mkdirSync(`./dist/css`);
-
         allCSS = new CleanCSS({}).minify(allCSS).styles;
 
-        return fs.writeFile(path.resolve(`./dist/css`, bundleName), allCSS);
-    })
-    .then(() => Promise.all(                                                       // generate plain pages
+        await fs.rmdir('./dist/css',      { recursive: true });
+        await fs.mkdir(`./dist/css`,  { recursive: true });
+        await fs.writeFile(path.resolve(`./dist/css`, CSS_BUNDLE_NAME), allCSS);
+    }
+
+    // generate plain pages
+    await Promise.all(                                                      
         [ '404.html', 'about.html', 'contact.html', 'index.html', 'feed.xml' ].map(pageName =>
             require(`./render/${pageName}.js`)()
-                .then(html => fs.writeFile(`./dist/${pageName}`, html)))))
-    .then(() =>                                                                    // generate blog pages
-        fs.readdir(`./src/blog`).then(files => Promise.all(
-            files
-                .filter(fileName => fileName.includes('.md'))
-                .map(file => file.substr(0, file.length - 3))
-                .map(post => 
-                    blog(post)
-                        .then(html => fs.writeFile(`./dist/blog/${post}.html`, html))))))
-    .then(() =>                                                                    // start server
-        app.listen(PORT, () => console.log(`Website listening on port ${PORT}!`)))
+                .then(html => fs.writeFile(`./dist/${pageName}`, html))));
 
-/*
-.catch(err => {
-    console.error(err)
-    res.status(500).send(err)
-}))
+    // generate blog post pages
+    await fs.readdir(`./src/blog`).then(files => Promise.all(
+        files
+            .filter(fileName => fileName.includes('.md'))
+            .map(file => file.substr(0, file.length - 3))
+            .map(post => 
+                blog(post)
+                    .then(html => fs.writeFile(`./dist/blog/${post}.html`, html)))));
 
-app.post('/contact', (req, res) => 
-    res.send(req.body))
-*/
+}
 
+// start server
+const PORT = process.env.PORT || 3000
+generateSite()
+    .then(() => app.listen(PORT, () => console.log(`Website listening on port ${PORT}!`)));
