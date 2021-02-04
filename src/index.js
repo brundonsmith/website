@@ -64,14 +64,15 @@ async function generateSite() {
             'pages/index.css'].map(async file => {
             if(file !== CSS_BUNDLE_NAME) {
                 const fullPath = path.resolve(`./dist/css`, file);
-                allCSS += await fs.readFile(fullPath);
+                const fileContents = await fs.readFile(fullPath, 'utf8');
+                allCSS += fileContents;
             }
         }))
 
         allCSS = new CleanCSS({}).minify(allCSS).styles;
 
-        await fs.rmdir('./dist/css',      { recursive: true });
-        await fs.mkdir(`./dist/css`,  { recursive: true });
+        await fs.rmdir('./dist/css', { recursive: true });
+        await fs.mkdir(`./dist/css`, { recursive: true });
         await fs.writeFile(path.resolve(`./dist/css`, CSS_BUNDLE_NAME), allCSS);
     }
 
