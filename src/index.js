@@ -43,6 +43,7 @@ const PORT = process.env.PORT || 3000
 
 
 Promise.resolve()
+    .then(() => fs.rmdir('./dist',      { recursive: true }))                      // clean old dist
     .then(() => fs.mkdir('./dist',      { recursive: true }))                      // make sure dirs exist
     .then(() => fs.mkdir('./dist/blog', { recursive: true }))
     .then(() => ncpPromise('./src/static', './dist'))                              // copy statics
