@@ -27,5 +27,9 @@ const getFirstParagraph = (html) =>
     given(result[1], blurb => 
         blurb.trim().replace(new RegExp(TAGS_EXPRESSION), '')))
 
-        
-module.exports = { html, given, log, getFirstParagraph }
+const capitalize = (str) =>
+    str === ''
+        ? ''
+        : str[0].toUpperCase() + str.substr(1)
+
+module.exports = { html, given, log, getFirstParagraph, capitalize }

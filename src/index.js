@@ -1,7 +1,6 @@
 
 // dependencies
 const fs = require('fs').promises
-const fsOriginal = require('fs')
 const path = require('path')
 
 const ncp = require('ncp').ncp
@@ -32,6 +31,7 @@ async function generateSite() {
     await fs.rmdir('./dist',      { recursive: true });
 
     await fs.mkdir('./dist',      { recursive: true });
+    await fs.mkdir('./dist/tags', { recursive: true });
     await fs.mkdir('./dist/blog', { recursive: true });
 
     // copy static files
@@ -61,14 +61,28 @@ async function generateSite() {
     }
 
     const posts = await loadBlogPosts();
+    const allTags = posts
+        .filter(p => !p.meta.test)
+        .map(post => post.meta.tags)
+        .flat()
+        .filter((el, index, arr) => arr.indexOf(el) === index);
 
     // generate plain pages
     await Promise.all(                                                      
         [ '404.html', 'about.html', 'contact.html', 'index.html', 'feed.xml' ].map(async pageName =>
             fs.writeFile(
                 `./dist/${pageName}`, 
-                require(`./render/${pageName}.js`)({ posts })
+                require(`./render/${pageName}.js`)({ allTags, posts })
             )));
+
+    // generate tags pages
+    await Promise.all(
+        allTags.map(tag => 
+            fs.writeFile(
+                `./dist/tags/${tag}.html`, 
+                require(`./render/index.html.js`)({ allTags, posts, tag })
+            )));
+
 
     // generate blog post pages
     await Promise.all(

@@ -1,4 +1,19 @@
 
+ul.tags,
+ul.post-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.tags {
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-left:1em;
+}
+
+
+
 ul.post-list {
     list-style-type: none;
     margin: 0;
