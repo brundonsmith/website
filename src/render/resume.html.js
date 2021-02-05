@@ -9,7 +9,7 @@ const formattedPhone = (phone) =>
         ? `(${phone.substr(0, 3)}) ${phone.substr(3, 3)}-${phone.substr(6, 4)}` 
         : `(XXX) XXX-XXXX`
 
-module.exports = () => Promise.resolve(
+module.exports = () => 
     html`
         <!DOCTYPE html>
         <html lang="en">
@@ -155,4 +155,4 @@ module.exports = () => Promise.resolve(
                 ${footer()}
             </body>
         </html>
-    `)
+    `

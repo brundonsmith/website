@@ -3,7 +3,7 @@ const { html } = require('../utils/misc');
 const head = require('./fragments/head')
 const footer = require('./fragments/footer')
 
-module.exports = () => Promise.resolve(
+module.exports = () => 
     html`
         <!DOCTYPE html>
         <html lang="en">
@@ -36,4 +36,4 @@ module.exports = () => Promise.resolve(
                 ${footer()}
             </body>
         </html>
-    `)
+    `

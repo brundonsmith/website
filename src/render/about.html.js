@@ -4,7 +4,7 @@ const head = require('./fragments/head')
 const footer = require('./fragments/footer')
 const homeLink = require('./fragments/home-link')
 
-module.exports = () => Promise.resolve(
+module.exports = () => 
     html`
         <!DOCTYPE html>
         <html lang="en">
@@ -35,4 +35,4 @@ module.exports = () => Promise.resolve(
                 ${footer()}
             </body>
         </html>
-    `)
+    `
