@@ -47,8 +47,10 @@ th, td {
 }
 
 a {
-    color: var(--color-accent);
     text-decoration: none;
+}
+a[href] {
+    color: var(--color-accent);
 }
 a:visited {
     color: var(--color-accent);
