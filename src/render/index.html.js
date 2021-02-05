@@ -19,7 +19,7 @@ module.exports = ({ allTags, posts, tag }) =>
                 
                 <div class="main">
                     <div>
-                        Tags: 
+                        <span class="tags-label">Tags:</span>
                         <ul class="tags">
                             <li>
                                 <a ${tag == null 
@@ -27,18 +27,22 @@ module.exports = ({ allTags, posts, tag }) =>
                                         : 'href="/index.html"'}>
                                     All
                                 </a>
+
+                                &nbsp;|&nbsp;
                             </li>
                             
                             ${allTags
-                                .map(t => html`
+                                .map((t, i) => html`
                                     <li>
-                                        &nbsp;
-                                        |
                                         <a ${t === tag 
                                                 ? '' 
                                                 : `href="/tags/${t}.html"`}>
                                             ${capitalize(t)}
                                         </a>
+                                        
+                                        ${i < allTags.length - 1
+                                            ? html`&nbsp;|&nbsp;`
+                                            : ``}
                                     </li>
                                 `)
                                 .join('\n')}

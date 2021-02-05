@@ -6,10 +6,13 @@ ul.post-list {
     padding: 0;
 }
 
+.tags-label {
+    margin-right:1em;
+}
+
 ul.tags {
     display: inline-flex;
     flex-wrap: wrap;
-    margin-left:1em;
 }
 
 
