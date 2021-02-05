@@ -27,6 +27,7 @@ h1 {
 
 hr {
     border-color: var(--color-divider);
+    margin:22px 0;
 }
 
 table {

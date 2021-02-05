@@ -6,6 +6,10 @@ ul.post-list {
     padding: 0;
 }
 
+.tags-container {
+    line-height: 1.5em;
+}
+
 .tags-label {
     margin-right:1em;
 }

@@ -18,7 +18,7 @@ module.exports = ({ allTags, posts, tag }) =>
                 ${bio()}
                 
                 <div class="main">
-                    <div>
+                    <div class="tags-container">
                         <span class="tags-label">Tags:</span>
                         <ul class="tags">
                             <li>
