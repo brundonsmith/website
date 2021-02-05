@@ -7,7 +7,7 @@ article > * {
     margin:0;
 }
 article > :not(:first-child):not(ul) {
-    margin-block-start: var(--line-height);
+    margin-block-start: calc(var(--line-height) * 0.7);
 }
 article > h1:not(:first-child), 
 article > h2:not(:first-child), 
@@ -29,8 +29,9 @@ article h1.blog-heading > .flex-spacer {
 article h1.blog-heading > time {
     text-align: right;
     display: block;
-    opacity:0.6;
     font-size:0.6em;
+    color: var(--color-text-secondary);
+    margin-top: 0.2em;
 }
 
 article h2 {

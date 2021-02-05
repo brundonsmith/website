@@ -21,13 +21,13 @@ and it really deepened my appreciation for Rust.
 For those not familiar with parsing, tokenization is the first step of the 
 process. It takes a raw code string, like this:
 
-```
+```rust
 let a = "foo";
 ```
 
 and turns it into a linear series of meaningful tokens, like so:
 
-```
+```rust
 ["let", "a", "=", "\"foo\"", ";"]
 ```
 

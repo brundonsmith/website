@@ -28,8 +28,7 @@
 .post-preview .read-length,
 .post-preview .external-site,
 .post-preview time {
-    opacity:0.6;
-    color: var(--color-text);
+    color: var(--color-text-secondary);
     flex-shrink:0;
 }
 

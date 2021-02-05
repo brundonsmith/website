@@ -7,7 +7,7 @@
 html {
     color: var(--color-text);
     background-color:var(--background-color);
-
+    font-size: 18px;
 }
 
 body {
@@ -23,6 +23,10 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     padding: 0.25em 0;
     /*border-bottom: 1px solid var(--color-divider);*/
+}
+
+hr {
+    border-color: var(--color-divider);
 }
 
 table {
