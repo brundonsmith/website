@@ -15,19 +15,19 @@ module.exports = () =>
             </p>
 
             <div>
-                <a class="icon-link" href="/feed.xml" rel="noopener" aria-label="RSS">
+                <a class="icon-link" href="/feed.xml" rel="noopener" title="RSS" aria-label="RSS">
                     ${RSS_SVG}
                 </a>
 
                 &nbsp;
 
-                <a class="icon-link" href="https://www.linkedin.com/in/brandon-smith-9589706b/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <a class="icon-link" href="https://www.linkedin.com/in/brandon-smith-9589706b/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
                     ${LINKEDIN_SVG}
                 </a>
 
                 &nbsp;
 
-                <a class="icon-link" href="https://github.com/brundonsmith" target="_blank" rel="noopener" aria-label="Github">
+                <a class="icon-link" href="https://github.com/brundonsmith" target="_blank" rel="noopener" title="Github" aria-label="Github">
                     ${GITHUB_SVG}
                 </a>
 
