@@ -19,7 +19,7 @@ const redirect = require('./redirect')
 const app = express()
 
 // redirect http -> https, brandonsmith.ninja -> brandons.me
-if (process.env.PORT != null) {  // production
+if (process.env.REDIRECT) {
     app.use(redirect);
 }
 
