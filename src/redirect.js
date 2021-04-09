@@ -3,6 +3,9 @@ const { DOMAIN, BASE_URL } = require('./utils/constants')
 
 const redirect = (req, res, next) => {
     console.log(
+        `req.protocol: ${req.protocol}`,
+        `req.hostname: ${req.hostname}`,
+        `DOMAIN: ${DOMAIN}`,
         `req.protocol !== 'https' || req.hostname !== DOMAIN | `,
         req.protocol !== 'https' || req.hostname !== DOMAIN
     )
