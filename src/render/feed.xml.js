@@ -1,6 +1,6 @@
 const path = require('path')
 
-const { DEFAULT_TITLE, DEFAULT_DESCRIPTION, URL } = require('../utils/constants')
+const { DEFAULT_TITLE, DEFAULT_DESCRIPTION, BASE_URL } = require('../utils/constants')
 const { getFirstParagraph } = require('../utils/misc')
 
 const FEED_HREF = '/' + path.basename(__filename, '.js')
@@ -11,8 +11,8 @@ module.exports = ({ posts }) => `
         <channel>
             <title>${DEFAULT_TITLE}</title>
             <description>${DEFAULT_DESCRIPTION}</description>
-            <link>${URL}</link>
-            <atom:link href="${URL + FEED_HREF}" rel="self" type="application/rss+xml" />
+            <link>${BASE_URL}</link>
+            <atom:link href="${BASE_URL + FEED_HREF}" rel="self" type="application/rss+xml" />
 
             ${posts
                 .filter(p => !p.meta.test) // filter out test-only posts
@@ -20,8 +20,8 @@ module.exports = ({ posts }) => `
                 .map(post => `
                     <item>
                         <title>${post.meta.title}</title>
-                        <link>${URL + "/blog/" + post.slug}</link>
-                        <guid>${URL + "/blog/" + post.slug}</guid>
+                        <link>${BASE_URL + "/blog/" + post.slug}</link>
+                        <guid>${BASE_URL + "/blog/" + post.slug}</guid>
                         <pubDate>${new Date(post.meta.date).toUTCString()}</pubDate>
                         <description>${getFirstParagraph(post.html)}</description>
                     </item>

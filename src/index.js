@@ -13,9 +13,15 @@ const CleanCSS = require('clean-css')
 const blogPost = require('./render/blog-post.html')
 const loadBlogPosts = require('./loadBlogPosts')
 const staticLoader = require('./staticLoader')
+const redirect = require('./redirect')
 
 
 const app = express()
+
+// redirect http -> https, brandonsmith.ninja -> brandons.me
+if (process.env.PORT != null) {  // production
+    app.use(redirect);
+}
 
 // serve static files
 app.use(staticLoader)
