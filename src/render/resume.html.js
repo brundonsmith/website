@@ -51,14 +51,21 @@ module.exports = () =>
                                 <u>Freelanced</u>, built a website for a local business and did contract work <u>(2016)</u>
                                 <br>
                                 <span style="opacity:0.8">
-                                    Used: NodeJS, MongoDB, Angular
+                                    Used: NodeJS, MongoDB
                                 </span>
                             </li>
                             <li>
-                                <u>Cycorp</u>, architected collection of React-based dev tools for symbolic AI system <u>(2016-present)</u>
+                                <u>Cycorp</u>, architected collection of React-based dev tools for symbolic AI system <u>(2016-2020)</u>
                                 <br>
                                 <span style="opacity:0.8">
                                     Using: React, TypeScript, MobX, Webpack/Babel
+                                </span>
+                            </li>
+                            <li>
+                                <u>Marginal Unit</u>, worked on premium tooling suite for energy-market traders<u>(2020-present)</u>
+                                <br>
+                                <span style="opacity:0.8">
+                                    Using: Electron, D3, RxJS, Python/Flask, MySQL
                                 </span>
                             </li>
                         </ul>
@@ -69,8 +76,8 @@ module.exports = () =>
                             <li>Node</li>
                             <li>React</li>
                             <li>Rust</li>
-                            <li>git</li>
                             <li>SQL</li>
+                            <li>Python</li>
                         </ul>
 
                         <h4>Links:</h4>
