@@ -3,6 +3,7 @@ const { html } = require('../utils/misc')
 const head = require('./fragments/head')
 const footer = require('./fragments/footer')
 const { GITHUB_SVG, LINKEDIN_SVG, PRINTER_SVG, LINK_SVG } = require('./fragments/icons')
+const { BASE_URL, DOMAIN } = require('../utils/constants')
 
 const formattedPhone = (phone) =>
     phone 
@@ -76,8 +77,8 @@ module.exports = () =>
                         <div>
                             ${LINK_SVG}
                             &nbsp;
-                            <a href="http://www.brandonsmith.ninja" target="_blank">
-                                www.brandonsmith.ninja
+                            <a href="${BASE_URL}" target="_blank">
+                                ${DOMAIN}
                             </a>
                         </div>
                         <div>
