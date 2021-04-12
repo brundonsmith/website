@@ -8,6 +8,7 @@
     margin:1rem auto;
     box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.2);
     border:1px solid var(--color-divider);
+    padding:2rem;
 }
 .resume svg {
     width:1em;
@@ -70,32 +71,41 @@
     width:280px;
     flex-grow:0;
     flex-shrink:0;
-    padding:1rem;
     background-color: rgba(0, 0, 0, 0.03);
 }
 
+.bullets h3 {
+    margin-top: 0.4rem;
+    margin-bottom: 1rem;
+}
+
 .bullets h4 {
-    margin-bottom:0.5em;
+    margin-top:1em;
+    margin-bottom:0;
 }
 .bullets ul {
     margin-top:0;
 }
 
-.bullets ul.experience-list > li:not(:first-child) {
-    margin-top: 1em;
+.bullets ul.experience-list > li {
+    margin-top: 0.5em;
+    font-size: 0.9em;
 }
+
 
 
 
 .main {
     flex-grow:1;
     flex-shrink:1;
-    padding:1rem;
+    padding:0;
+    margin-left:2rem;
 }
 
 .main h1 {
     display:inline-block;
     margin:0;
+    padding-top:0;
 }
 
 .main img.me {
@@ -103,7 +113,7 @@
     width:30%;
     border-radius:5px;
     margin-left: 1em;
-    margin-right: 1em;
+    margin-right: 0;
 }
 
 .main .blurbs {
@@ -114,7 +124,7 @@
 .main .blurbs .blurb {
     position:relative;
     width:90%;
-    padding:1rem;
+    padding:0.5rem 0;
     border-radius:5px;
     overflow: hidden;
 }
@@ -152,4 +162,11 @@
 .main .blurbs .blurb:nth-child(3) {
     --blurb-color: rgb(255, 130, 0);
     align-self: flex-end;
+}
+
+@media(prefers-color-scheme: dark) {
+    .main .blurbs .blurb {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }

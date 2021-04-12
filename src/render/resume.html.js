@@ -71,14 +71,14 @@ module.exports = () =>
                         </ul>
 
                         <h4>Major skills:</h4>
-                        <ul>
-                            <li>JavaScript/TypeScript</li>
-                            <li>Node</li>
-                            <li>React</li>
-                            <li>Rust</li>
-                            <li>SQL</li>
-                            <li>Python</li>
-                        </ul>
+                        <div class="skills">
+                            <span>JavaScript/TypeScript,</span>
+                            <span>Node,</span>
+                            <span>React,</span>
+                            <span>Rust,</span>
+                            <span>SQL,</span>
+                            <span>Python</span>
+                        </div>
 
                         <h4>Links:</h4>
                         <div>
@@ -128,32 +128,32 @@ module.exports = () =>
                             <div class="blurb">
                                 <h2>Thoughtful</h2>
                                 <p>
-                                    At Cycorp I'm the technical lead on our React codebase. Over the years I've made 
-                                    decisions about which frameworks to use and how to organize our shared code, as 
-                                    well as providing leadership on code conventions and architecture. As part of my 
-                                    role I periodically give talks to the team about best practices - in terms 
-                                    of both maintainability and performance - and demonstrate utility code that I've 
-                                    written to simplify common problems we run into as an organization.
+                                    Every time I write some code, I consider all the ways it might be used or
+                                    misused. I see any API I expose as a user-interface for my fellow programmers,
+                                    and myself as the designer. I value simplicity everywhere it's possible, and 
+                                    disambiguity where it isn't.
                                 </p>
                             </div>
                             <div class="blurb">
                                 <h2>Communicator</h2>
                                 <p>
-                                    One of my strongsuits is explaining complex technical ideas in whichever terms 
-                                    another person has the background to understand. I'm able to communicate clearly with 
-                                    clients/product owners about requirements, technical limitations, or problems. 
-                                    When presented with a request for a feature I work with the other party to 
-                                    understand the heart of the issue, often making counter-suggestions that may better fit the 
-                                    technical context or may even suit the person's needs better than their original suggestion.
+                                    Everyone tells me I'm good at explaining things. I have an intuition for 
+                                    putting myself in others' frames of mind and bridging the gap from A to B.
+                                    This manifests in my conversations and documentation, but also in my code:
+                                    will my peers interpret the name of this function differently than intended?
+                                    How can I ensure against that?
                                 </p>
                             </div>
                             <div class="blurb">
                                 <h2>Engineer</h2>
                                 <p>
-                                    I'm always seeking to learn new things and grow in my craft. Most recently in my spare time I've 
-                                    been writing a raytracing renderer in Rust, as a way of learning both the language and a new 
-                                    programming domain. I find that diversifying my language knowledge has a way of shaping my 
-                                    thinking and giving me concepts that I can integrate back into what I do at work.
+                                    I'm always seeking to learn new things and grow in my craft. Most recently in 
+                                    my spare time I've writing language parsers and simple compilers in Rust and
+                                    TypeScript. Programming languages fascinate me; they're one of the major points
+                                    at which human ideas and computer ideas have to be bridged, and I have a lot 
+                                    of interest in making my own some day. I also find that exposing myself to many
+                                    different programming languages has a way of sreshaping my thinking, teaching me 
+                                    concepts that I can integrate back into whatever I'm doing at work.
                                 </p>
                             </div>
                         </div>
