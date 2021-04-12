@@ -102,4 +102,4 @@ async function generateSite() {
 // start server
 const PORT = process.env.PORT || 3000
 generateSite()
-    .then(() => app.listen(PORT, () => console.log(`Website listening on port ${PORT}!`)));
+    .then(() => app.listen(PORT, () => console.log(`Website listening on http://localhost:${PORT}/`)));
