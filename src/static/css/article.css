@@ -6,7 +6,7 @@ article {
 article > * {
     margin:0;
 }
-article > :not(:first-child):not(ul) {
+article > :not(:first-child):not(ul):not(ol) {
     margin-block-start: calc(var(--line-height) * 0.7);
 }
 article > h1:not(:first-child), 
@@ -45,7 +45,8 @@ article .header-anchor:not(:hover) {
     opacity: 0.3;
 }
 
-article p {
+article p,
+article li {
     line-height: var(--line-height);
 }
 
