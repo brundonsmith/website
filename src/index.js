@@ -34,7 +34,7 @@ app.use((req, res) => res.status(404).sendFile(path.resolve(__dirname, '../dist/
 async function generateSite() {
 
     // clean and make directories
-    await fs.rmdir('./dist',      { recursive: true });
+    await fs.rm('./dist',      { recursive: true });
 
     await fs.mkdir('./dist',      { recursive: true });
     await fs.mkdir('./dist/tags', { recursive: true });
@@ -61,7 +61,7 @@ async function generateSite() {
 
         allCSS = new CleanCSS({}).minify(allCSS).styles;
 
-        await fs.rmdir('./dist/css', { recursive: true });
+        await fs.rm('./dist/css', { recursive: true });
         await fs.mkdir(`./dist/css`, { recursive: true });
         await fs.writeFile(path.resolve(`./dist/css`, CSS_BUNDLE_NAME), allCSS);
     }
