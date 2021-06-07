@@ -29,7 +29,7 @@ const staticLoader = (req, res, next) => {
 
     const cached = staticCache[filePath];
 
-    (cached ? Promise.resolve(cached) : readStaticFile(filePath))
+    (cached ? Promise.resolve(cached) : readStaticFile(filePath).then(f => staticCache[filePath] = f))
         .then(file => {
             res.set('Content-Type', file.contentType);
 
