@@ -76,4 +76,4 @@ const staticLoader = async (req, res, next) => {
     res.send(file.contents);
 }
 
-module.exports = staticLoader
+module.exports = {staticLoader, readStaticFile}

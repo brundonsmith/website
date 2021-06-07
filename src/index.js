@@ -12,7 +12,7 @@ const CleanCSS = require('clean-css')
 // project imports
 const blogPost = require('./render/blog-post.html')
 const loadBlogPosts = require('./loadBlogPosts')
-const staticLoader = require('./staticLoader')
+const {staticLoader, readStaticFile} = require('./staticLoader')
 const redirect = require('./redirect')
 
 
@@ -27,7 +27,17 @@ if (process.env.REDIRECT) {
 app.use(staticLoader)
 
 // handle 404s
-app.use((req, res) => res.status(404).sendFile(path.resolve(__dirname, '../dist/404.html')))
+app.use(async (req, res, next) => {
+
+    // small hack
+    const file = await readStaticFile('404.html');
+    
+    res.status(404);
+
+    res.set('Content-Type', file.contentType);
+    res.set('Content-Encoding', 'gzip');
+    res.send(file.contents);
+})
 
 
 
