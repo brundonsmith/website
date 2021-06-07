@@ -13,11 +13,11 @@ module.exports = () =>
 
             <body>
                 
-                <div class="main">
+                <main class="main">
                     ${homeLink()}
 
                     <h1>Page not found!</h1>
-                </div>
+                </main>
                 
                 ${footer()}
             </body>

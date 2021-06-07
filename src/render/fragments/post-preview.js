@@ -7,7 +7,7 @@ module.exports = (post) =>
         <a class="post-preview" 
                 href="${post.meta.href || `/blog/${post.slug}`}" 
                 target="${post.meta.href ? '_blank' : ''}" 
-                rel="${post.meta.href ? 'external' : ''}"
+                rel="${post.meta.href ? 'noopener' : ''}"
                 aria-label="${post.meta.title}" 
                 itemscope 
                 itemtype="http://schema.org/Article">

@@ -4,7 +4,7 @@ const { GITHUB_SVG, LINKEDIN_SVG, RSS_SVG } = require('./icons')
 
 module.exports = () =>
     html`
-        <div class="bio">
+        <header class="bio">
 
             <a href="/" aria-label="Home">
                 <img src="/img/me.jpeg" height="100px" alt="Me" />
@@ -33,5 +33,5 @@ module.exports = () =>
 
             </div>
             
-        </div>
+        </header>
     `

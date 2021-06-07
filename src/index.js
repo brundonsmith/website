@@ -99,7 +99,6 @@ async function generateSite() {
                 require(`./render/index.html.js`)({ allTags, posts, tag })
             )));
 
-
     // generate blog post pages
     await Promise.all(
         posts.map(post => 

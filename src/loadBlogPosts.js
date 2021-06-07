@@ -33,7 +33,7 @@ const readBlogPostFile = (fileName) =>
         .then(md => markdownToBlogPost(fileName.split('.')[0], md))
 
 const markdownToBlogPost = (slug, md) => ({
-    html: markdownRenderer.render(md),
+    html: markdownRenderer.render(md).replaceAll(/ aria-hidden="true"/gi, ''),
     meta: markdownRenderer.meta,
     slug,
     wordCount: wordCount(md)

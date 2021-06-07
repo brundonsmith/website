@@ -17,7 +17,7 @@ module.exports = ({ allTags, posts, tag }) =>
 
                 ${bio()}
                 
-                <div class="main">
+                <main class="main">
                     <div class="tags-container">
                         <span class="tags-label">Tags:</span>
                         <ul class="tags">
@@ -64,7 +64,7 @@ module.exports = ({ allTags, posts, tag }) =>
                             `)
                             .join('\n')}
                     </ul>
-                </div>
+                </main>
                 
                 ${footer()}
             </body>
