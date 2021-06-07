@@ -44,7 +44,7 @@ app.use(async (req, res, next) => {
 async function generateSite() {
 
     // clean and make directories
-    await fs.rm('./dist',      { recursive: true });
+    await fs.rm('./dist',         { recursive: true, force: true });
 
     await fs.mkdir('./dist',      { recursive: true });
     await fs.mkdir('./dist/tags', { recursive: true });
