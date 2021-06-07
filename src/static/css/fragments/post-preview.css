@@ -2,7 +2,7 @@
 .post-preview {
     display:flex;
     align-items: center;
-    padding:1rem;
+    padding:0.5rem 1rem;
     font-family: var(--title-font);
     transition: background-color 0.1s ease-out;
 }
