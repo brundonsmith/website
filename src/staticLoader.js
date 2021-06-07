@@ -27,7 +27,6 @@ const memoizeUnary = (fn) => {
     return async (arg) => {
         if (!cache.has(arg)) {
             try {
-                console.log("computing fresh from " + arg)
                 cache.set(arg, await fn(arg));
             } catch {
                 return undefined;
