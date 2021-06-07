@@ -17,10 +17,37 @@ const CONTENT_TYPES = {
     'xml': 'application/rss+xml',
 }
 
-const readStaticFile = async (filePath) => {
+/**
+ * Given a (possibly async) function which takes exactly one argument,
+ * memoize calls to this function in a cache, keyed by the argument passed.
+ */
+const memoizeUnary = (fn) => {
+    const cache = new Map();
+
+    return async (arg) => {
+        if (!cache.has(arg)) {
+            try {
+                console.log("computing fresh from " + arg)
+                cache.set(arg, await fn(arg));
+            } catch {
+                return undefined;
+            }
+        }
+
+        return cache.get(arg);
+    }
+}
+
+const getFilePath = memoizeUnary((reqPath) =>
+    (
+          reqPath.length < 2 ? '/index.html' 
+        : reqPath.includes('.') ? reqPath 
+        : reqPath + '.html'
+    ).substr(1));
+
+const readStaticFile = memoizeUnary(async (filePath) => {
     const contents = await fs.readFile(path.resolve(__dirname, '../dist', filePath));
     const gzippedContents = await gzipPromise(contents);
-    console.log(gzippedContents)
 
     const responseBuf = Buffer.alloc(gzippedContents.byteLength);
     gzippedContents.copy(responseBuf);
@@ -28,28 +55,22 @@ const readStaticFile = async (filePath) => {
         contentType: CONTENT_TYPES[path.extname(filePath).substr(1)], 
         contents: responseBuf,
     }
-}
-
-        
-const staticCache = { };
+})
 
 const staticLoader = async (req, res, next) => {
-    const filePath = (
-          req.path.length < 2 ? '/index.html' 
-        : req.path.includes('.') ? req.path 
-        : req.path + '.html'
-    ).substr(1);
+    const filePath = await getFilePath(req.path);
 
-    if (staticCache[filePath] == null) {
-        try {
-            staticCache[filePath] = await readStaticFile(filePath);
-        } catch {
-            next(); // fallthrough to 404
-            return;
-        }
+    if (filePath == null) {
+        next(); // fallthrough to 404
+        return;
     }
 
-    const file = staticCache[filePath];
+    const file = await readStaticFile(filePath);
+
+    if (file == null) {
+        next(); // fallthrough to 404
+        return;
+    }
 
     res.set('Content-Type', file.contentType);
     res.set('Content-Encoding', 'gzip');
