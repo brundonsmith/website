@@ -12,6 +12,7 @@ const CleanCSS = require('clean-css')
 // project imports
 const blogPost = require('./render/blog-post.html')
 const loadBlogPosts = require('./loadBlogPosts')
+const getCommentsCached = require('./loadHnComments')
 const {staticLoader, readStaticFile} = require('./staticLoader')
 const redirect = require('./redirect')
 
@@ -26,6 +27,23 @@ if (process.env.REDIRECT) {
 // serve static files
 app.use(staticLoader)
 
+app.get('/hn-comments/:post', async (req, res) => {
+    try {
+        const { post } = req.params
+
+        const html = await getCommentsCached(post)
+
+        if (html) {
+            res.send(html)
+        } else {
+            res.sendStatus(404)
+        }
+    } catch (e) {
+        console.error(e)
+        res.send(500)
+    }
+})
+
 // handle 404s
 app.use(async (req, res, next) => {
 
@@ -38,7 +56,6 @@ app.use(async (req, res, next) => {
     res.set('Content-Encoding', 'gzip');
     res.send(file.contents);
 })
-
 
 
 async function generateSite() {

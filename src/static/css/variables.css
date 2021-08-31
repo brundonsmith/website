@@ -8,6 +8,7 @@ html {
     --color-accent: #009d8f;
 
     --section-padding: 2rem;
+    --comments-padding: 20px;
 
     --title-font: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
     --content-font: Cambria, Georgia, serif;
@@ -16,6 +17,7 @@ html {
 @media (max-width: 480px) {
     html {
         --section-padding: 1rem;
+        --comments-padding: 10px;
     }
 }
 

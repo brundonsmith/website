@@ -38,11 +38,13 @@ module.exports = ({ post }) =>
 
                     ${author()}
 
-
                     ${post.html}
 
+                    <div id="hn-comments"></div>
+
+                    <script>window.postName = '${post.slug}'</script>
                 </article>
-                
+
                 ${footer()}
             </body>
         </html>

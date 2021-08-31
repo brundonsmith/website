@@ -20,8 +20,11 @@
     "markdown-it-meta": "0.0.X",
     "markdown-it-prism": "^2.0.2",
     "ncp": "^2.0.0",
+    "node-fetch": "^2.6.1",
     "nodemon": "^1.19.2",
     "pretty": "^2.0.0"
   },
-  "engines": { "node": "16.0.0" }
+  "engines": {
+    "node": "16.0.0"
+  }
 }
