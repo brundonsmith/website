@@ -129,6 +129,9 @@ article img {
 #hn-comments .text {
     color: var(--color-text-secondary);
 }
+#hn-comments .text a {
+    word-break: break-all
+}
 
 #hn-comments .children {
     margin: 30px 0;
