@@ -31,16 +31,16 @@ app.get('/hn-comments/:post', async (req, res) => {
     try {
         const { post } = req.params
 
-        const html = await getCommentsCached(post)
+        const data = await getCommentsCached(post)
 
-        if (html) {
-            res.send(html)
+        if (data) {
+            res.send(data)
         } else {
             res.sendStatus(404)
         }
     } catch (e) {
         console.error(e)
-        res.send(500)
+        res.sendStatus(500)
     }
 })
 

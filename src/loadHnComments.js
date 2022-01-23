@@ -9,21 +9,21 @@ module.exports = async function getCommentsCached(postName) {
 
     if (!cached) {
         // if comments not cached at all, block while loading them
-        const { postId, html } = await loadAndRender(postName)
-        COMMENTS_CACHE.set(postName, { postId, html, timestamp: Date.now() })
-        return { html, postId }
+        const data = await loadAndRender(postName)
+        COMMENTS_CACHE.set(postName, { data, timestamp: Date.now() })
+        return data
     } else if (!POST_COMMENTS_LOADING.get(postName) && (Date.now() - cached.timestamp > COMMENTS_CACHE_LIFETIME)) {
         // if comments are cached but expired, start updating them but return cached for now
         POST_COMMENTS_LOADING.set(postName, true)
         loadAndRender(postName)
-            .then(({ postId, html }) =>
-                COMMENTS_CACHE.set(postName, { postId, html, timestamp: Date.now() }))
+            .then(data =>
+                COMMENTS_CACHE.set(postName, { data, timestamp: Date.now() }))
             .finally(() => POST_COMMENTS_LOADING.set(postName, false))
 
-        return { postId: cached.postId, html: cached.html }
+        return cached.data
     } else {
         // if cached and not expired, just return
-        return { postId: cached.postId, html: cached.html }
+        return cached.data
     }
 }
 
@@ -31,7 +31,12 @@ async function loadAndRender(postName) {
     const postId = await getPostId(postName)
 
     const data = await getCommentData(postId).then(data => data?.kids)
-    const html = data?.map(renderComments).join('')
+
+    if (data == null) {
+        return null
+    }
+
+    const html = data.map(renderComments).join('') ?? null
 
     return { postId, html }
 }
@@ -46,7 +51,13 @@ async function getPostId(postName) {
 }
 
 async function getCommentData(id) {
-    const { by, text, time, kids } = await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`).then(res => res.json())
+    const res = await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`).then(res => res.json())
+
+    if (!res) {
+        return undefined
+    }
+
+    const { by, text, time, kids } = res
 
     return {
         id,
@@ -66,7 +77,7 @@ function renderComments({ id, by, text, time, kids }) {
             ${isMe ? `<img class="me" src="/img/me.jpeg" />` : ''}
 
             ${text ? `<a class="by" href="https://news.ycombinator.com/user?id=${by}" target="_blank">
-                ${by}
+                ${by ?? ''}
             </a>` : ''}
             |
             ${text ? `<a class="time" href="https://news.ycombinator.com/item?id=${id}" target="_blank">
