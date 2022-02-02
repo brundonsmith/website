@@ -6,7 +6,7 @@ tags: ["programming", "react"]
 
 Hooks are weird, and can be hard to reason about. They kind of (but don't actually!) establish a new domain-specific language on top of JavaScript, with its own set of rules and behaviors, and they can make it easy to lose track of what's actually really happening in your code.
 
-It's very possible to do your job without fully "getting" hooks. It's just that every once in a while, you trip over a weird edge-case or performance trap, and the abstraction cracks, and you don't necessarily know what to do about it. I've heard many capable React devs talk about having blind spots when it comes to hooks, so I wanetd to write a post that hopefully shines some light on a more foundational (but still pragmatic) understanding of how hooks work, and what causes them to behave the way they do.
+It's very possible to do your job without fully "getting" hooks. It's just that every once in a while, you trip over a weird edge-case or performance trap, and the abstraction cracks, and you don't necessarily know what to do about it. I've heard many capable React devs talk about having blind spots when it comes to hooks, so I wanted to write a post that hopefully shines some light on a more foundational (but still pragmatic) understanding of how hooks work, and what causes them to behave the way they do.
 
 <aside>
     But what about the official docs?
@@ -257,7 +257,7 @@ const b = useCallback(
 , [setFoo])
 ```
 
-These two are pretty much equialent. The React team wisely realized that memoizing a function was going to be a really common use-case (event handlers, for example). And at the same time, creating a function is almost never going to be a costly operation that needs to be deferred until after we've checked to see if it's needed.
+These two are pretty much equivalent. The React team wisely realized that memoizing a function was going to be a really common use-case (event handlers, for example). And at the same time, creating a function is almost never going to be a costly operation that needs to be deferred until after we've checked to see if it's needed.
 
 So they made a shortcut: instead of passing a function that returns the value to be memoized (another function in this case), you can just pass the value itself, *as long as* it's going to be a function. Beyond that this behaves the same as the `useMemo()` version: if the dependencies array has the same contents as last time, the returned value will be the *exact same* function as it was in the previous render, not just an equivalent one, making it safe to then use in other dependency arrays.
 
