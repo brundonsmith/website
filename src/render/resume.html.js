@@ -34,24 +34,17 @@ module.exports = () =>
                         <h4>Experience:</h4>
                         <ul class="experience-list">
                             <li>
-                                B.S. in Computer Science from <u>Baylor University (2014)</u>
+                                <u>Self Financial</u>, worked on public-facing web app; focused on library-creation, tech-choices/foundational maintenance, best-practices<u>(2021-present)</u>
                                 <br>
                                 <span style="opacity:0.8">
-                                    Used: C++, Java, Python, MySQL, PHP, NodeJS, Angular 1.0
+                                    Using: TypeScript, React, Next.js, Node.js, GraphQL
                                 </span>
                             </li>
                             <li>
-                                <u>Broadleaf Commerce</u>, worked on Java e-commerce framework <u>(2014-2016)</u>
+                                <u>Marginal Unit</u>, worked on tooling suite for energy-market traders<u>(2020-2021)</u>
                                 <br>
                                 <span style="opacity:0.8">
-                                    Used: Java/Spring, MySQL, jQuery
-                                </span>
-                            </li>
-                            <li>
-                                <u>Freelanced</u>, built a website for a local business and did contract work <u>(2016)</u>
-                                <br>
-                                <span style="opacity:0.8">
-                                    Used: NodeJS, MongoDB
+                                    Using: Electron, D3, RxJS, Python/Flask, MySQL
                                 </span>
                             </li>
                             <li>
@@ -62,22 +55,35 @@ module.exports = () =>
                                 </span>
                             </li>
                             <li>
-                                <u>Marginal Unit</u>, worked on premium tooling suite for energy-market traders<u>(2020-present)</u>
+                                <u>Freelanced</u>, built a website for a local business and did contract work <u>(2016)</u>
                                 <br>
                                 <span style="opacity:0.8">
-                                    Using: Electron, D3, RxJS, Python/Flask, MySQL
+                                    Used: Node.js, MongoDB
+                                </span>
+                            </li>
+                            <li>
+                                <u>Broadleaf Commerce</u>, worked on Java e-commerce framework <u>(2014-2016)</u>
+                                <br>
+                                <span style="opacity:0.8">
+                                    Used: Java/Spring, MySQL, jQuery
+                                </span>
+                            </li>
+                            <li>
+                                B.S. in Computer Science from <u>Baylor University (2014)</u>
+                                <br>
+                                <span style="opacity:0.8">
+                                    Used: C++, Java, Python, MySQL, PHP, Node.js, Angular 1.0
                                 </span>
                             </li>
                         </ul>
 
                         <h4>Major skills:</h4>
                         <div class="skills">
+                            <span>Rust,</span>
                             <span>JavaScript/TypeScript,</span>
                             <span>Node,</span>
                             <span>React,</span>
-                            <span>Rust,</span>
-                            <span>SQL,</span>
-                            <span>Python</span>
+                            <span>SQL</span>
                         </div>
 
                         <h4>Links:</h4>
@@ -118,8 +124,8 @@ module.exports = () =>
 
                         <h1>Brandon Smith</h1>
                         <p>
-                            I'm a passionate programmer who writes code that people will be able to read later. 
-                            I'm a strong communicator, whether it comes to expressing ideas or resolving conflict, 
+                            I'm a passionate programmer who writes code that's meant to be read. 
+                            I value communication, whether it comes to expressing ideas or resolving conflict, 
                             and I never get tired of learning new things and taking on challenging new classes 
                             of problems.
                         </p>
@@ -128,32 +134,41 @@ module.exports = () =>
                             <div class="blurb">
                                 <h2>Thoughtful</h2>
                                 <p>
-                                    Every time I write some code, I consider all the ways it might be used or
-                                    misused. I see any API I expose as a user-interface for my fellow programmers,
-                                    and myself as the designer. I value simplicity everywhere it's possible, and 
+                                    When I write code, I consider all the ways it might be used or
+                                    misused. I see any API I expose as a user-interface for other programmers,
+                                    with myself as the designer. I value simplicity everywhere it's possible, and 
                                     disambiguity where it isn't.
+                                </p>
+                            </div>
+                            <div class="blurb">
+                                <h2>Engineer</h2>
+                                <p>
+                                    I'm always trying to learn new things and grow in my craft. In 
+                                    my spare time I like to work on programming language-related projects (among other things); programming
+                                    languages are one of the major points
+                                    where human ideas and computer ideas are bridged, and I've always 
+                                    been drawn to that relationship. I find that exposing myself to many
+                                    different programming languages has a way of reshaping my thinking, teaching me 
+                                    concepts that I can integrate back into whatever else I'm working on.
                                 </p>
                             </div>
                             <div class="blurb">
                                 <h2>Communicator</h2>
                                 <p>
-                                    Everyone tells me I'm good at explaining things. I have an intuition for 
-                                    putting myself in others' frames of mind and bridging the gap from A to B.
+                                    I've been told I'm good at explaining things. I have an instinct for 
+                                    putting myself in others' frames of mind and bridging the gap of understanding from point A to point B.
                                     This manifests in my conversations and documentation, but also in my code:
                                     will my peers interpret the name of this function differently than intended?
                                     How can I ensure against that?
                                 </p>
                             </div>
                             <div class="blurb">
-                                <h2>Engineer</h2>
+                                <h2>Systematic</h2>
                                 <p>
-                                    I'm always seeking to learn new things and grow in my craft. Most recently in 
-                                    my spare time I've writing language parsers and simple compilers in Rust and
-                                    TypeScript. Programming languages fascinate me; they're one of the major points
-                                    at which human ideas and computer ideas have to be bridged, and I have a lot 
-                                    of interest in making my own some day. I also find that exposing myself to many
-                                    different programming languages has a way of sreshaping my thinking, teaching me 
-                                    concepts that I can integrate back into whatever I'm doing at work.
+                                    I like to understand the whole system. If there isn't a firm abstraction boundary
+                                    (and sometimes even when there is), I want to know everything that might happen in
+                                    all corners so that I can make decisions from a holistic perspective. This motivates me to learn
+                                    about different layers of the stack, even the ones I won't often touch directly.
                                 </p>
                             </div>
                         </div>

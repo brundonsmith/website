@@ -10,7 +10,9 @@
     border:1px solid var(--color-divider);
     padding:2rem;
 }
-.resume svg {
+.resume svg.link,
+.resume svg.github,
+.resume svg.linkedin {
     width:1em;
     height:1em;
 }
@@ -95,20 +97,24 @@
 
 
 
-.main {
+.resume .main {
     flex-grow:1;
     flex-shrink:1;
     padding:0;
     margin-left:2rem;
 }
 
-.main h1 {
+.resume .main h1 {
     display:inline-block;
     margin:0;
     padding-top:0;
 }
 
-.main img.me {
+.resume .main p {
+    margin: 0;
+}
+
+.resume .main img.me {
     float:right;
     width:30%;
     border-radius:5px;
@@ -116,57 +122,32 @@
     margin-right: 0;
 }
 
-.main .blurbs {
+.resume .main .blurbs {
     display:flex;
     flex-direction: column;
+    font-size: 16px;
 }
 
-.main .blurbs .blurb {
+.resume .main .blurbs .blurb {
     position:relative;
-    width:90%;
-    padding:0.5rem 0;
-    border-radius:5px;
-    overflow: hidden;
 }
-.main .blurbs .blurb:not(:first-of-type) {
-    margin-top:1rem;
-}
-.main .blurbs .blurb::before {
-    content:'';
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    opacity:0.1;
-    background-color:var(--blurb-color);
-}
-.main .blurbs .blurb h2 {
-    margin-top:0;
-    margin-bottom: 10px;
+.resume .main .blurbs .blurb h2 {
+    margin-top:10px;
+    margin-bottom: 5px;
     opacity:0.5;
     color: var(--blurb-color);
     text-transform: lowercase;
 }
-.main .blurbs .blurb p {
+.resume .main .blurbs .blurb p {
     margin:0;
 }
 
-.main .blurbs .blurb:nth-child(1) {
+.resume .main .blurbs .blurb:nth-child(1) {
     --blurb-color: rgb(139, 77, 172);
-    align-self: flex-end;
 }
-.main .blurbs .blurb:nth-child(2) {
-    --blurb-color: rgb(25, 114, 196);
-}
-.main .blurbs .blurb:nth-child(3) {
+.resume .main .blurbs .blurb:nth-child(2) {
     --blurb-color: rgb(255, 130, 0);
-    align-self: flex-end;
 }
-
-@media(prefers-color-scheme: dark) {
-    .main .blurbs .blurb {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
+.resume .main .blurbs .blurb:nth-child(3) {
+    --blurb-color: rgb(25, 114, 196);
 }
