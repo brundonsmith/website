@@ -21,7 +21,7 @@ const SIMPLE_PAGES = {
 } as const
 
 export const createFileMap = async () => {
-    const fileMap = new Map<string, { content: Uint8Array, contentType: string }>()
+    const fileMap = new Map<string, { content: Uint8Array, headers: HeadersInit }>()
     const encoder = new TextEncoder()
 
     // build CSS bundle
@@ -45,7 +45,10 @@ export const createFileMap = async () => {
 
         fileMap.set('/css/_all.css', {
             content: allCSSArray,
-            contentType: CONTENT_TYPES.css
+            headers: {
+                'Content-Type': CONTENT_TYPES.css,
+                'Cache-Control': `max-age=${60 * 60}`
+            }
         })
     }
 
@@ -57,7 +60,10 @@ export const createFileMap = async () => {
 
             fileMap.set(file.path.substring('static'.length), {
                 content,
-                contentType: CONTENT_TYPES[fileExtension]
+                headers: {
+                    'Content-Type': CONTENT_TYPES[fileExtension],
+                    'Cache-Control': `max-age=${60 * 60}`
+                }
             })
         }
     }
@@ -73,21 +79,27 @@ export const createFileMap = async () => {
     for (const [pageName, render] of Object.entries(SIMPLE_PAGES)) {
         fileMap.set(`/${pageName}`, {
             content: encoder.encode(render({ allTags, posts })),
-            contentType: CONTENT_TYPES.html
+            headers: {
+                'Content-Type': CONTENT_TYPES.html
+            }
         })
     }
 
     // index.html
     fileMap.set('/', {
         content: encoder.encode(index({ allTags, posts })),
-        contentType: CONTENT_TYPES.html
+        headers: {
+            'Content-Type': CONTENT_TYPES.html
+        }
     })
 
     // generate tags pages
     for (const tag of allTags) {
         const file = {
             content: encoder.encode(index({ allTags, posts, tag })),
-            contentType: CONTENT_TYPES.html
+            headers: {
+                'Content-Type': CONTENT_TYPES.html
+            }
         }
 
         fileMap.set(`/tags/${tag}`, file)
@@ -98,7 +110,9 @@ export const createFileMap = async () => {
     for (const post of posts) {
         const file = {
             content: encoder.encode(blogPost({ post })),
-            contentType: CONTENT_TYPES.html
+            headers: {
+                'Content-Type': CONTENT_TYPES.html
+            }
         }
 
         fileMap.set(`/blog/${post.slug}`, file)

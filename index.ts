@@ -29,10 +29,9 @@ serve(async (req) => {
         const staticFile = fileMap.get(url.pathname)
 
         if (staticFile) {
-            return new Response(staticFile.content, {
-                headers: {
-                    'Content-Type': staticFile.contentType,
-                }
+            const { content, headers } = staticFile
+            return new Response(content, {
+                headers
             })
         }
     }
@@ -63,15 +62,13 @@ serve(async (req) => {
 
     // handle 404s
     {
-        const { content, contentType } = fileMap.get('/404') as { content: Uint8Array, contentType: string }
+        const { content, headers } = fileMap.get('/404') as { content: Uint8Array, headers: HeadersInit }
 
         return new Response(
             content,
             {
                 status: 404,
-                headers: {
-                    'Content-Type': contentType
-                }
+                headers
             }
         )
     }
