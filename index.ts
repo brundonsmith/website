@@ -5,12 +5,12 @@ import getCommentsCached from './loadHnComments.ts'
 import { createFileMap } from './staticLoader.ts'
 import { DOMAIN, BASE_URL } from "./utils/constants.ts";
 
+const PORT = Number(Deno.env.get('PORT') || '3000')
+const REDIRECT = Deno.env.get('REDIRECT')
 
 const fileMap = await createFileMap()
 
 // start server
-const PORT = Number(Deno.env.get('PORT') || '3000')
-const REDIRECT = Deno.env.get('REDIRECT')
 serve(async (req) => {
     const url = new URL(req.url)
 
@@ -36,6 +36,7 @@ serve(async (req) => {
         }
     }
 
+    // dynamic endpoints
     const endpointPrefix = '/hn-comments/'
     if (url.pathname.startsWith(endpointPrefix)) {
         const post = url.pathname.substring(endpointPrefix.length)
