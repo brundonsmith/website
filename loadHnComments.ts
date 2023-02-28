@@ -1,7 +1,12 @@
 import { html } from "./utils/misc.ts"
 
-const COMMENTS_CACHE = new Map()
-const POST_COMMENTS_LOADING = new Map()
+type PostComments = {
+    postId: string,
+    html: string
+}
+
+const COMMENTS_CACHE = new Map<string, { data: PostComments | null, timestamp: number }>()
+const POST_COMMENTS_LOADING = new Map<string, boolean>()
 const COMMENTS_CACHE_LIFETIME = 60 * 1000 // one minute
 
 export default async function getCommentsCached(postName: string) {
@@ -86,10 +91,10 @@ function renderComments({ id, by, text, time, kids }: Comment): string {
         </div>
         ${text ? html`<div class="text ${isMe ? 'me' : ''}">${text}</div>` : ''}
         ${kids ?
-            html`<div class="children">
-                    ${kids.map(renderComments).join('')}
-                </div>`
-        : ''}
+        html`<div class="children">
+            ${kids.map(renderComments).join('')}
+        </div>`
+            : ''}
     `
 }
 

@@ -1,5 +1,3 @@
-// const pretty = require('pretty') // for those View Source-ers ;)
-
 export const html = (segments: TemplateStringsArray, ...inserts: Array<string | number | null | undefined>) =>
     segments
         .map((s, i) =>
@@ -7,7 +5,7 @@ export const html = (segments: TemplateStringsArray, ...inserts: Array<string | 
                 ? s + (inserts[i] == null ? '' : inserts[i]) // fallback to empty string so null/undefined don't appear in the markup
                 : s)
         .join('')
-// pretty();
+        .trim()
 
 export const given = <T, R>(val: T | undefined, func: (val: T) => R): R | undefined =>
     val != null
