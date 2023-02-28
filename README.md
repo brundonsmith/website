@@ -6,11 +6,11 @@ This is my personal website. HTML is rendered using mostly plain JavaScript, ser
 ## How it works
 Entry point is `index.js`. The rendering code is designed such that it would be trivial to have it render at request time (if I ever have dynamic data), or even on the client-side. As it stands, all data is static, so there's no reason not to generate a set of static HTML pages on startup for maximum responsiveness.
 
-The direct children of `src/render/` each expose a function that renders a top-level HTML page, which then gets output to `dist/`. Smaller, reused pieces of HTML are rendered by code in `src/render/fragments/` which is called out to by the former.
+The direct children of `render/` each expose a function that renders a top-level HTML page, which then gets output to `dist/`. Smaller, reused pieces of HTML are rendered by code in `render/fragments/` which is called out to by the former.
 
-Everything under `src/static/` is copied as-is to `dist/`.
+Everything under `static/` is copied as-is to `dist/`.
 
-`src/blog/` contains a series of markdown files which are automatically fed through `blog.html.js` and output to `dist/blog/` (and listed in `index.html.js`). Each markdown file supports a few metadata properties for things like the date. To add a new blog post, I just add a file to `src/blog/` and redeploy.
+`blog/` contains a series of markdown files which are automatically fed through `blog.html.js` and output to `dist/blog/` (and listed in `index.html.js`). Each markdown file supports a few metadata properties for things like the date. To add a new blog post, I just add a file to `blog/` and redeploy.
 
 ## Goals
 This site is focused on minimalism, without sacrificing aesthetics or my needed functionality.
