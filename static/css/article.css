@@ -75,7 +75,7 @@ article img {
 
 /* both inline and block-level! */
 article code {
-    font: 0.8rem 'Consolas', 'Lucida Console', 'Monaco', 'Courier New';
+    font: 0.8em 'Consolas', 'Lucida Console', 'Monaco', 'Courier New';
     padding: 0.1em 0.25em;
     border-radius: 0.25em;
     background-color: var(--color-background-alt);
