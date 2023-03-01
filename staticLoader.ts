@@ -11,6 +11,7 @@ import index from './render/index.html.ts'
 import feed from './render/feed.xml.ts'
 import blogPost from './render/blog-post.html.ts'
 import CleanCSS from "./deps/clean-css.ts";
+import { ONE_HOUR, ONE_MINUTE } from './utils/misc.ts';
 
 const SIMPLE_PAGES = {
     '404': fourOhFour,
@@ -19,6 +20,9 @@ const SIMPLE_PAGES = {
     'index': index,
     'feed.xml': feed
 } as const
+
+const ONE_MINUTE_S = ONE_MINUTE / 1000
+const ONE_HOUR_S = ONE_HOUR / 1000
 
 export const createFileMap = async () => {
     const fileMap = new Map<string, { content: Uint8Array, headers: HeadersInit }>()
@@ -47,7 +51,7 @@ export const createFileMap = async () => {
             content: allCSSArray,
             headers: {
                 'Content-Type': CONTENT_TYPES.css,
-                'Cache-Control': `max-age=${60 * 60}`
+                'Cache-Control': `max-age=${ONE_HOUR_S}`
             }
         })
     }
@@ -62,7 +66,7 @@ export const createFileMap = async () => {
                 content,
                 headers: {
                     'Content-Type': CONTENT_TYPES[fileExtension],
-                    'Cache-Control': `max-age=${60 * 60}`
+                    'Cache-Control': `max-age=${ONE_HOUR_S}`
                 }
             })
         }
@@ -80,7 +84,8 @@ export const createFileMap = async () => {
         fileMap.set(`/${pageName}`, {
             content: encoder.encode(render({ allTags, posts })),
             headers: {
-                'Content-Type': CONTENT_TYPES.html
+                'Content-Type': CONTENT_TYPES.html,
+                'Cache-Control': `max-age=${ONE_MINUTE_S}`
             }
         })
     }
@@ -89,7 +94,8 @@ export const createFileMap = async () => {
     fileMap.set('/', {
         content: encoder.encode(index({ allTags, posts })),
         headers: {
-            'Content-Type': CONTENT_TYPES.html
+            'Content-Type': CONTENT_TYPES.html,
+            'Cache-Control': `max-age=${ONE_MINUTE_S}`
         }
     })
 
@@ -98,7 +104,8 @@ export const createFileMap = async () => {
         const file = {
             content: encoder.encode(index({ allTags, posts, tag })),
             headers: {
-                'Content-Type': CONTENT_TYPES.html
+                'Content-Type': CONTENT_TYPES.html,
+                'Cache-Control': `max-age=${ONE_MINUTE_S}`
             }
         }
 
@@ -111,7 +118,8 @@ export const createFileMap = async () => {
         const file = {
             content: encoder.encode(blogPost({ post })),
             headers: {
-                'Content-Type': CONTENT_TYPES.html
+                'Content-Type': CONTENT_TYPES.html,
+                'Cache-Control': `max-age=${ONE_MINUTE_S}`
             }
         }
 

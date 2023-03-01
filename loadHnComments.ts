@@ -1,4 +1,4 @@
-import { html } from "./utils/misc.ts"
+import { html, ONE_DAY, ONE_HOUR, ONE_MINUTE, ONE_MONTH, ONE_YEAR } from "./utils/misc.ts"
 
 type PostComments = {
     postId: string,
@@ -131,9 +131,3 @@ function ago(date: Date) {
 }
 
 const s = (num: number) => num === 1 ? '' : 's'
-
-const ONE_MINUTE = 60 * 1000
-const ONE_HOUR = 60 * ONE_MINUTE
-const ONE_DAY = 24 * ONE_HOUR
-const ONE_MONTH = 30 * ONE_DAY
-const ONE_YEAR = 365 * ONE_DAY
