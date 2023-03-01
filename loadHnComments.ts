@@ -91,10 +91,10 @@ function renderComments({ id, by, text, time, kids }: Comment): string {
         </div>
         ${text ? html`<div class="text ${isMe ? 'me' : ''}">${text}</div>` : ''}
         ${kids ?
-        html`<div class="children">
+            html`<div class="children">
             ${kids.map(renderComments).join('')}
         </div>`
-            : ''}
+        : ''}
     `
 }
 
@@ -110,20 +110,27 @@ function ago(date: Date) {
     const span = Date.now() - date.valueOf()
 
     if (span > ONE_YEAR) {
-        return `${Math.floor(span / ONE_YEAR)} years ago`
+        const years = Math.floor(span / ONE_YEAR)
+        return `${years} year${s(years)} ago`
     }
     if (span > ONE_MONTH) {
-        return `${Math.floor(span / ONE_MONTH)} months ago`
+        const months = Math.floor(span / ONE_MONTH)
+        return `${months} month${s(months)} ago`
     }
     if (span > ONE_DAY) {
-        return `${Math.floor(span / ONE_DAY)} days ago`
+        const days = Math.floor(span / ONE_DAY)
+        return `${days} day${s(days)} ago`
     }
     if (span > ONE_HOUR) {
-        return `${Math.floor(span / ONE_HOUR)} hours ago`
+        const hours = Math.floor(span / ONE_HOUR)
+        return `${hours} hour${s(hours)} ago`
     }
 
-    return `${Math.floor(span / ONE_MINUTE)} minutes ago`
+    const minutes = Math.floor(span / ONE_MINUTE)
+    return `${minutes} minute${s(minutes)} ago`
 }
+
+const s = (num: number) => num === 1 ? '' : 's'
 
 const ONE_MINUTE = 60 * 1000
 const ONE_HOUR = 60 * ONE_MINUTE
