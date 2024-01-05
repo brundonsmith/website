@@ -70,12 +70,12 @@ name (eg. `"Hello, Brandon!"`). Suppose we write a test that checks that
 
 ```javascript
 function greet(name) {
-  return `Hello, ${name}!`;
+  return `Hello, ${name}!`
 }
 
 test("greeting is correct", () => {
-  expect(greet("Brandon")).toBe("Hello, Brandon!");
-});
+  expect(greet("Brandon")).toBe("Hello, Brandon!")
+})
 ```
 
 Now, suppose that the product manager comes to us one day and says, "We have a
@@ -84,12 +84,12 @@ new design, we'd now like it to say
 
 ```javascript
 function greet(name) {
-  return `Greetings ${name}, welcome to our website!`;
+  return `Greetings ${name}, welcome to our website!`
 }
 
 test("greeting is correct", () => {
-  expect(greet("Brandon")).toBe("Hello, Brandon!"); // fail
-});
+  expect(greet("Brandon")).toBe("Hello, Brandon!") // fail
+})
 ```
 
 We change the code behavior, and now our test fails! But the failure isn't
@@ -114,13 +114,13 @@ Consider the following:
 
 ```javascript
 function calculation(n) {
-  return n * 2 + 6;
+  return n * 2 + 6
 }
 
 test("calculation returns correct output", () => {
-  const n = 4;
-  expect(calculation(n)).toBe(n * 2 + 6);
-});
+  const n = 4
+  expect(calculation(n)).toBe(n * 2 + 6)
+})
 ```
 
 This hasn't told us anything interesting about the logic being tested, we're
@@ -131,17 +131,17 @@ Example:
 ```javascript
 function isEligible(age) {
   if (age < 18) {
-    return false;
+    return false
   } else {
-    return true;
+    return true
   }
 }
 
 test("isEligible returns correct output", () => {
-  expect(isEligible(100)).toBe(true);
-  expect(isEligible(22)).toBe(true);
-  expect(isEligible(16)).toBe(false);
-});
+  expect(isEligible(100)).toBe(true)
+  expect(isEligible(22)).toBe(true)
+  expect(isEligible(16)).toBe(false)
+})
 ```
 
 Here we're documenting a _meaningful concept_ in our test that isn't directly
