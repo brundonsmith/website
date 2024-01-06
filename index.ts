@@ -61,6 +61,10 @@ serve(async (req) => {
         }
     }
 
+    if (url.pathname === '/health_check') {
+        return new Response('OK')
+    }
+
     // handle 404s
     {
         const { content, headers } = fileMap.get('/404') as { content: Uint8Array, headers: HeadersInit }
