@@ -26,7 +26,7 @@ export default ({ allTags, posts, tag }: { allTags: string[], posts: LocalPost[]
                             <li>
                                 <a ${tag == null 
                                         ? '' 
-                                        : 'href="/index.html"'}>
+                                        : 'href="/"'}>
                                     All
                                 </a>
 
