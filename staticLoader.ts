@@ -81,23 +81,21 @@ export const createFileMap = async () => {
 
     // generate plain pages
     for (const [pageName, render] of Object.entries(SIMPLE_PAGES)) {
-        fileMap.set(`/${pageName}`, {
+        const fileEntry = {
             content: encoder.encode(render({ allTags, posts })),
             headers: {
                 'Content-Type': CONTENT_TYPES.html,
                 'Cache-Control': `max-age=${ONE_MINUTE_S}`
             }
-        })
-    }
-
-    // index.html
-    fileMap.set('/', {
-        content: encoder.encode(index({ allTags, posts })),
-        headers: {
-            'Content-Type': CONTENT_TYPES.html,
-            'Cache-Control': `max-age=${ONE_MINUTE_S}`
         }
-    })
+
+        fileMap.set(`/${pageName}`, fileEntry)
+        fileMap.set(`/${pageName}.html`, fileEntry)
+
+        if (pageName === 'index') {
+            fileMap.set(`/`, fileEntry)
+        }
+    }
 
     // generate tags pages
     for (const tag of allTags) {
