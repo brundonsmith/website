@@ -19,15 +19,17 @@ export default async function getCommentsCached(postName: string) {
         return data
     } else {
         if (!POST_COMMENTS_LOADING.get(postName) && (Date.now() - cached.timestamp > COMMENTS_CACHE_LIFETIME)) {
-            try {
-                // if comments are cached but expired, start updating them but return cached for now
-                POST_COMMENTS_LOADING.set(postName, true)
-                loadAndRender(postName)
-                    .then(data =>
-                        COMMENTS_CACHE.set(postName, { data, timestamp: Date.now() }))
-                    .finally(() => POST_COMMENTS_LOADING.set(postName, false))
-            } catch {
-            }
+            // if comments are cached but expired, start updating them but return cached for now
+            POST_COMMENTS_LOADING.set(postName, true)
+
+            void (async function () {
+                try {
+                    const data = await loadAndRender(postName)
+                    COMMENTS_CACHE.set(postName, { data, timestamp: Date.now() })
+                } finally {
+                    POST_COMMENTS_LOADING.set(postName, false)
+                }
+            })()
         }
 
         return cached.data
