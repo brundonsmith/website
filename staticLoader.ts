@@ -1,5 +1,5 @@
-import { extname, resolve } from './deps/path.ts'
-import { walk } from './deps/walk.ts'
+import { extname, resolve } from '@std/path'
+import { walk } from '@std/fs/walk'
 
 import loadBlogPosts from './loadBlogPosts.ts'
 
@@ -10,7 +10,7 @@ import contact from './render/contact.html.ts'
 import index from './render/index.html.ts'
 import feed from './render/feed.xml.ts'
 import blogPost from './render/blog-post.html.ts'
-import CleanCSS from './deps/clean-css.ts'
+import CleanCSS from 'clean-css'
 import { ONE_HOUR, ONE_MINUTE } from './utils/misc.ts'
 
 const SIMPLE_PAGES = {

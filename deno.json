@@ -1,5 +1,13 @@
 {
-  "imports": {},
+  "imports": {
+    "@std/fs": "jsr:@std/fs@^1.0.2",
+    "@std/path": "jsr:@std/path@^1.0.3",
+    "clean-css": "npm:clean-css@^5.3.3",
+    "markdown-it": "npm:markdown-it@^8.4.2",
+    "markdown-it-anchor": "npm:markdown-it-anchor@^5.3.0",
+    "markdown-it-meta": "npm:markdown-it-meta@0.0.1",
+    "markdown-it-prism": "npm:markdown-it-prism@^2.3.1"
+  },
   "fmt": {
     "semiColons": false,
     "singleQuote": true,

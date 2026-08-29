@@ -1,9 +1,7 @@
-// import { defaultParsers, marky } from './deps/marky.ts'
-// import { given } from './utils/misc.ts'
-
-// const parsers = defaultParsers
-
-import { anchor, MarkdownIt, meta, prism } from './deps/markdown-it.ts'
+import MarkdownIt from 'markdown-it'
+import anchor from 'markdown-it-anchor'
+import meta from 'markdown-it-meta'
+import prism from 'markdown-it-prism'
 
 const markdownRenderer = new MarkdownIt({
   html: true,

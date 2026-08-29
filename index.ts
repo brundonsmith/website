@@ -1,5 +1,3 @@
-import { serve } from './deps/server.ts'
-
 // project imports
 import getCommentsCached from './loadHnComments.ts'
 import { createFileMap } from './staticLoader.ts'
@@ -11,7 +9,7 @@ const REDIRECT = Deno.env.get('REDIRECT')
 const fileMap = await createFileMap()
 
 // start server
-serve(async (req) => {
+Deno.serve({ port: PORT }, async (req) => {
   const url = new URL(req.url)
 
   // redirect http -> https, brandonsmith.ninja -> brandons.me
@@ -83,6 +81,4 @@ serve(async (req) => {
       },
     )
   }
-}, {
-  port: PORT,
 })
