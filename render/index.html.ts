@@ -6,7 +6,7 @@ import bio from './fragments/bio.ts'
 import postPreview from './fragments/post-preview.ts'
 
 import { ExternalPost, LocalPost, Post } from "../loadBlogPosts.ts";
-import externalPosts from '../blog/external.json' assert { type: 'json' }
+import externalPosts from '../blog/external.json' with { type: 'json' }
 
 export default ({ allTags, posts, tag }: { allTags: string[], posts: LocalPost[], tag?: string }) =>
     html`
