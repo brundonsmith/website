@@ -64,7 +64,21 @@ h3 {
 p {
     text-indent: 5%;
     line-height: 1.55;
+
+    text-align: justify;
+    hyphens: auto;
+    hyphenate-limit-chars: 6 3 3;
+    /* min word length, before break, after */
+    text-wrap: pretty;
 }
+
+@media (max-width: 40rem) {
+    article p {
+        text-align: left;
+        hyphens: auto;
+    }
+}
+
 
 h1+p, h2+p, h3+p {
     text-indent: 0;
@@ -75,6 +89,63 @@ code {
     font-family: inherit;
     line-height: 1.4;
     /* TODO: Line numbers and emphasized lines (bold) */
+}
+
+ul, ol {
+    margin: 0.5rem 0 1.55rem;
+    list-style: none;
+    padding-left: 3.75em;
+}
+
+p:has(+ ul), p:has(+ ol) {
+    margin-bottom: 0;
+}
+
+ul li, ol li {
+    position: relative;
+    text-indent: 0;
+    text-align: justify;
+    text-wrap: pretty;
+}
+
+ul li::before,
+ol li::before {
+    position: absolute;
+    right: 100%;
+    margin-right: 0.7em;
+    color: color-mix(in srgb, var(--ink) 70%, transparent);
+
+}
+
+ul li::before {
+    content: "—";
+}
+
+ol {
+    counter-reset: item;
+}
+
+ol li::before {
+    counter-increment: item;
+    content: counter(item) ".";
+}
+
+ol ol li::before {
+    content: "(" counter(item, lower-alpha) ")";
+}
+
+ol ol ol li::before {
+    content: "(" counter(item, lower-roman) ")";
+}
+
+ul, ol {
+    margin: 1.55rem 0;
+    line-height: 1.45;
+    /* vs 1.55 body */
+}
+
+li+li {
+    margin-top: 0.25em;
 }
 
 hr {
@@ -129,25 +200,14 @@ a {
     display: none;
 }
 
-/* on the element itself — hyphens:auto silently does nothing without it */
-p, li {
-    text-align: justify;
-    hyphens: auto;
-    hyphenate-limit-chars: 6 3 3;
-    /* min word length, before break, after */
-    text-wrap: pretty;
-}
-
-@media (max-width: 40rem) {
-    article p {
-        text-align: left;
-        hyphens: auto;
-    }
-}
-
 pre, code {
     text-align: left;
     hyphens: none;
+}
+
+abbr {
+    font-variant: small-caps;
+    text-transform: lowercase;
 }
 
 @media (max-width: 1210px) {

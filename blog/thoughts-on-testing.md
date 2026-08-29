@@ -21,17 +21,13 @@ normal code tests can grow without bounds, and they don’t always get seen as a
 something with a cost because they don’t get shipped to production. But every
 test is...
 
-Code that takes time to write
-
-Code that takes time to maintain (when requirements change, dependencies change,
+- Code that takes time to write
+- Code that takes time to maintain (when requirements change, dependencies change,
 etc)
+- Code that takes time running in CI
+- And bad tests can give a false sense of security
 
-Code that takes time running in CI
-
-And bad tests can give a false sense of security
-
-So I think it’s fair to say that (despite certain engineering books and
-management directives) _the optimal number of tests isn’t as many as we can
+So I think it’s fair to say that _the optimal number of tests isn’t as many as we can
 possibly come up with_.
 
 ## Judgement calls
@@ -215,9 +211,9 @@ check valuable behavior (“can the user log in?”) over tests that check
 unvaluable behavior (“is the submit button blue?”) makes the best use of your
 effort. Etc.
 
-## UI tests
+## <abbr>UI</abbr> tests
 
-I hinted above, but my controversial take is that _I think UI rendering code is
+I hinted above, but my controversial take is that _I think <abbr>UI</abbr> rendering code is
 rarely worth unit-testing_ based on these heuristics. User interfaces:
 
 - Often change output/behavior intentionally (leading to flaky tests)
@@ -227,7 +223,7 @@ rarely worth unit-testing_ based on these heuristics. User interfaces:
 
 _But_ I really only mean the rendering layer, not the entire front-end codebase:
 
-- State management decoupled from the UI (React hooks, stores, etc) can be a
+- State management decoupled from the <abbr>UI</abbr> (React hooks, stores, etc) can be a
   great candidate; that’s where most of the complexity is, and it doesn’t have
   most of the problems above
 - Business rules like validation are also great to test; the logic is often pure
@@ -236,7 +232,7 @@ _But_ I really only mean the rendering layer, not the entire front-end codebase:
   of “valid phone number” changed?)
 - Any other core utilities that are far away from user-facing feature churn
 
-And then, a library of UI components that are really general and used in a bunch
+And then, a library of <abbr>UI</abbr> components that are really general and used in a bunch
 of places may tip the scales towards unit testing. The value is higher, and the
 cost (of mocking, etc) is usually lower because they’re meant to be reusable.
 They may also change less often than product features.
