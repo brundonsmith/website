@@ -38,7 +38,7 @@ html`
                 
                     ${post.html}
 
-                    <div id="hn-comments"></div>
+                    <!-- <div id="hn-comments"></div> -->
 
                     <script>window.postName = '${post.slug}'</script>
                 </article>
