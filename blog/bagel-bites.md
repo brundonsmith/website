@@ -1,5 +1,5 @@
 ---
-title: Bagel Bites 🥯 (Update on the Bagel Language)
+title: Bagel Bites (Update on the Bagel Language)
 date: January 22, 2022
 tags: ["programming", "software-engineering", "bagel"]
 ---

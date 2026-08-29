@@ -9,14 +9,13 @@ import { ExternalPost, LocalPost, Post } from '../loadBlogPosts.ts'
 import externalPosts from '../blog/external.json' with { type: 'json' }
 
 export default (
-  { allTags, posts, tag }: {
-    allTags: string[]
-    posts: LocalPost[]
-    tag?: string
-  },
-) =>
-  // deno-fmt-ignore
-  html`
+    { allTags, posts, tag }: {
+        allTags: string[]
+        posts: LocalPost[]
+        tag?: string
+    },
+) => // deno-fmt-ignore
+html`
     <!DOCTYPE html>
     <html lang="en">
 
@@ -65,7 +64,7 @@ export default (
                         .concat(externalPosts as ExternalPost[])
                         .filter(p => !p.meta.test) // filter out test-only posts
                         .filter(p => tag == null || p.meta.tags.includes(tag))
-                        .sort((a, b) => new Date(b.meta.date).valueOf() - new Date(a.meta.date).valueOf())
+                        .toSorted((a, b) => new Date(b.meta.date).valueOf() - new Date(a.meta.date).valueOf())
                         .map(post => html`
                             <li>
                                 ${postPreview(post)}

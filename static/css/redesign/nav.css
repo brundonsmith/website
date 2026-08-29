@@ -1,0 +1,30 @@
+nav {
+    width: 500px;
+    padding: 50px;
+    padding-right: 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+}
+
+nav>a {
+    display: flex;
+    color: inherit;
+    text-decoration: none;
+}
+
+nav>a>span {
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+nav .leader {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 10px;
+    background-image: radial-gradient(circle at 50% 70%, var(--ink) 0.055em, transparent 0.06em);
+    background-size: 0.25em 100%;
+    /* 0.45em = dot pitch, tune this */
+    background-repeat: repeat-x;
+}

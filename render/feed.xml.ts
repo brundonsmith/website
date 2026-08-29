@@ -1,14 +1,14 @@
 import { LocalPost } from '../loadBlogPosts.ts'
 import {
-  BASE_URL,
-  DEFAULT_DESCRIPTION,
-  DEFAULT_TITLE,
+    BASE_URL,
+    DEFAULT_DESCRIPTION,
+    DEFAULT_TITLE,
 } from '../utils/constants.ts'
 import { getFirstParagraph } from '../utils/misc.ts'
 
 export default ({ posts }: { posts: readonly LocalPost[] }) =>
-  // deno-fmt-ignore
-  `
+    // deno-fmt-ignore
+    `
     <?xml version="1.0" encoding="utf-8"?>
     <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
         <channel>
@@ -19,7 +19,7 @@ export default ({ posts }: { posts: readonly LocalPost[] }) =>
 
             ${posts
                 .filter(p => !p.meta.test) // filter out test-only posts
-                .sort((a, b) => new Date(b.meta.date).valueOf() - new Date(a.meta.date).valueOf())
+                .toSorted((a, b) => new Date(b.meta.date).valueOf() - new Date(a.meta.date).valueOf())
                 .map(post => `
                     <item>
                         <title>${post.meta.title}</title>

@@ -1,0 +1,132 @@
+.im-fell-english-regular {
+    font-family: "IM Fell English", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+}
+
+.im-fell-english-regular-italic {
+    font-family: "IM Fell English", serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 18px;
+}
+
+.im-fell-english-sc-regular, nav .section-heading {
+    font-family: "IM Fell English SC", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+}
+
+.im-fell-double-pica-regular, h2 {
+    font-family: "IM Fell Double Pica", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 28px;
+}
+
+.im-fell-double-pica-regular-italic {
+    font-family: "IM Fell Double Pica", serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 28px;
+}
+
+.im-fell-double-pica-sc-regular {
+    font-family: "IM Fell Double Pica SC", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 28px;
+}
+
+.im-fell-dw-pica-regular, p, li, nav a {
+    font-family: "IM Fell DW Pica", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16.7px;
+}
+
+.im-fell-dw-pica-regular-italic {
+    font-family: "IM Fell DW Pica", serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 16.7px;
+}
+
+.im-fell-dw-pica-sc-regular {
+    font-family: "IM Fell DW Pica SC", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16.7px;
+}
+
+.im-fell-great-primer-regular, h3 {
+    font-family: "IM Fell Great Primer", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22.7px;
+}
+
+.im-fell-great-primer-regular-italic {
+    font-family: "IM Fell Great Primer", serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 22.7px;
+}
+
+.im-fell-great-primer-sc-regular {
+    font-family: "IM Fell Great Primer SC", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22.7px;
+}
+
+.im-fell-french-canon-regular, h1 {
+    font-family: "IM Fell French Canon", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 52px;
+}
+
+.im-fell-french-canon-regular-italic {
+    font-family: "IM Fell French Canon", serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 52px;
+}
+
+.im-fell-french-canon-sc-regular {
+    font-family: "IM Fell French Canon SC", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 52px;
+}
+
+.courier-prime-regular, pre {
+    font-family: "Courier Prime", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1em;
+}
+
+.courier-prime-bold {
+    font-family: "Courier Prime", monospace;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1em;
+}
+
+.courier-prime-regular-italic {
+    font-family: "Courier Prime", monospace;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1em;
+}
+
+.courier-prime-bold-italic {
+    font-family: "Courier Prime", monospace;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1em;
+}

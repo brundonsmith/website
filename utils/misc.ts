@@ -4,12 +4,16 @@
  */
 export const html = (
   segments: TemplateStringsArray,
-  ...inserts: Array<string | number | null | undefined>
+  ...inserts: Array<string[] | string | number | null | undefined>
 ) =>
   segments
     .map((s, i) =>
       i < segments.length - 1
-        ? s + (inserts[i] == null ? '' : inserts[i]) // fallback to empty string so null/undefined don't appear in the markup
+        ? s + (inserts[i] == null
+          ? '' // fallback to empty string so null/undefined don't appear in the markup
+          : Array.isArray(inserts[i])
+          ? inserts[i].join('\n')
+          : inserts[i])
         : s
     )
     .join('')

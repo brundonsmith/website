@@ -10,6 +10,7 @@ import contact from './render/contact.html.ts'
 import index from './render/index.html.ts'
 import feed from './render/feed.xml.ts'
 import blogPost from './render/blog-post.html.ts'
+import blogPostRedesign from './render/redesign/blog-post.html.ts'
 import CleanCSS from 'clean-css'
 import { ONE_HOUR, ONE_MINUTE } from './utils/misc.ts'
 
@@ -63,7 +64,40 @@ export const createFileMap = async () => {
     ).styles
     const allCSSArray = encoder.encode(allCSS)
 
-    fileMap.set('/css/_all.css', {
+    fileMap.set('/css/' + CSS_BUNDLE_NAME, {
+      content: allCSSArray,
+      headers: {
+        'Content-Type': CONTENT_TYPES.css,
+        'Cache-Control': `max-age=${ONE_HOUR_S}`,
+      },
+    })
+  }
+
+  // build redesign CSS bundle
+  {
+    const CSS_BUNDLE_NAME = '_all_redesign.css'
+
+    const cssFiles = await Promise.all(
+      [
+        'article.css',
+        'fonts.css',
+        'nav.css',
+      ].map(async (file) => {
+        if (file !== CSS_BUNDLE_NAME) {
+          const fullPath = resolve(`./static/css/redesign`, file)
+          return await Deno.readTextFile(fullPath)
+        } else {
+          return ''
+        }
+      }),
+    )
+
+    const allCSS = new CleanCSS().minify(
+      cssFiles.reduce((all, file) => all + '\n' + file, ''),
+    ).styles
+    const allCSSArray = encoder.encode(allCSS)
+
+    fileMap.set('/css/' + CSS_BUNDLE_NAME, {
       content: allCSSArray,
       headers: {
         'Content-Type': CONTENT_TYPES.css,
@@ -131,16 +165,31 @@ export const createFileMap = async () => {
 
   // generate blog post pages
   for (const post of posts) {
-    const file = {
-      content: encoder.encode(blogPost({ post })),
-      headers: {
-        'Content-Type': CONTENT_TYPES.html,
-        'Cache-Control': `max-age=${ONE_MINUTE_S}`,
-      },
+    { // legacy blog post page
+      const file = {
+        content: encoder.encode(blogPost({ post })),
+        headers: {
+          'Content-Type': CONTENT_TYPES.html,
+          'Cache-Control': `max-age=${ONE_MINUTE_S}`,
+        },
+      }
+
+      fileMap.set(`/blog/${post.slug}`, file)
+      fileMap.set(`/blog/${post.slug}.html`, file)
     }
 
-    fileMap.set(`/blog/${post.slug}`, file)
-    fileMap.set(`/blog/${post.slug}.html`, file)
+    { // redesign blog post page
+      const file = {
+        content: encoder.encode(blogPostRedesign({ post, posts })),
+        headers: {
+          'Content-Type': CONTENT_TYPES.html,
+          'Cache-Control': `max-age=${ONE_MINUTE_S}`,
+        },
+      }
+
+      fileMap.set(`/redesign/blog/${post.slug}`, file)
+      fileMap.set(`/redesign/blog/${post.slug}.html`, file)
+    }
   }
 
   return fileMap

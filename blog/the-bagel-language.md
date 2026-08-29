@@ -1,5 +1,5 @@
 ---
-title: The Bagel Language 🥯
+title: The Bagel Language
 date: September 16, 2021
 tags: ["programming", "bagel"]
 ---

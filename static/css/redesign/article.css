@@ -1,0 +1,161 @@
+html {
+    background: #FBF8F3;
+}
+
+:root {
+    --ink: #1a1512;
+    --rule: color-mix(in srgb, var(--ink) 35%, transparent);
+    --accent: hsl(220, 40%, 30%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* ----------------------------------------------------------------- */
+
+body {
+    display: flex;
+    flex-direction: row;
+    color: var(--ink);
+}
+
+article {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    animation: fade-in 0.3s ease-out;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+article>* {
+    margin: 0;
+    margin-left: 90px;
+    margin-right: 50px;
+    max-width: calc(min(100vw - 100px, 600px));
+}
+
+h1 {
+    margin-bottom: 1.75rem;
+    line-height: 1.15;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 2.5rem;
+    line-height: 1.2;
+}
+
+h3 {
+    line-height: 1.23;
+    /* 27.9px — one body line exactly */
+    margin-top: 1.55rem;
+    /* 28px above — one body line */
+}
+
+p {
+    text-indent: 5%;
+    line-height: 1.55;
+}
+
+h1+p, h2+p, h3+p {
+    text-indent: 0;
+}
+
+code {
+    font-size: inherit;
+    font-family: inherit;
+    line-height: 1.4;
+    /* TODO: Line numbers and emphasized lines (bold) */
+}
+
+hr {
+    color: var(--rule);
+}
+
+pre {
+    margin-top: 1.55rem;
+    /* 27.9px outside the rules */
+    margin-bottom: 1.55rem;
+    /* 27.9px outside the rules */
+    padding: 0.78rem 0;
+    /* 14px inside */
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    hyphens: none;
+    width: fit-content;
+    min-width: 600px;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+img {
+    display: block;
+    margin-top: 1.55rem;
+    margin-bottom: 1.55rem;
+    padding: 0.78rem 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    min-width: 600px;
+    max-width: 100%;
+}
+
+p>code {
+    font-style: italic;
+}
+
+.token.keyword {
+    font-weight: bold;
+}
+
+.token.comment {
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.55);
+}
+
+a {
+    color: var(--accent);
+}
+
+.header-anchor {
+    display: none;
+}
+
+/* on the element itself — hyphens:auto silently does nothing without it */
+p, li {
+    text-align: justify;
+    hyphens: auto;
+    hyphenate-limit-chars: 6 3 3;
+    /* min word length, before break, after */
+    text-wrap: pretty;
+}
+
+@media (max-width: 40rem) {
+    article p {
+        text-align: left;
+        hyphens: auto;
+    }
+}
+
+pre, code {
+    text-align: left;
+    hyphens: none;
+}
+
+@media (max-width: 1210px) {
+    nav {
+        display: none;
+    }
+
+    article>* {
+        margin-left: 50px;
+    }
+}
