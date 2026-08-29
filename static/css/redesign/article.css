@@ -40,7 +40,7 @@ article>* {
     margin: 0;
     margin-left: 90px;
     margin-right: 50px;
-    max-width: calc(min(100vw - 100px, 600px));
+    width: calc(min(100vw - 100px, 600px));
 }
 
 h1 {
@@ -162,9 +162,7 @@ pre {
     border-top: 1px solid var(--rule);
     border-bottom: 1px solid var(--rule);
     hyphens: none;
-    width: fit-content;
-    min-width: 600px;
-    max-width: 100%;
+    /* width: fit-content; */
     overflow-x: auto;
 }
 
@@ -175,8 +173,6 @@ img {
     padding: 0.78rem 0;
     border-top: 1px solid var(--rule);
     border-bottom: 1px solid var(--rule);
-    min-width: 600px;
-    max-width: 100%;
 }
 
 p>code {
