@@ -22,6 +22,9 @@ html`
                 ${nav({ post, posts })}
 
                 <article class="main" itemProp="articleBody">
+                    <span style="display:none" itemProp="wordCount">${post.wordCount}</span>
+                    ${author()}
+
                     <h1 class="blog-heading">
                         <span itemProp="headline">
                             ${post.meta.title}
@@ -33,10 +36,6 @@ html`
                         </time> -->
                     </h1>
                 
-                    <span style="display:none" itemProp="wordCount">${post.wordCount}</span>
-
-                    ${author()}
-
                     ${post.html}
 
                     <div id="hn-comments"></div>

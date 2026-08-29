@@ -107,7 +107,7 @@
     font-family: "Courier Prime", monospace;
     font-weight: 400;
     font-style: normal;
-    font-size: 1em;
+    font-size: 0.9em;
 }
 
 .courier-prime-bold {
@@ -121,7 +121,7 @@
     font-family: "Courier Prime", monospace;
     font-weight: 400;
     font-style: italic;
-    font-size: 1em;
+    font-size: 0.9em;
 }
 
 .courier-prime-bold-italic {
