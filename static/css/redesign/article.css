@@ -162,7 +162,6 @@ pre {
     border-top: 1px solid var(--rule);
     border-bottom: 1px solid var(--rule);
     hyphens: none;
-    /* width: fit-content; */
     overflow-x: auto;
 }
 
