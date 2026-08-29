@@ -1,24 +1,19 @@
 {
-    "imports": {
-        "bcrypt": "https://deno.land/x/bcrypt@v0.4.1/mod.ts",
-        "djwts": "https://deno.land/x/djwt@v2.8/mod.ts",
-        "postgres": "https://deno.land/x/postgres@v0.17.0/mod.ts",
-        "oak": "https://deno.land/x/oak@v11.1.0/mod.ts",
-        "std/": "https://deno.land/std@0.200.0/",
-        "stripe": "npm:stripe@^13.5.0",
-        "dayjs": "npm:dayjs@1.11.10",
-        "dayjs/plugin/utc": "npm:dayjs@1.11.10/plugin/utc.js"
-    },
-    "fmt": {
-        "semiColons": false,
-        "singleQuote": true
-    },
-    "tasks": {
-        "dev": "deno run -A --watch index.ts"
-    },
-    "lock": true,
-    "compilerOptions": {
-        "strict": true,
-        "noUncheckedIndexedAccess": true
-    }
+  "imports": {},
+  "fmt": {
+    "semiColons": false,
+    "singleQuote": true,
+    "exclude": [
+      "dist",
+      "static/LD45"
+    ]
+  },
+  "tasks": {
+    "dev": "deno run -A --watch index.ts"
+  },
+  "lock": true,
+  "compilerOptions": {
+    "strict": true,
+    "noUncheckedIndexedAccess": true
+  }
 }

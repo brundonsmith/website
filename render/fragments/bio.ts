@@ -1,8 +1,8 @@
-import { html } from "../../utils/misc.ts"
-import { RSS_SVG, LINKEDIN_SVG, GITHUB_SVG } from "./icons.ts";
+import { html } from '../../utils/misc.ts'
+import { GITHUB_SVG, LINKEDIN_SVG, RSS_SVG } from './icons.ts'
 
 export default () =>
-    html`
+  html`
         <header class="bio">
         
             <a href="/" aria-label="Home">

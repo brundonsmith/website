@@ -1,7 +1,8 @@
-import { html } from "../../utils/misc.ts"
+import { html } from '../../utils/misc.ts'
 
 export default () =>
-    html`
+  // deno-fmt-ignore
+  html`
         <footer>
             <script src="/js/hn-comments.js"></script>
         </footer>

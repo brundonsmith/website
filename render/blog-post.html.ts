@@ -1,13 +1,14 @@
-import { html, getFirstParagraph } from "../utils/misc.ts"
+import { getFirstParagraph, html } from '../utils/misc.ts'
 import head from './fragments/head.ts'
 import homeLink from './fragments/home-link.ts'
 import footer from './fragments/footer.ts'
-import author from "./fragments/author.ts";
-import bio from "./fragments/bio.ts";
-import { LocalPost } from "../loadBlogPosts.ts";
+import author from './fragments/author.ts'
+import bio from './fragments/bio.ts'
+import { LocalPost } from '../loadBlogPosts.ts'
 
-export default ({ post }: { post: LocalPost }) => 
-    html`
+export default ({ post }: { post: LocalPost }) =>
+  // deno-fmt-ignore
+  html`
         <!DOCTYPE html>
         <html itemscope itemtype="http://schema.org/Article" lang="en">
 

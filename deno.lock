@@ -127,11 +127,5 @@
     "https://deno.land/std@v0.139.0/async/pool.ts": "97b0dd27c69544e374df857a40902e74e39532f226005543eabacb551e277082",
     "https://deno.land/std@v0.139.0/async/tee.ts": "1341feb1f5b1a96f8628d0f8fc07d8c43d3813423f18a63bf1b4785568d21b1f",
     "https://deno.land/std@v0.139.0/http/server.ts": "46decea8725814d59efbfe8fa22779e7b733da7dbe3e0220956dd44d44ccd5c9"
-  },
-  "workspace": {
-    "dependencies": [
-      "npm:dayjs@1.11.10",
-      "npm:stripe@^13.5.0"
-    ]
   }
 }

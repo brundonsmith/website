@@ -1,10 +1,11 @@
-import { html } from "../utils/misc.ts"
+import { html } from '../utils/misc.ts'
 import head from './fragments/head.ts'
 import homeLink from './fragments/home-link.ts'
 import footer from './fragments/footer.ts'
 
 export default () =>
-    html`
+  // deno-fmt-ignore
+  html`
         <!DOCTYPE html>
         <html lang="en">
         

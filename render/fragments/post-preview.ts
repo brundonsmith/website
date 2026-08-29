@@ -1,10 +1,10 @@
+import { Post } from '../../loadBlogPosts.ts'
+import { html } from '../../utils/misc.ts'
+import author from './author.ts'
 
-import { Post } from "../../loadBlogPosts.ts";
-import { html } from "../../utils/misc.ts"
-import author from "./author.ts"
-
-export default (post: Post) => 
-    html`
+export default (post: Post) =>
+  // deno-fmt-ignore
+  html`
         <a class="post-preview" 
                 href="${post.kind === 'external' ? post.meta.href : `/blog/${post.slug}`}" 
                 target="${post.kind === 'external' ? '_blank' : ''}" 

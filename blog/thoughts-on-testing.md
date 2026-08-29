@@ -73,8 +73,8 @@ function greet(name) {
   return `Hello, ${name}!`
 }
 
-test("greeting is correct", () => {
-  expect(greet("Brandon")).toBe("Hello, Brandon!")
+test('greeting is correct', () => {
+  expect(greet('Brandon')).toBe('Hello, Brandon!')
 })
 ```
 
@@ -87,8 +87,8 @@ function greet(name) {
   return `Greetings ${name}, welcome to our website!`
 }
 
-test("greeting is correct", () => {
-  expect(greet("Brandon")).toBe("Hello, Brandon!") // fail
+test('greeting is correct', () => {
+  expect(greet('Brandon')).toBe('Hello, Brandon!') // fail
 })
 ```
 
@@ -117,7 +117,7 @@ function calculation(n) {
   return n * 2 + 6
 }
 
-test("calculation returns correct output", () => {
+test('calculation returns correct output', () => {
   const n = 4
   expect(calculation(n)).toBe(n * 2 + 6)
 })
@@ -137,7 +137,7 @@ function isEligible(age) {
   }
 }
 
-test("isEligible returns correct output", () => {
+test('isEligible returns correct output', () => {
   expect(isEligible(100)).toBe(true)
   expect(isEligible(22)).toBe(true)
   expect(isEligible(16)).toBe(false)
