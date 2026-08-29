@@ -17,7 +17,7 @@
     ]
   },
   "tasks": {
-    "dev": "deno run -A --watch index.ts"
+    "dev": "deno run -A --watch=blog/,static/ index.ts"
   },
   "lock": true,
   "compilerOptions": {
