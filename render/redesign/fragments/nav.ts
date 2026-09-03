@@ -9,7 +9,6 @@ html`
             <div class="im-fell-double-pica-sc-regular" style="margin-top: 0.75em">
                 Brandon Smith
             </div>
-            <hr />
             <a href="#">Home</a>
             <a href="#">About me</a>
             <a href="#">Talks</a>
