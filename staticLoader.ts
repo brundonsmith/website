@@ -203,4 +203,7 @@ const CONTENT_TYPES = {
   'png': 'image/png',
   'jpg': 'image/jpg',
   'jpeg': 'image/jpeg',
+  'ico': 'image/x-icon',
+  'svg': 'image/svg+xml',
+  'webmanifest': 'application/manifest+json',
 } as const
