@@ -26,7 +26,7 @@ export default (
         <meta name="twitter:card" content="summary">
         <meta name="twitter:image" content="https://www.brandons.me/icons/og-image.png">
 
-        <link rel="stylesheet" type="text/css" href="/css/_all_redesign.css">
+        <link rel="stylesheet" type="text/css" href="/css/_all.css">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

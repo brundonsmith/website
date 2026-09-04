@@ -11,11 +11,11 @@ export default (
 html`
         <nav class="${className}">
             <div class="im-fell-double-pica-sc-regular" style="margin-top: 0.75em">
-                <a href="/redesign">
+                <a href="/">
                     Brandon Smith
                 </a>
             </div>
-            <a href="/redesign">Home</a>
+            <a href="/">Home</a>
             <a href="#">About me</a>
             <a href="#">Talks</a>
             <a href="#">Photos</a>
@@ -32,7 +32,7 @@ html`
             ${allPosts
                 .toSorted((a, b) => new Date(b.meta.date).valueOf() - new Date(a.meta.date).valueOf())
                 .map(({ slug, meta }) => html`
-                    <a href="/redesign/blog/${slug}" style="${slug === currentPost?.slug ? 'font-style: italic' : ''}">
+                    <a href="/blog/${slug}" style="${slug === currentPost?.slug ? 'font-style: italic' : ''}">
                         <span>${meta.title}</span>
                         <span class="leader"></span>
                         <span class="date">${meta.date}</span>

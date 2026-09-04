@@ -156,8 +156,8 @@ export const createFileMap = async () => {
       },
     }
 
-    fileMap.set(`/redesign/blog/${post.slug}`, file)
-    fileMap.set(`/redesign/blog/${post.slug}.html`, file)
+    fileMap.set(`/blog/${post.slug}`, file)
+    fileMap.set(`/blog/${post.slug}.html`, file)
   }
 
   return fileMap
