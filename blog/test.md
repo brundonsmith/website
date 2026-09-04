@@ -69,6 +69,14 @@ recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut
 reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus
 asperiores repellat.
 
+| Lorem       | Ipsum Dolor    | Consectetur Adipiscing | Sed Do Eiusmod | Tempor | Incididunt Ut Labore |
+| ----------- | -------------- | ---------------------- | -------------- | ------ | -------------------- |
+| Alpha       | voluptatem     | ✅                     | 1,024          | ❌     | quis nostrud         |
+| Bravo       | accusantium    | ❌                     | 512            | ✅     | exercitation ullamco |
+| Charlie     | doloremque     | ✅                     | 2,048          | ✅     | laboris nisi         |
+| Delta       | laudantium     | ✅                     | 64             | ❌     | aliquip ex ea        |
+| Echo        | totam rem      | ❌                     | 8,192          | ✅     | commodo consequat    |
+
 > But I must explain to you how all this mistaken idea of denouncing pleasure
 > and praising pain was born and I will give you a complete account of the
 > system, and expound the actual teachings of the great explorer of the truth,
