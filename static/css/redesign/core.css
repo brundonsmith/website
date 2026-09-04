@@ -15,6 +15,14 @@ html {
     --avail: calc(100cqi - 2 * var(--main-padding));
 }
 
+/* Kept next to the definition above so the bundle's file order can't affect
+   which value wins. */
+@media (max-width: 1210px) {
+    :root {
+        --main-padding: 40px;
+    }
+}
+
 * {
     box-sizing: border-box;
 }

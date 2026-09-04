@@ -251,10 +251,6 @@ abbr {
 }
 
 @media (max-width: 1210px) {
-    :root {
-        --main-padding: 40px;
-    }
-
     article {
         padding-top: calc(var(--main-padding) / 2);
     }

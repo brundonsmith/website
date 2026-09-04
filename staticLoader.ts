@@ -27,6 +27,24 @@ const SIMPLE_PAGES = {
 const ONE_MINUTE_S = ONE_MINUTE / 1000
 const ONE_HOUR_S = ONE_HOUR / 1000
 
+/** Recursively collect and concatenate every .css file under `dir`. */
+const bundleCSS = async (dir: string, skipRedesign: boolean) => {
+  const paths: string[] = []
+
+  for await (const file of walk(dir, { exts: ['.css'], includeDirs: false })) {
+    // the redesign has its own bundle; don't fold it into the main one
+    if (skipRedesign && file.path.includes('/redesign/')) {
+      continue
+    }
+    paths.push(file.path)
+  }
+
+  paths.sort((a, b) => a.localeCompare(b))
+
+  const contents = await Promise.all(paths.map((p) => Deno.readTextFile(p)))
+  return contents.join('\n')
+}
+
 export const createFileMap = async () => {
   const fileMap = new Map<
     string,
@@ -34,75 +52,23 @@ export const createFileMap = async () => {
   >()
   const encoder = new TextEncoder()
 
-  // build CSS bundle
-  {
-    const CSS_BUNDLE_NAME = '_all.css'
-
-    const cssFiles = await Promise.all(
-      [
-        'article.css',
-        'base.css',
-        'utils.css',
-        'variables.css',
-        'fragments/bio.css',
-        'fragments/home-link.css',
-        'fragments/icons.css',
-        'fragments/post-preview.css',
-        'fragments/prism.css',
-        'pages/about.css',
-        'pages/index.css',
-      ].map(async (file) => {
-        if (file !== CSS_BUNDLE_NAME) {
-          const fullPath = resolve(`./static/css`, file)
-          return await Deno.readTextFile(fullPath)
-        } else {
-          return ''
-        }
-      }),
-    )
-
-    const allCSS = new CleanCSS().minify(
-      cssFiles.reduce((all, file) => all + '\n' + file, ''),
-    ).styles
-    const allCSSArray = encoder.encode(allCSS)
-
-    fileMap.set('/css/' + CSS_BUNDLE_NAME, {
-      content: allCSSArray,
-      headers: {
-        'Content-Type': CONTENT_TYPES.css,
-        'Cache-Control': `max-age=${ONE_HOUR_S}`,
+  // build CSS bundles
+  for (
+    const { bundleName, dir, skipRedesign } of [
+      { bundleName: '_all.css', dir: './static/css', skipRedesign: true },
+      {
+        bundleName: '_all_redesign.css',
+        dir: './static/css/redesign',
+        skipRedesign: false,
       },
-    })
-  }
-
-  // build redesign CSS bundle
-  {
-    const CSS_BUNDLE_NAME = '_all_redesign.css'
-
-    const cssFiles = await Promise.all(
-      [
-        'core.css',
-        'article.css',
-        'fonts.css',
-        'nav.css',
-        'index.css',
-      ].map(async (file) => {
-        if (file !== CSS_BUNDLE_NAME) {
-          const fullPath = resolve(`./static/css/redesign`, file)
-          return await Deno.readTextFile(fullPath)
-        } else {
-          return ''
-        }
-      }),
-    )
-
+    ]
+  ) {
     const allCSS = new CleanCSS().minify(
-      cssFiles.reduce((all, file) => all + '\n' + file, ''),
+      await bundleCSS(dir, skipRedesign),
     ).styles
-    const allCSSArray = encoder.encode(allCSS)
 
-    fileMap.set('/css/' + CSS_BUNDLE_NAME, {
-      content: allCSSArray,
+    fileMap.set('/css/' + bundleName, {
+      content: encoder.encode(allCSS),
       headers: {
         'Content-Type': CONTENT_TYPES.css,
         'Cache-Control': `max-age=${ONE_HOUR_S}`,
