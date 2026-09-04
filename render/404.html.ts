@@ -2,10 +2,11 @@ import { html } from '../utils/misc.ts'
 import head from './fragments/head.ts'
 import homeLink from './fragments/home-link.ts'
 import footer from './fragments/footer.ts'
+import { SimplePageProps } from '../loadBlogPosts.ts'
 
-export default () =>
-  // deno-fmt-ignore
-  html`
+export default (_props: SimplePageProps) =>
+    // deno-fmt-ignore
+    html`
         <!DOCTYPE html>
         <html lang="en">
         

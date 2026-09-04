@@ -1,28 +1,64 @@
-import { extname, resolve } from '@std/path'
+import { basename, dirname, extname, join, relative } from '@std/path'
 import { walk } from '@std/fs/walk'
 
 import loadBlogPosts from './loadBlogPosts.ts'
 
 // pages
-import fourOhFour from './render/404.html.ts'
-import about from './render/about.html.ts'
-import contact from './render/contact.html.ts'
 import index from './render/index.html.ts'
 import feed from './render/feed.xml.ts'
 import blogPost from './render/blog-post.html.ts'
 import blogPostRedesign from './render/redesign/blog-post.html.ts'
 import CleanCSS from 'clean-css'
 import { ONE_HOUR, ONE_MINUTE } from './utils/misc.ts'
-import indexRedesign from './render/redesign/index.html.ts'
+import type { SimplePageProps } from './loadBlogPosts.ts'
 
-const SIMPLE_PAGES = {
-  '404': fourOhFour,
-  'about': about,
-  'contact': contact,
-  'index': index,
-  'redesign/index': indexRedesign,
-  'feed.xml': feed,
-} as const
+type SimplePage = (props: SimplePageProps) => string
+
+/**
+ * Find every page module under render/ and import it. A page's URL is its path
+ * relative to render/, minus the `.ts`; `index.html` additionally serves at its
+ * containing directory (so `render/redesign/index.html.ts` -> `/redesign`).
+ */
+const loadSimplePages = async () => {
+  const pages: {
+    urls: string[]
+    render: SimplePage
+    contentType: string
+  }[] = []
+
+  for await (
+    const file of walk('render', {
+      exts: ['.html.ts', '.xml.ts'],
+      includeDirs: false,
+    })
+  ) {
+    if (file.name !== 'blog-post.html.ts') {
+      // 'render/redesign/index.html.ts' -> 'redesign/index.html'
+      const path = relative('render', file.path).replace(/\.ts$/, '')
+      const module = await import(`./${file.path}`)
+      const render: SimplePage = module.default
+
+      // 'redesign/index.html' -> 'redesign/index'; 'feed.xml' stays as-is
+      const urls = new Set([
+        '/' + path,
+        '/' + path.replace(/\.html$/, ''),
+      ])
+
+      // index pages also answer for their directory: 'redesign/index' -> '/redesign'
+      if (path.endsWith('index.html')) {
+        urls.add('/' + (dirname(path) === '.' ? '' : dirname(path)))
+      }
+
+      const contentType = path.endsWith('.xml')
+        ? CONTENT_TYPES.xml
+        : CONTENT_TYPES.html
+
+      pages.push({ urls: [...urls], render, contentType })
+    }
+  }
+
+  return pages
+}
 
 const ONE_MINUTE_S = ONE_MINUTE / 1000
 const ONE_HOUR_S = ONE_HOUR / 1000
@@ -102,36 +138,24 @@ export const createFileMap = async () => {
     .filter((el, index, arr) => arr.indexOf(el) === index)
 
   // generate plain pages
-  for (const [pageName, render] of Object.entries(SIMPLE_PAGES)) {
+  for (const { urls, render, contentType } of await loadSimplePages()) {
     const fileEntry = {
-      content: encoder.encode(
-        render({ allTags, posts, currentPost: undefined, allPosts: posts }),
-      ),
+      content: encoder.encode(render({ allTags, allPosts: posts })),
       headers: {
-        'Content-Type': CONTENT_TYPES.html,
+        'Content-Type': contentType,
         'Cache-Control': `max-age=${ONE_MINUTE_S}`,
       },
     }
 
-    fileMap.set(`/${pageName}`, fileEntry)
-    fileMap.set(`/${pageName}.html`, fileEntry)
-
-    if (pageName.endsWith('index')) {
-      fileMap.set(
-        `/` +
-          pageName.substring(0, pageName.length - 'index'.length).replace(
-            '/',
-            '',
-          ), // HACK
-        fileEntry,
-      )
+    for (const url of urls) {
+      fileMap.set(url, fileEntry)
     }
   }
 
   // generate tags pages
   for (const tag of allTags) {
     const file = {
-      content: encoder.encode(index({ allTags, posts, tag })),
+      content: encoder.encode(index({ allTags, allPosts: posts, tag })),
       headers: {
         'Content-Type': CONTENT_TYPES.html,
         'Cache-Control': `max-age=${ONE_MINUTE_S}`,

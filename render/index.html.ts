@@ -5,15 +5,11 @@ import footer from './fragments/footer.ts'
 import bio from './fragments/bio.ts'
 import postPreview from './fragments/post-preview.ts'
 
-import { ExternalPost, LocalPost, Post } from '../loadBlogPosts.ts'
+import { ExternalPost, Post, SimplePageProps } from '../loadBlogPosts.ts'
 import externalPosts from '../blog/external.json' with { type: 'json' }
 
 export default (
-    { allTags, posts, tag }: {
-        allTags: string[]
-        posts: LocalPost[]
-        tag?: string
-    },
+    { allTags, allPosts, tag }: SimplePageProps,
 ) => // deno-fmt-ignore
 html`
     <!DOCTYPE html>
@@ -60,7 +56,7 @@ html`
                 <hr>
 
                 <ul class="post-list">
-                    ${(posts as Post[])
+                    ${(allPosts as Post[])
                         .concat(externalPosts as ExternalPost[])
                         .filter(p => !p.meta.test) // filter out test-only posts
                         .filter(p => tag == null || p.meta.tags.includes(tag))

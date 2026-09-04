@@ -1,4 +1,4 @@
-import { LocalPost } from '../loadBlogPosts.ts'
+import { SimplePageProps } from '../loadBlogPosts.ts'
 import {
     BASE_URL,
     DEFAULT_DESCRIPTION,
@@ -6,7 +6,7 @@ import {
 } from '../utils/constants.ts'
 import { getFirstParagraph } from '../utils/misc.ts'
 
-export default ({ posts }: { posts: readonly LocalPost[] }) =>
+export default ({ allPosts }: SimplePageProps) =>
     // deno-fmt-ignore
     `
     <?xml version="1.0" encoding="utf-8"?>
@@ -17,7 +17,7 @@ export default ({ posts }: { posts: readonly LocalPost[] }) =>
             <link>${BASE_URL}</link>
             <atom:link href="${BASE_URL + '/feed.xml'}" rel="self" type="application/rss+xml" />
 
-            ${posts
+            ${allPosts
                 .filter(p => !p.meta.test) // filter out test-only posts
                 .toSorted((a, b) => new Date(b.meta.date).valueOf() - new Date(a.meta.date).valueOf())
                 .map(post => `
