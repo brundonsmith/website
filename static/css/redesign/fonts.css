@@ -12,7 +12,7 @@
     font-size: 18px;
 }
 
-.im-fell-english-sc-regular, nav .section-heading {
+.im-fell-english-sc-regular, nav .section-heading, th {
     font-family: "IM Fell English SC", serif;
     font-weight: 400;
     font-style: normal;
@@ -40,7 +40,7 @@
     font-size: 28px;
 }
 
-.im-fell-dw-pica-regular, p, li, nav a {
+.im-fell-dw-pica-regular, p, li, nav>a {
     font-family: "IM Fell DW Pica", serif;
     font-weight: 400;
     font-style: normal;
@@ -103,7 +103,7 @@
     font-size: 52px;
 }
 
-.courier-prime-regular, pre {
+.courier-prime-regular, pre, tbody {
     font-family: "Courier Prime", monospace;
     font-weight: 400;
     font-style: normal;

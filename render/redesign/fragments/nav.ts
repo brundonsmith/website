@@ -2,14 +2,20 @@ import { LocalPost } from '../../../loadBlogPosts.ts'
 import { html } from '../../../utils/misc.ts'
 
 export default (
-    { post, posts }: { post: LocalPost; posts: readonly LocalPost[] },
+    { currentPost, allPosts, className }: {
+        currentPost: LocalPost | undefined
+        allPosts: readonly LocalPost[]
+        className?: string
+    },
 ) => // deno-fmt-ignore
 html`
-        <nav>
+        <nav class="${className}">
             <div class="im-fell-double-pica-sc-regular" style="margin-top: 0.75em">
-                Brandon Smith
+                <a href="/redesign">
+                    Brandon Smith
+                </a>
             </div>
-            <a href="#">Home</a>
+            <a href="/redesign">Home</a>
             <a href="#">About me</a>
             <a href="#">Talks</a>
             <a href="#">Photos</a>
@@ -23,13 +29,13 @@ html`
             <hr size="1" />
             <div class="section-heading">writing</div>
 
-            ${posts
+            ${allPosts
                 .toSorted((a, b) => new Date(b.meta.date).valueOf() - new Date(a.meta.date).valueOf())
                 .map(({ slug, meta }) => html`
-                    <a href="/redesign/blog/${slug}" style="${slug === post.slug ? 'font-style: italic' : ''}">
+                    <a href="/redesign/blog/${slug}" style="${slug === currentPost?.slug ? 'font-style: italic' : ''}">
                         <span>${meta.title}</span>
                         <span class="leader"></span>
-                        <span>${meta.date}</span>
+                        <span class="date">${meta.date}</span>
                     </a>
                 `)}
         </nav>

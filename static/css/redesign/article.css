@@ -1,53 +1,21 @@
-html {
-    background: #FBF8F3;
-}
-
-:root {
-    --ink: #1a1512;
-    --rule: color-mix(in srgb, var(--ink) 35%, transparent);
-    --accent: hsl(220, 40%, 30%);
-}
-
-* {
-    box-sizing: border-box;
-}
-
-/* ----------------------------------------------------------------- */
-
-body {
-    margin: 0;
-    display: flex;
-    flex-direction: row;
-    color: var(--ink);
-}
-
 article {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    animation: fade-in 0.3s ease-out;
-}
-
-@keyframes fade-in {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
+    padding-top: var(--main-padding);
+    padding-bottom: var(--main-padding);
 }
 
 article>* {
     margin: 0;
-    margin-left: 90px;
-    margin-right: 50px;
-    width: calc(min(100vw - 100px, 600px));
+    margin-left: calc(40px + var(--main-padding));
+    margin-right: var(--main-padding);
+    width: calc(min(var(--avail), 600px));
 }
 
 h1 {
     margin-bottom: 1.75rem;
     line-height: 1.15;
     text-align: center;
+    /* Long titles must wrap rather than push the page wide on narrow screens. */
+    overflow-wrap: break-word;
 }
 
 h2 {
@@ -96,7 +64,7 @@ ul, ol {
     margin-top: 0.5rem;
     margin-bottom: 1.55rem;
     list-style: none;
-    padding-left: 3.75em;
+    padding-left: var(--main-padding);
     line-height: 1.45;
 }
 
@@ -162,7 +130,86 @@ pre {
     overflow-x: auto;
 }
 
-img {
+/* Tables, like <pre>, hold wide content that must scroll rather than widen
+   the page. Same sizing contract: content-sized, floored at the text column,
+   never wider than what's available. */
+table {
+    display: block;
+    overflow-x: auto;
+    border-collapse: collapse;
+}
+
+pre, table {
+    /* Unlike other blocks, code is not capped at 600px: it sizes to its
+       content, floored at the text-column width and clamped to --avail so it
+       never pushes the page wider than the viewport. */
+    width: max-content;
+    min-width: calc(min(var(--avail), 600px));
+    max-width: var(--avail);
+}
+
+figure.table {
+    counter-increment: table;
+    margin: 1.55rem 0;
+}
+
+figure.table figcaption::before {
+    content: "Table " counter(table) ". — ";
+    font-family: "IM Fell English SC", serif;
+    letter-spacing: 0.06em;
+}
+
+table {
+    border-collapse: collapse;
+    width: fit-content;
+    line-height: 1.4;
+    margin-top: 1.55rem;
+    margin-bottom: 1.55rem;
+}
+
+table thead th {
+    letter-spacing: 0.06em;
+}
+
+thead {
+    border-bottom: 1px solid var(--rule);
+}
+
+table {
+    border-top: 1.5px solid var(--ink);
+    border-bottom: 1.5px solid var(--ink);
+}
+
+th, td {
+    padding: 0.35em 1.2em 0.35em 0;
+    vertical-align: baseline;
+}
+
+tr>*:last-child {
+    padding-right: 0;
+}
+
+td.num, th.num {
+    font-family: "Courier Prime", monospace;
+    font-size: 0.94em;
+    text-align: right;
+}
+
+article {
+    counter-reset: figure;
+}
+
+figure {
+    counter-increment: figure;
+}
+
+figcaption::before {
+    content: "Fig. " counter(figure) ". — ";
+    font-family: "IM Fell English SC", serif;
+    letter-spacing: 0.06em;
+}
+
+article img {
     display: block;
     margin-top: 1.55rem;
     margin-bottom: 1.55rem;
@@ -185,7 +232,7 @@ p>code {
     color: rgba(0, 0, 0, 0.55);
 }
 
-a {
+article a {
     color: var(--accent);
 }
 
@@ -204,11 +251,15 @@ abbr {
 }
 
 @media (max-width: 1210px) {
-    nav {
-        display: none;
+    :root {
+        --main-padding: 40px;
+    }
+
+    article {
+        padding-top: calc(var(--main-padding) / 2);
     }
 
     article>* {
-        margin-left: 50px;
+        margin-left: var(--main-padding);
     }
 }

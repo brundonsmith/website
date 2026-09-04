@@ -13,12 +13,14 @@ import blogPost from './render/blog-post.html.ts'
 import blogPostRedesign from './render/redesign/blog-post.html.ts'
 import CleanCSS from 'clean-css'
 import { ONE_HOUR, ONE_MINUTE } from './utils/misc.ts'
+import indexRedesign from './render/redesign/index.html.ts'
 
 const SIMPLE_PAGES = {
   '404': fourOhFour,
   'about': about,
   'contact': contact,
   'index': index,
+  'redesign/index': indexRedesign,
   'feed.xml': feed,
 } as const
 
@@ -79,9 +81,11 @@ export const createFileMap = async () => {
 
     const cssFiles = await Promise.all(
       [
+        'core.css',
         'article.css',
         'fonts.css',
         'nav.css',
+        'index.css',
       ].map(async (file) => {
         if (file !== CSS_BUNDLE_NAME) {
           const fullPath = resolve(`./static/css/redesign`, file)
@@ -134,7 +138,9 @@ export const createFileMap = async () => {
   // generate plain pages
   for (const [pageName, render] of Object.entries(SIMPLE_PAGES)) {
     const fileEntry = {
-      content: encoder.encode(render({ allTags, posts })),
+      content: encoder.encode(
+        render({ allTags, posts, currentPost: undefined, allPosts: posts }),
+      ),
       headers: {
         'Content-Type': CONTENT_TYPES.html,
         'Cache-Control': `max-age=${ONE_MINUTE_S}`,
@@ -144,8 +150,15 @@ export const createFileMap = async () => {
     fileMap.set(`/${pageName}`, fileEntry)
     fileMap.set(`/${pageName}.html`, fileEntry)
 
-    if (pageName === 'index') {
-      fileMap.set(`/`, fileEntry)
+    if (pageName.endsWith('index')) {
+      fileMap.set(
+        `/` +
+          pageName.substring(0, pageName.length - 'index'.length).replace(
+            '/',
+            '',
+          ), // HACK
+        fileEntry,
+      )
     }
   }
 
@@ -180,7 +193,7 @@ export const createFileMap = async () => {
 
     { // redesign blog post page
       const file = {
-        content: encoder.encode(blogPostRedesign({ post, posts })),
+        content: encoder.encode(blogPostRedesign({ post, allPosts: posts })),
         headers: {
           'Content-Type': CONTENT_TYPES.html,
           'Cache-Control': `max-age=${ONE_MINUTE_S}`,

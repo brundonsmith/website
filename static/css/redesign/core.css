@@ -1,0 +1,70 @@
+html {
+    background: #FBF8F3;
+}
+
+:root {
+    --ink: #1a1512;
+    --rule: color-mix(in srgb, var(--ink) 35%, transparent);
+    --accent: hsl(220, 40%, 30%);
+
+    --main-padding: 50px;
+
+    /* Horizontal space available to article content. Measured from the
+       article's own inline size (via container query units) rather than the
+       viewport, so it excludes both the nav and the scrollbar. */
+    --avail: calc(100cqi - 2 * var(--main-padding));
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    color: var(--ink);
+    width: 100vw;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    mix-blend-mode: multiply;
+    /* filter: grayscale(1) contrast(1.06); */
+}
+
+body>.main-content {
+    /* Flex items default to min-width:auto, which lets a wide <pre> push the
+       page out. 0 lets this shrink so the column query below is the real
+       available width. */
+    min-width: 0;
+    flex: 1 1 auto;
+    container-type: inline-size;
+    animation: fade-in 0.3s ease-out;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (min-width: 1211px) {
+    .mobile-only {
+        display: none;
+    }
+}
+
+@media (max-width: 1210px) {
+    .desktop-only {
+        display: none;
+    }
+}
