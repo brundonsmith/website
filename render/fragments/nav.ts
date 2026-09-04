@@ -1,5 +1,5 @@
-import { LocalPost } from '../../../loadBlogPosts.ts'
-import { html } from '../../../utils/misc.ts'
+import { LocalPost } from '../../loadBlogPosts.ts'
+import { html } from '../../utils/misc.ts'
 
 export default (
     { currentPost, allPosts, className }: {

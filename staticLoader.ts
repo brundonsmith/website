@@ -1,13 +1,11 @@
-import { basename, dirname, extname, join, relative } from '@std/path'
+import { dirname, extname, relative } from '@std/path'
 import { walk } from '@std/fs/walk'
 
 import loadBlogPosts from './loadBlogPosts.ts'
 
 // pages
 import index from './render/index.html.ts'
-import feed from './render/feed.xml.ts'
-import blogPost from './render/blog-post.html.ts'
-import blogPostRedesign from './render/redesign/blog-post.html.ts'
+import blogPost from './render/blog-post.ts'
 import CleanCSS from 'clean-css'
 import { ONE_HOUR, ONE_MINUTE } from './utils/misc.ts'
 import type { SimplePageProps } from './loadBlogPosts.ts'
@@ -17,7 +15,7 @@ type SimplePage = (props: SimplePageProps) => string
 /**
  * Find every page module under render/ and import it. A page's URL is its path
  * relative to render/, minus the `.ts`; `index.html` additionally serves at its
- * containing directory (so `render/redesign/index.html.ts` -> `/redesign`).
+ * containing directory.
  */
 const loadSimplePages = async () => {
   const pages: {
@@ -32,29 +30,24 @@ const loadSimplePages = async () => {
       includeDirs: false,
     })
   ) {
-    if (file.name !== 'blog-post.html.ts') {
-      // 'render/redesign/index.html.ts' -> 'redesign/index.html'
-      const path = relative('render', file.path).replace(/\.ts$/, '')
-      const module = await import(`./${file.path}`)
-      const render: SimplePage = module.default
+    const path = relative('render', file.path).replace(/\.ts$/, '')
+    const module = await import(`./${file.path}`)
+    const render: SimplePage = module.default
 
-      // 'redesign/index.html' -> 'redesign/index'; 'feed.xml' stays as-is
-      const urls = new Set([
-        '/' + path,
-        '/' + path.replace(/\.html$/, ''),
-      ])
+    const urls = new Set([
+      '/' + path,
+      '/' + path.replace(/\.html$/, ''),
+    ])
 
-      // index pages also answer for their directory: 'redesign/index' -> '/redesign'
-      if (path.endsWith('index.html')) {
-        urls.add('/' + (dirname(path) === '.' ? '' : dirname(path)))
-      }
-
-      const contentType = path.endsWith('.xml')
-        ? CONTENT_TYPES.xml
-        : CONTENT_TYPES.html
-
-      pages.push({ urls: [...urls], render, contentType })
+    if (path.endsWith('index.html')) {
+      urls.add('/' + (dirname(path) === '.' ? '' : dirname(path)))
     }
+
+    const contentType = path.endsWith('.xml')
+      ? CONTENT_TYPES.xml
+      : CONTENT_TYPES.html
+
+    pages.push({ urls: [...urls], render, contentType })
   }
 
   return pages
@@ -64,14 +57,10 @@ const ONE_MINUTE_S = ONE_MINUTE / 1000
 const ONE_HOUR_S = ONE_HOUR / 1000
 
 /** Recursively collect and concatenate every .css file under `dir`. */
-const bundleCSS = async (dir: string, skipRedesign: boolean) => {
+const bundleCSS = async (dir: string) => {
   const paths: string[] = []
 
   for await (const file of walk(dir, { exts: ['.css'], includeDirs: false })) {
-    // the redesign has its own bundle; don't fold it into the main one
-    if (skipRedesign && file.path.includes('/redesign/')) {
-      continue
-    }
     paths.push(file.path)
   }
 
@@ -89,28 +78,19 @@ export const createFileMap = async () => {
   const encoder = new TextEncoder()
 
   // build CSS bundles
-  for (
-    const { bundleName, dir, skipRedesign } of [
-      { bundleName: '_all.css', dir: './static/css', skipRedesign: true },
-      {
-        bundleName: '_all_redesign.css',
-        dir: './static/css/redesign',
-        skipRedesign: false,
-      },
-    ]
-  ) {
-    const allCSS = new CleanCSS().minify(
-      await bundleCSS(dir, skipRedesign),
-    ).styles
+  const bundleName = '_all.css'
+  const dir = './static/css'
+  const allCSS = new CleanCSS().minify(
+    await bundleCSS(dir),
+  ).styles
 
-    fileMap.set('/css/' + bundleName, {
-      content: encoder.encode(allCSS),
-      headers: {
-        'Content-Type': CONTENT_TYPES.css,
-        'Cache-Control': `max-age=${ONE_HOUR_S}`,
-      },
-    })
-  }
+  fileMap.set('/css/' + bundleName, {
+    content: encoder.encode(allCSS),
+    headers: {
+      'Content-Type': CONTENT_TYPES.css,
+      'Cache-Control': `max-age=${ONE_HOUR_S}`,
+    },
+  })
 
   // other static content
   for await (const file of walk('static')) {
@@ -168,31 +148,16 @@ export const createFileMap = async () => {
 
   // generate blog post pages
   for (const post of posts) {
-    { // legacy blog post page
-      const file = {
-        content: encoder.encode(blogPost({ post })),
-        headers: {
-          'Content-Type': CONTENT_TYPES.html,
-          'Cache-Control': `max-age=${ONE_MINUTE_S}`,
-        },
-      }
-
-      fileMap.set(`/blog/${post.slug}`, file)
-      fileMap.set(`/blog/${post.slug}.html`, file)
+    const file = {
+      content: encoder.encode(blogPost({ post, allPosts: posts })),
+      headers: {
+        'Content-Type': CONTENT_TYPES.html,
+        'Cache-Control': `max-age=${ONE_MINUTE_S}`,
+      },
     }
 
-    { // redesign blog post page
-      const file = {
-        content: encoder.encode(blogPostRedesign({ post, allPosts: posts })),
-        headers: {
-          'Content-Type': CONTENT_TYPES.html,
-          'Cache-Control': `max-age=${ONE_MINUTE_S}`,
-        },
-      }
-
-      fileMap.set(`/redesign/blog/${post.slug}`, file)
-      fileMap.set(`/redesign/blog/${post.slug}.html`, file)
-    }
+    fileMap.set(`/redesign/blog/${post.slug}`, file)
+    fileMap.set(`/redesign/blog/${post.slug}.html`, file)
   }
 
   return fileMap

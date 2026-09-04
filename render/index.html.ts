@@ -1,76 +1,21 @@
-import { capitalize, html } from '../utils/misc.ts'
-
-import head from './fragments/head.ts'
-import footer from './fragments/footer.ts'
-import bio from './fragments/bio.ts'
-import postPreview from './fragments/post-preview.ts'
-
-import { ExternalPost, Post, SimplePageProps } from '../loadBlogPosts.ts'
-import externalPosts from '../blog/external.json' with { type: 'json' }
+import { SimplePageProps } from '../loadBlogPosts.ts'
+import { html } from '../utils/misc.ts'
+import layout from './fragments/layout.ts'
+import nav from './fragments/nav.ts'
 
 export default (
-    { allTags, allPosts, tag }: SimplePageProps,
-) => // deno-fmt-ignore
-html`
-    <!DOCTYPE html>
-    <html lang="en">
+  { currentPost, allPosts }: SimplePageProps,
+) =>
+  layout({
+    currentPost,
+    allPosts,
+    content:
+      // deno-fmt-disable
+      html`
+            <div class="home" >
+                <img src="/img/me-2.jpeg" width="200" height="200" />
 
-        ${head({ title: 'Blog' })}
-
-        <body>
-
-            ${bio()}
-            
-            <main class="main">
-                <div class="tags-container">
-                    <span class="tags-label">Tags:</span>
-                    <ul class="tags">
-                        <li>
-                            <a ${tag == null 
-                                    ? '' 
-                                    : 'href="/"'}>
-                                All
-                            </a>
-
-                            &nbsp;|&nbsp;
-                        </li>
-                        
-                        ${allTags
-                            .map((t, i) => html`
-                                <li>
-                                    <a ${t === tag 
-                                            ? '' 
-                                            : `href="/tags/${t}.html"`}>
-                                        ${capitalize(t)}
-                                    </a>
-                                    
-                                    ${i < allTags.length - 1
-                                        ? html`&nbsp;|&nbsp;`
-                                        : ``}
-                                </li>
-                            `)
-                            .join('\n')}
-                    </ul>
-                </div>
-
-                <hr>
-
-                <ul class="post-list">
-                    ${(allPosts as Post[])
-                        .concat(externalPosts as ExternalPost[])
-                        .filter(p => !p.meta.test) // filter out test-only posts
-                        .filter(p => tag == null || p.meta.tags.includes(tag))
-                        .toSorted((a, b) => new Date(b.meta.date).valueOf() - new Date(a.meta.date).valueOf())
-                        .map(post => html`
-                            <li>
-                                ${postPreview(post)}
-                            </li>
-                        `)
-                        .join('\n')}
-                </ul>
-            </main>
-            
-            ${footer()}
-        </body>
-    </html>
-`
+                ${nav({ currentPost, allPosts, className: 'mobile-only' })}
+            </div>
+        `,
+  })

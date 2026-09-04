@@ -1,8 +1,7 @@
-import { LocalPost } from '../../../loadBlogPosts.ts'
-import { html } from '../../../utils/misc.ts'
-import footer from '../../fragments/footer.ts'
+import { LocalPost } from '../../loadBlogPosts.ts'
+import { html } from '../../utils/misc.ts'
+import footer from '../fragments/footer.ts'
 import head from './head.ts'
-import mobileHeading from './mobile-heading.ts'
 import nav from './nav.ts'
 
 export default (

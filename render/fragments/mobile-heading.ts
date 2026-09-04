@@ -1,4 +1,4 @@
-import { html } from '../../../utils/misc.ts'
+import { html } from '../../utils/misc.ts'
 
 export default () =>
     // deno-fmt-disable

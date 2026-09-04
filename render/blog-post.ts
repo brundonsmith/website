@@ -1,6 +1,5 @@
-import { LocalPost } from '../../loadBlogPosts.ts'
-import { html } from '../../utils/misc.ts'
-import author from '../fragments/author.ts'
+import { LocalPost } from '../loadBlogPosts.ts'
+import { html } from '../utils/misc.ts'
 import layout from './fragments/layout.ts'
 import mobileHeading from './fragments/mobile-heading.ts'
 
@@ -16,7 +15,7 @@ export default (
                 
             <article class="main" itemProp="articleBody">
                 <span style="display:none" itemProp="wordCount">${post.wordCount}</span>
-                ${author()}
+                <span style="display:none" itemProp="author">Brandon Smith</span>
 
                 <h1 class="blog-heading">
                     <span itemProp="headline">
