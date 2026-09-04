@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     padding: var(--main-padding);
-    max-width: calc(600px + var(--main-padding) * 2);
+    max-width: calc(var(--main-content-width) + var(--main-padding) * 2);
 }
 
 .home img {

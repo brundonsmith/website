@@ -18,7 +18,7 @@ html`
         ${head({ title: 'About me' })}
         
         <body>
-            <div class="desktop-only" style="padding: var(--main-padding); padding-right: 0px">
+            <div class="sidebar desktop-only" style="">
                 ${nav({ currentPost, allPosts })}
             </div>
 

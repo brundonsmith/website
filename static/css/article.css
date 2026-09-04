@@ -5,9 +5,9 @@ article {
 
 article>* {
     margin: 0;
-    margin-left: calc(40px + var(--main-padding));
+    margin-left: var(--main-padding);
     margin-right: var(--main-padding);
-    width: calc(min(var(--avail), 600px));
+    width: calc(min(var(--avail), var(--main-content-width)));
 }
 
 h1 {
@@ -144,7 +144,7 @@ pre, table {
        content, floored at the text-column width and clamped to --avail so it
        never pushes the page wider than the viewport. */
     width: max-content;
-    min-width: calc(min(var(--avail), 600px));
+    min-width: calc(min(var(--avail), var(--main-content-width)));
     max-width: var(--avail);
 }
 

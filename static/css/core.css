@@ -7,7 +7,8 @@ html {
     --rule: color-mix(in srgb, var(--ink) 35%, transparent);
     --accent: hsl(220, 40%, 30%);
 
-    --main-padding: 50px;
+    --main-padding: 60px;
+    --main-content-width: 600px;
 
     /* Horizontal space available to article content. Measured from the
        article's own inline size (via container query units) rather than the

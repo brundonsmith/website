@@ -1,10 +1,5 @@
 nav {
-    width: 500px;
-    max-width: 100%;
-    flex-grow: 0;
-    flex-shrink: 0;
-    position: sticky;
-    top: 0;
+    padding-top: 0.75em
 }
 
 nav>a {
