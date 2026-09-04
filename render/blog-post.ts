@@ -1,17 +1,18 @@
 import { LocalPost } from '../loadBlogPosts.ts'
 import { html } from '../utils/misc.ts'
 import layout from './fragments/layout.ts'
-import mobileHeading from './fragments/mobile-heading.ts'
+import masthead from './fragments/masthead.ts'
+import writing from './fragments/writing.ts'
 
 export default (
     { post, allPosts }: { post: LocalPost; allPosts: readonly LocalPost[] },
 ) => layout({
     currentPost: post,
-    allPosts: allPosts,
+    allPosts,
     content:
         // deno-fmt-ignore
         html`
-            ${mobileHeading()}
+            ${masthead()}
                 
             <article class="main" itemProp="articleBody">
                 <span style="display:none" itemProp="wordCount">${post.wordCount}</span>
@@ -34,5 +35,12 @@ export default (
 
                 <script>window.postName = '${post.slug}'</script>
             </article>
+
+            <div className="tablet-or-mobile-only" style="max-width: var(--main-content-width); margin: 0 var(--main-padding); padding-bottom: var(--main-padding)">
+                <hr />
+                <h2 style="margin-top: var(--main-padding)">More thoughts</h2>
+
+                ${writing({ currentPost: post, allPosts })}
+            </div>
         `,
 })

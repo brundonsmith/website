@@ -1,0 +1,18 @@
+.writing a {
+    display: flex;
+}
+
+.writing a>span {
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.writing .leader {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 10px;
+    background-image: radial-gradient(circle at 50% 70%, var(--ink) 0.055em, transparent 0.06em);
+    background-size: 0.25em 100%;
+    /* 0.45em = dot pitch, tune this */
+    background-repeat: repeat-x;
+}

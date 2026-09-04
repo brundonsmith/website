@@ -1,6 +1,5 @@
 .sidebar {
-    width: 550px;
-    max-width: 100%;
+    max-width: 550px;
     padding: var(--main-padding);
 
     flex-grow: 0;
@@ -10,4 +9,10 @@
 .sidebar>nav {
     position: sticky;
     top: var(--main-padding);
+}
+
+@media (max-width: 1210px) {
+    .sidebar {
+        padding-right: 0;
+    }
 }

@@ -2,27 +2,11 @@ nav {
     padding-top: 0.75em
 }
 
-nav>a {
+nav a {
     display: flex;
 }
 
-nav>a>span {
+nav a>span {
     flex-grow: 0;
     flex-shrink: 0;
-}
-
-nav .leader {
-    flex-grow: 1;
-    flex-shrink: 1;
-    min-width: 10px;
-    background-image: radial-gradient(circle at 50% 70%, var(--ink) 0.055em, transparent 0.06em);
-    background-size: 0.25em 100%;
-    /* 0.45em = dot pitch, tune this */
-    background-repeat: repeat-x;
-}
-
-@media (max-width: 1210px) {
-    nav .leader, nav .date {
-        display: none;
-    }
 }

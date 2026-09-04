@@ -13,7 +13,7 @@ export default (
       // deno-fmt-disable
       html`
             <div class="home" >
-                <img src="/img/me-2.jpeg" width="200" height="200" />
+                <img src="/img/me-3.jpeg" width="200" height="200" />
 
                 ${nav({ currentPost, allPosts, className: 'mobile-only' })}
             </div>

@@ -113,10 +113,6 @@ li+li {
     margin-top: 0.25em;
 }
 
-hr {
-    color: var(--rule);
-}
-
 pre {
     margin-top: 1.55rem;
     /* 27.9px outside the rules */
@@ -250,12 +246,8 @@ abbr {
     text-transform: lowercase;
 }
 
-@media (max-width: 1210px) {
+@media (max-width: 800px) {
     article {
         padding-top: calc(var(--main-padding) / 2);
-    }
-
-    article>* {
-        margin-left: var(--main-padding);
     }
 }

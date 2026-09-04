@@ -1,5 +1,6 @@
 import { LocalPost } from '../../loadBlogPosts.ts'
 import { html } from '../../utils/misc.ts'
+import writing from './writing.ts'
 
 export default (
     { currentPost, allPosts, className }: {
@@ -10,13 +11,10 @@ export default (
 ) => // deno-fmt-ignore
 html`
     <nav class="${className}">
-        <div class="im-fell-double-pica-sc-regular">
-            <a href="/">
-                Brandon Smith
-            </a>
-        </div>
-        <a href="/">Home</a>
-        <a href="#">About me</a>
+        <a class="im-fell-double-pica-sc-regular" href="/">
+            Brandon Smith
+        </a>
+        <a href="/">About me</a>
         <a href="#">Talks</a>
         <a href="#">Photos</a>
 
@@ -25,18 +23,11 @@ html`
 
         <a href="#">Contracting</a>
         <a style="color: var(--accent)" href="#">Get in touch</a>
-
-        <hr size="1" />
-        <div class="section-heading">writing</div>
-
-        ${allPosts
-            .toSorted((a, b) => new Date(b.meta.date).valueOf() - new Date(a.meta.date).valueOf())
-            .map(({ slug, meta }) => html`
-                <a href="/blog/${slug}" style="${slug === currentPost?.slug ? 'font-style: italic' : ''}">
-                    <span>${meta.title}</span>
-                    <span class="leader"></span>
-                    <span class="date">${meta.date}</span>
-                </a>
-            `)}
+        
+        <div class="desktop-only">
+            <hr size="1" />
+            <div class="section-heading">writing</div>
+        </div>
+        ${writing({ currentPost, allPosts, className: 'desktop-only' })}
     </nav>
 `

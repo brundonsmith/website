@@ -18,7 +18,7 @@ html`
         ${head({ title: 'About me' })}
         
         <body>
-            <div class="sidebar desktop-only" style="">
+            <div class="sidebar desktop-or-tablet-only">
                 ${nav({ currentPost, allPosts })}
             </div>
 
