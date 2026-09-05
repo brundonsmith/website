@@ -1,3 +1,5 @@
+import { markdownRenderer } from '../loadBlogPosts.ts'
+
 /**
  * Template string tag that does almost nothing. Exists to trigger syntax
  * highlighting via the lit-html editor plugin.
@@ -18,6 +20,26 @@ export const html = (
     )
     .join('')
     .trim()
+
+export const md = (
+  segments: TemplateStringsArray,
+  ...inserts: Array<string[] | string | number | null | undefined>
+) =>
+  markdownRenderer.render(
+    segments
+      .map((s, i) =>
+        i < segments.length - 1
+          ? s + (inserts[i] == null
+            ? '' // fallback to empty string so null/undefined don't appear in the markup
+            : Array.isArray(inserts[i])
+            ? inserts[i].join('\n')
+            : inserts[i])
+          : s
+      )
+      .join('')
+      .trim()
+      .replaceAll(/\n[\t ]+/gi, '\n'),
+  )
 
 export const log = <T>(val: T): T => {
   console.log(val)

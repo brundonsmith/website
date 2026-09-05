@@ -19,7 +19,12 @@ html`
         
         <body>
             <div class="sidebar desktop-or-tablet-only">
-                ${nav({ currentPost, allPosts })}
+                <a class="im-fell-double-pica-sc-regular" href="/">
+                    Brandon Smith
+                </a>
+                ${
+    nav({ currentPost, allPosts, writingClassName: 'desktop-only' })
+}
             </div>
 
             <div class="main-content">

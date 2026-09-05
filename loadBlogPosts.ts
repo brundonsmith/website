@@ -3,7 +3,7 @@ import anchor from 'markdown-it-anchor'
 import meta from 'markdown-it-meta'
 import prism from 'markdown-it-prism'
 
-const markdownRenderer = new MarkdownIt({
+export const markdownRenderer = new MarkdownIt({
   html: true,
 })
 markdownRenderer.use(anchor, {

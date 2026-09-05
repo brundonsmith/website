@@ -12,7 +12,7 @@
     font-size: 18px;
 }
 
-.im-fell-english-sc-regular, nav .section-heading, th {
+.im-fell-english-sc-regular, .section-heading, th {
     font-family: "IM Fell English SC", serif;
     font-weight: 400;
     font-style: normal;
@@ -26,7 +26,7 @@
     font-size: 28px;
 }
 
-.im-fell-double-pica-regular-italic {
+.im-fell-double-pica-regular-italic, .home .about {
     font-family: "IM Fell Double Pica", serif;
     font-weight: 400;
     font-style: italic;

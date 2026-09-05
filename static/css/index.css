@@ -10,10 +10,34 @@
     animation: colorize 1s ease-out 0.5s;
     animation-fill-mode: both;
 
-    margin: 50px 0;
+    /* margin: 50px 0 30px; */
     align-self: center;
     /* padding: 0.2rem;
     border: 1px solid var(--rule); */
+}
+
+.home .about {
+    text-align: center;
+    margin: 30px auto;
+}
+
+.home .about hr {
+    width: 50px;
+    margin: 8px auto;
+}
+
+.home p {
+    text-align: left;
+    hyphens: auto;
+    margin: 0;
+}
+
+.home p:first-of-type {
+    text-indent: 0;
+}
+
+.home p a {
+    color: var(--accent);
 }
 
 @keyframes colorize {
