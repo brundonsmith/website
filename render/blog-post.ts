@@ -1,19 +1,17 @@
 import { LocalPost } from '../loadBlogPosts.ts'
-import { html } from '../utils/misc.ts'
+import { formatDate, html } from '../utils/misc.ts'
 import layout from './fragments/layout.ts'
-import masthead from './fragments/masthead.ts'
 import writing from './fragments/writing.ts'
 
 export default (
     { post, allPosts }: { post: LocalPost; allPosts: readonly LocalPost[] },
 ) => layout({
+    title: post.meta.title,
     currentPost: post,
     allPosts,
     content:
         // deno-fmt-ignore
-        html`
-            ${masthead()}
-                
+        html`   
             <article class="main" itemProp="articleBody">
                 <span style="display:none" itemProp="wordCount">${post.wordCount}</span>
                 <span style="display:none" itemProp="author">Brandon Smith</span>
@@ -24,8 +22,8 @@ export default (
                     </span>
 
                     <!-- 
-                    <time datetime="${post.meta.date}" itemProp="datePublished">
-                        ${post.meta.date}
+                    <time datetime="${post.meta.date.toISOString()}" itemProp="datePublished">
+                        ${formatDate(post.meta.date)}
                     </time> -->
                 </h1>
             

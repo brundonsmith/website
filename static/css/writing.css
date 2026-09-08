@@ -16,3 +16,13 @@
     /* 0.45em = dot pitch, tune this */
     background-repeat: repeat-x;
 }
+
+@media (max-width: 460px) {
+    .writing .leader {
+        display: none;
+    }
+
+    .writing .date {
+        display: none;
+    }
+}

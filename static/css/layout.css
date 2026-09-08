@@ -4,15 +4,37 @@
 
     flex-grow: 0;
     flex-shrink: 0;
+
+    /* Flex items stretch to the full height of the line by default, which
+       would leave a sticky box no room to travel inside its parent. Sizing to
+       content is what makes the sticky below actually engage. */
+    align-self: flex-start;
+
+    position: sticky;
+    top: 0;
 }
 
-.sidebar>nav {
-    position: sticky;
-    top: var(--main-padding);
+nav {}
+
+nav a {
+    display: flex;
+}
+
+nav a>span {
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+@media (min-width: 701px) {
+
+    .main-content {
+        padding-top: var(--main-padding);
+    }
 }
 
 @media (max-width: 1210px) {
     .sidebar {
         padding-right: 0;
     }
+
 }

@@ -2,8 +2,14 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    padding: var(--main-padding);
     max-width: calc(var(--main-content-width) + var(--main-padding) * 2);
+    padding-left: var(--main-padding);
+    padding-right: var(--main-padding);
+    padding-bottom: var(--main-padding);
+}
+
+.home h1 {
+    margin: 0;
 }
 
 .home img {
@@ -14,6 +20,13 @@
     align-self: center;
     /* padding: 0.2rem;
     border: 1px solid var(--rule); */
+
+
+    margin-top: 1.55rem;
+    /* margin-bottom: 1.55rem; */
+    padding: 0.28rem;
+    /* /* border-top: 1px solid var(--rule); */
+    border: 1px solid var(--rule);
 }
 
 .home .about {

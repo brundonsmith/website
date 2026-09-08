@@ -37,13 +37,36 @@ const readBlogPostFile = (file: Deno.DirEntry) =>
  * metadata
  */
 const markdownToBlogPost = (slug: string, md: string): LocalPost => {
+  // `meta` is populated as a side effect of rendering, so it has to be read
+  // afterwards
+  const html = markdownRenderer.render(md).replaceAll(
+    / aria-hidden="true"/gi,
+    '',
+  )
+  const meta = markdownRenderer.meta
+
   return {
     kind: 'local',
-    html: markdownRenderer.render(md).replaceAll(/ aria-hidden="true"/gi, ''),
-    meta: markdownRenderer.meta,
+    html,
+    meta: { ...meta, date: parseDate(meta.date) },
     slug,
     wordCount: wordCount(md),
   }
+}
+
+/**
+ * Front matter dates are written like "January 4, 2024". `new Date()` would
+ * read that as local midnight, which lands on the previous day once formatted
+ * in any negative-UTC-offset zone, so anchor it to midnight UTC instead.
+ */
+const parseDate = (raw: string): Date => {
+  const date = new Date(`${raw} UTC`)
+
+  if (isNaN(date.valueOf())) {
+    throw Error(`Failed to parse date from blog post front matter: "${raw}"`)
+  }
+
+  return date
 }
 
 /**
@@ -75,7 +98,7 @@ export type LocalPost = {
   meta: {
     title: string
     description?: string
-    date: string
+    date: Date
     tags: readonly string[]
     test?: boolean
   }
@@ -87,7 +110,7 @@ export type ExternalPost = {
   kind: 'external'
   meta: {
     title: string
-    date: string
+    date: Date
     tags: readonly string[]
     href: string
     test?: boolean

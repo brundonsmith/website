@@ -2,10 +2,13 @@ import { LocalPost } from '../../loadBlogPosts.ts'
 import { html } from '../../utils/misc.ts'
 import footer from '../fragments/footer.ts'
 import head from './head.ts'
-import nav from './nav.ts'
+import masthead from './masthead.ts'
+import writing from './writing.ts'
 
 export default (
-    { currentPost, allPosts, content }: {
+    { title, description, currentPost, allPosts, content }: {
+        title?: string
+        description?: string
         currentPost: LocalPost | undefined
         allPosts: readonly LocalPost[]
         content: string
@@ -15,19 +18,36 @@ html`
         <!DOCTYPE html>
         <html lang="en">
         
-        ${head({ title: 'About me' })}
+        ${head({ title, description })}
         
         <body>
             <div class="sidebar desktop-or-tablet-only">
-                <a class="im-fell-double-pica-sc-regular" href="/">
+                <a href="/" class="im-fell-double-pica-sc-regular" style="display: block; padding-top: 0.75em">
                     Brandon Smith
                 </a>
-                ${
-    nav({ currentPost, allPosts, writingClassName: 'desktop-only' })
+
+                <nav>
+                    <a href="/">About me</a>
+                    <!-- <a href="#">Talks</a> -->
+                    <!-- <a href="#">Photos</a> -->
+                    <!-- <a href="#">Music I'm listening to</a> -->
+
+                    <a href="/services">Contracting services</a>
+                    <a href="mailto:mail@brandons.me" style="color: var(--accent)">Get in touch</a>
+                    
+                    <div class="desktop-only">
+                        <hr size="1" />
+                        <div class="section-heading">writing</div>
+                    </div>
+                    ${
+    writing({ currentPost, allPosts, className: 'desktop-only' })
 }
+                </nav>
             </div>
 
             <div class="main-content">
+                ${masthead()}
+
                 ${content}
             
                 ${footer()}

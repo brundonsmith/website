@@ -1,7 +1,4 @@
-article {
-    padding-top: var(--main-padding);
-    padding-bottom: var(--main-padding);
-}
+article {}
 
 article>* {
     margin: 0;
@@ -19,14 +16,14 @@ h1 {
 }
 
 h2 {
-    margin-top: 2.5rem;
-    line-height: 1.25;
+    margin-top: 1.5rem;
+    line-height: 1.55;
 }
 
 h3 {
-    line-height: 1.3;
+    line-height: 1.55;
     /* 27.9px — one body line exactly */
-    margin-top: 1.55rem;
+    margin-top: 1.25rem;
     /* 28px above — one body line */
 }
 
@@ -41,12 +38,11 @@ p {
     text-wrap: pretty;
 }
 
-@media (max-width: 40rem) {
+/* @media (max-width: 40rem) {
     article p {
         text-align: left;
-        hyphens: auto;
     }
-}
+} */
 
 
 h1+p, h2+p, h3+p {

@@ -63,3 +63,14 @@ export const ONE_HOUR = 60 * ONE_MINUTE
 export const ONE_DAY = 24 * ONE_HOUR
 export const ONE_MONTH = 30 * ONE_DAY
 export const ONE_YEAR = 365 * ONE_DAY
+
+/**
+ * Render a post date as MM/DD/YYYY. Read back in UTC, matching how the front
+ * matter dates are anchored, so the displayed day can't drift by timezone.
+ */
+export const formatDate = (date: Date) =>
+  [
+    String(date.getUTCMonth() + 1).padStart(2, '0'),
+    String(date.getUTCDate()).padStart(2, '0'),
+    date.getUTCFullYear(),
+  ].join('/')
