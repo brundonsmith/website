@@ -5,6 +5,7 @@
     max-width: calc(var(--main-content-width) + var(--main-padding) * 2);
     padding-left: var(--main-padding);
     padding-right: var(--main-padding);
+    padding-bottom: 2.5rem;
 }
 
 .home h1 {

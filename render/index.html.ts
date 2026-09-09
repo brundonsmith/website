@@ -4,11 +4,11 @@ import layout from './fragments/layout.ts'
 import writing from './fragments/writing.ts'
 
 export default (
-  { currentPost, allPosts }: SimplePageProps,
+  { url, allPosts }: SimplePageProps,
 ) =>
   layout({
+    url,
     title: 'Brandon Smith',
-    currentPost,
     allPosts,
     content:
       // deno-fmt-disable
@@ -42,11 +42,11 @@ export default (
                   spaces, and most recently, watercolor painting.
                 `}
 
-                <div class="tablet-or-mobile-only" style="margin-top: 40px">
+                <div class="tablet-or-mobile-only" style="margin-top: 1.5rem">
                     <div class="section-heading">writing</div>
                 </div>
                 ${
-        writing({ currentPost, allPosts, className: 'tablet-or-mobile-only' })
+        writing({ url, allPosts, className: 'tablet-or-mobile-only' })
       }
             </div>
         `,

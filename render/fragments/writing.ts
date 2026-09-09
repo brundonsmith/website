@@ -1,9 +1,9 @@
 import { LocalPost } from '../../loadBlogPosts.ts'
-import { formatDate, html } from '../../utils/misc.ts'
+import { formatDate, html, log } from '../../utils/misc.ts'
 
 export default (
-    { currentPost, allPosts, className }: {
-        currentPost: LocalPost | undefined
+    { url, allPosts, className }: {
+        url: string
         allPosts: readonly LocalPost[]
         className?: string
     },
@@ -13,7 +13,7 @@ html`
         ${allPosts
             .toSorted((a, b) => b.meta.date.valueOf() - a.meta.date.valueOf())
             .map(({ slug, meta }) => html`
-                <a href="/blog/${slug}" style="${slug === currentPost?.slug ? 'font-style: italic' : ''}">
+                <a href="/blog/${slug}" class="${url === `/blog/${slug}` ? 'current' : ''}">
                     <span>${meta.title}</span>
                     <span class="leader"></span>
                     <span class="date">${formatDate(meta.date)}</span>

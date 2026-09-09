@@ -80,14 +80,13 @@ const wordCount = (str: string) => str.split(/[\W]+/gi).length
  * know which page wants what.
  */
 export type SimplePageProps = {
+  url: string
   /** Every tag used across all (non-test) posts. */
   allTags: readonly string[]
   /** All local posts, newest first. */
   allPosts: readonly LocalPost[]
   /** Set on tag-filtered variants of the index page. */
   tag?: string
-  /** Set when a page is rendered in the context of one post. */
-  currentPost?: LocalPost
 }
 
 export type Post = LocalPost | ExternalPost

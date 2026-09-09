@@ -4,10 +4,14 @@ import layout from './fragments/layout.ts'
 import writing from './fragments/writing.ts'
 
 export default (
-    { post, allPosts }: { post: LocalPost; allPosts: readonly LocalPost[] },
+    { url, post, allPosts }: {
+        url: string
+        post: LocalPost
+        allPosts: readonly LocalPost[]
+    },
 ) => layout({
+    url,
     title: post.meta.title,
-    currentPost: post,
     allPosts,
     content:
         // deno-fmt-ignore
@@ -35,10 +39,10 @@ export default (
             </article>
 
             <div className="tablet-or-mobile-only" style="max-width: var(--main-content-width); margin: 0 var(--main-padding); padding-bottom: var(--main-padding)">
-                <hr />
-                <h2 style="margin-top: var(--main-padding)">More thoughts</h2>
+                <hr style="margin: 2.5rem 0"/>
+                <h2 style="margin: 0;">More thoughts</h2>
 
-                ${writing({ currentPost: post, allPosts })}
+                ${writing({ url, allPosts })}
             </div>
         `,
 })

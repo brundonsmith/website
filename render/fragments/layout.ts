@@ -6,10 +6,10 @@ import masthead from './masthead.ts'
 import writing from './writing.ts'
 
 export default (
-    { title, description, currentPost, allPosts, content }: {
+    { url, title, description, allPosts, content }: {
+        url: string
         title?: string
         description?: string
-        currentPost: LocalPost | undefined
         allPosts: readonly LocalPost[]
         content: string
     },
@@ -27,21 +27,27 @@ html`
                 </a>
 
                 <nav>
-                    <a href="/">About me</a>
+                    <a 
+                        href="/" 
+                        class="${url === '/' ? 'current' : ''}">
+                        About me
+                    </a>
                     <!-- <a href="#">Talks</a> -->
                     <!-- <a href="#">Photos</a> -->
                     <!-- <a href="#">Music I'm listening to</a> -->
 
-                    <a href="/services">Consulting services</a>
+                    <a 
+                        href="/services" 
+                        class="${url === '/services' ? 'current' : ''}">
+                        Consulting services
+                    </a>
                     <a href="mailto:mail@brandons.me" style="color: var(--accent)">Get in touch</a>
                     
                     <div class="desktop-only">
                         <hr size="1" />
                         <div class="section-heading">writing</div>
                     </div>
-                    ${
-    writing({ currentPost, allPosts, className: 'desktop-only' })
-}
+                    ${writing({ url, allPosts, className: 'desktop-only' })}
                 </nav>
             </div>
 
@@ -56,7 +62,11 @@ html`
                     <span>
                         Available for <a href="/services">consulting</a>
                     </span>
-                    <span style="color: var(--rule)">|</span>
+                    &nbsp;
+                    &nbsp;
+                    <span >•</span>
+                    &nbsp;
+                    &nbsp;
                     <a href="mailto:mail@brandons.me">
                         mail@brandons.me
                     </a>

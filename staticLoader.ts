@@ -34,20 +34,22 @@ const loadSimplePages = async () => {
     const module = await import(`./${file.path}`)
     const render: SimplePage = module.default
 
-    const urls = new Set([
-      '/' + path,
-      '/' + path.replace(/\.html$/, ''),
-    ])
+    const urls: string[] = []
 
     if (path.endsWith('index.html')) {
-      urls.add('/' + (dirname(path) === '.' ? '' : dirname(path)))
+      urls.push('/' + (dirname(path) === '.' ? '' : dirname(path)))
     }
+
+    urls.push(
+      '/' + path.replace(/\.html$/, ''),
+      '/' + path,
+    )
 
     const contentType = path.endsWith('.xml')
       ? CONTENT_TYPES.xml
       : CONTENT_TYPES.html
 
-    pages.push({ urls: [...urls], render, contentType })
+    pages.push({ urls, render, contentType })
   }
 
   return pages
@@ -120,7 +122,9 @@ export const createFileMap = async () => {
   // generate plain pages
   for (const { urls, render, contentType } of await loadSimplePages()) {
     const fileEntry = {
-      content: encoder.encode(render({ allTags, allPosts: posts })),
+      content: encoder.encode(
+        render({ url: urls[0]!, allTags, allPosts: posts }),
+      ),
       headers: {
         'Content-Type': contentType,
         'Cache-Control': `max-age=${ONE_MINUTE_S}`,
@@ -135,7 +139,9 @@ export const createFileMap = async () => {
   // generate tags pages
   for (const tag of allTags) {
     const file = {
-      content: encoder.encode(index({ allTags, allPosts: posts, tag })),
+      content: encoder.encode(
+        index({ url: `/tags/${tag}`, allTags, allPosts: posts, tag }),
+      ),
       headers: {
         'Content-Type': CONTENT_TYPES.html,
         'Cache-Control': `max-age=${ONE_MINUTE_S}`,
@@ -149,7 +155,9 @@ export const createFileMap = async () => {
   // generate blog post pages
   for (const post of posts) {
     const file = {
-      content: encoder.encode(blogPost({ post, allPosts: posts })),
+      content: encoder.encode(
+        blogPost({ url: `/blog/${post.slug}`, post, allPosts: posts }),
+      ),
       headers: {
         'Content-Type': CONTENT_TYPES.html,
         'Cache-Control': `max-age=${ONE_MINUTE_S}`,

@@ -2,11 +2,11 @@ import { SimplePageProps } from '../loadBlogPosts.ts'
 import { html, md } from '../utils/misc.ts'
 import layout from './fragments/layout.ts'
 
-export default ({ allPosts, currentPost }: SimplePageProps) =>
+export default ({ url, allPosts }: SimplePageProps) =>
     layout({
+        url,
         title: 'Services',
         allPosts,
-        currentPost,
         content:
             // deno-fmt-disable
             html`
@@ -103,7 +103,7 @@ export default ({ allPosts, currentPost }: SimplePageProps) =>
 
                         <hr style="margin-top: 2.5rem; margin-bottom: 2.5rem">
 
-                        <div style="text-align: center">
+                        <div style="text-align: center; margin-bottom: 2.5rem">
                             <div class="im-fell-dw-pica-regular-italic">Get in touch</div>
                             <a class="im-fell-great-primer-regular" href="mailto:mail@brandons.me">
                                 mail@brandons.me

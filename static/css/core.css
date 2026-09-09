@@ -51,6 +51,10 @@ hr {
     color: var(--rule);
 }
 
+nav a.current {
+    font-style: italic;
+}
+
 body>.main-content {
     /* Flex items default to min-width:auto, which lets a wide <pre> push the
        page out. 0 lets this shrink so the column query below is the real
