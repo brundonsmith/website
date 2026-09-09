@@ -7,7 +7,7 @@ import loadBlogPosts from './loadBlogPosts.ts'
 import index from './render/index.html.ts'
 import blogPost from './render/blog-post.ts'
 import CleanCSS from 'clean-css'
-import { ONE_HOUR, ONE_MINUTE } from './utils/misc.ts'
+import { ONE_HOUR, ONE_MINUTE, ONE_YEAR } from './utils/misc.ts'
 import type { SimplePageProps } from './loadBlogPosts.ts'
 
 type SimplePage = (props: SimplePageProps) => string
@@ -57,6 +57,30 @@ const loadSimplePages = async () => {
 
 const ONE_MINUTE_S = ONE_MINUTE / 1000
 const ONE_HOUR_S = ONE_HOUR / 1000
+const ONE_YEAR_S = ONE_YEAR / 1000
+
+/**
+ * File types whose contents never change in place: a new version of one of
+ * these arrives under a new name, so browsers and CDNs can hold onto them
+ * indefinitely.
+ */
+const IMMUTABLE_EXTENSIONS = new Set([
+  'woff2',
+  'png',
+  'jpg',
+  'jpeg',
+  'ico',
+  'svg',
+])
+
+/**
+ * `public` is what lets Cloudflare cache these at the edge, instead of passing
+ * every request through to the origin.
+ */
+const cacheControlFor = (fileExtension: string) =>
+  IMMUTABLE_EXTENSIONS.has(fileExtension)
+    ? `public, max-age=${ONE_YEAR_S}, immutable`
+    : `max-age=${ONE_HOUR_S}`
 
 /** Recursively collect and concatenate every .css file under `dir`. */
 const bundleCSS = async (dir: string) => {
@@ -105,8 +129,9 @@ export const createFileMap = async () => {
       fileMap.set(file.path.substring('static'.length), {
         content,
         headers: {
-          'Content-Type': CONTENT_TYPES[fileExtension],
-          'Cache-Control': `max-age=${ONE_HOUR_S}`,
+          'Content-Type': CONTENT_TYPES[fileExtension] ??
+            'application/octet-stream',
+          'Cache-Control': cacheControlFor(fileExtension),
         },
       })
     }
@@ -182,4 +207,6 @@ const CONTENT_TYPES = {
   'ico': 'image/x-icon',
   'svg': 'image/svg+xml',
   'webmanifest': 'application/manifest+json',
+  'woff2': 'font/woff2',
+  'txt': 'text/plain; charset=utf-8',
 } as const

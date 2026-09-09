@@ -17,7 +17,8 @@
     ]
   },
   "tasks": {
-    "dev": "deno run -A --watch=blog/,static/ index.ts"
+    "dev": "deno run -A --watch=blog/,static/ index.ts",
+    "fonts": "deno run -A scripts/fetch-fonts.ts"
   },
   "lock": true,
   "compilerOptions": {

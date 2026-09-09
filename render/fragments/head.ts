@@ -26,11 +26,14 @@ export default (
         <meta name="twitter:card" content="summary">
         <meta name="twitter:image" content="https://www.brandons.me/icons/og-image.png">
 
-        <link rel="stylesheet" type="text/css" href="/css/_all.css">
+        <!-- The fonts these pages are set in; "crossorigin" is required even
+             though they're same-origin, because fonts are always fetched in
+             CORS mode, and without it the preload doesn't match the real
+             request and the font gets downloaded twice. -->
+        <link rel="preload" href="/fonts/im-fell-dw-pica-regular.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="/fonts/im-fell-french-canon-regular.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="/fonts/im-fell-double-pica-sc-regular.woff2" as="font" type="font/woff2" crossorigin>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=IM+Fell+DW+Pica+SC&family=IM+Fell+DW+Pica:ital@0;1&family=IM+Fell+Double+Pica+SC&family=IM+Fell+Double+Pica:ital@0;1&family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&family=IM+Fell+French+Canon+SC&family=IM+Fell+French+Canon:ital@0;1&family=IM+Fell+Great+Primer+SC&family=IM+Fell+Great+Primer:ital@0;1&display=block" rel="stylesheet">
-        <!-- TODO: We could improve performance and privacy by reducing the characters covered by these fonts, downloading them, and self-hosting them -->
+        <link rel="stylesheet" type="text/css" href="/css/_all.css">
     </head>
 `
