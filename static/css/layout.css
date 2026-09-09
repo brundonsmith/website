@@ -25,6 +25,10 @@ nav a>span {
     flex-shrink: 0;
 }
 
+.main-content {
+    padding-bottom: var(--main-padding);
+}
+
 @media (min-width: 701px) {
 
     .main-content {
@@ -37,4 +41,20 @@ nav a>span {
         padding-right: 0;
     }
 
+}
+
+.mobile-cta {
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid var(--rule);
+    padding: 10px var(--main-padding);
+    background: var(--background);
+}
+
+.mobile-cta a {
+    color: var(--accent);
 }

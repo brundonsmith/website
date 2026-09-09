@@ -46,7 +46,7 @@ marks — does more work than any single large gesture.
 
 ### Purpose of the site
 
-A technical blog that also offers contracting services. The writing is the
+A technical blog that also offers consulting services. The writing is the
 primary content; the services are secondary but must never be buried. The design
 signals craft; the copy signals competence. Both are required. **Aesthetics
 never take precedence over the ability of a visitor to find the writing, learn
@@ -157,7 +157,7 @@ opacity changes, the base color must be re-derived.
 ### The accent color
 
 The site is otherwise monochrome. **One accent color exists, and it is reserved
-for the contracting call-to-action.** This follows the logic of rubrication:
+for the consulting call-to-action.** This follows the logic of rubrication:
 in early printing, a second ink marked the structurally important thing, and
 that is exactly its job here.
 

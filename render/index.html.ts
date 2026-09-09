@@ -32,7 +32,7 @@ export default (
                   I've transitioned two companies from JavaScript to TypeScript,
                   built full-stack tooling suites, given workshops and mentoring,
                   solved tough UI performance problems, and built component
-                  libraries that entire orgs have relied on. I take on contract
+                  libraries that entire orgs have relied on. I take on consulting
                   work in those areas. [Ask me about it.](/services)
 
                   My hobbies include TypeScript crimes, 

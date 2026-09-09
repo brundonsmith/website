@@ -40,7 +40,7 @@
     font-size: 28px;
 }
 
-.im-fell-dw-pica-regular, p, li, nav a, .writing a {
+.im-fell-dw-pica-regular, p, aside, li, nav a, .writing a, .mobile-cta {
     font-family: "IM Fell DW Pica", serif;
     font-weight: 400;
     font-style: normal;

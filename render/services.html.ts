@@ -14,14 +14,30 @@ export default ({ allPosts, currentPost }: SimplePageProps) =>
                     ${md`
                         # Services
 
-                        I'm Brandon Smith, a software developer in Austin Texas.
-                        
-                        I provide software consultation services, for everyone 
-                        from startups to enterprises. I draw from over a decade 
-                        of industry experience developing software for AI, 
-                        finance, and energy market, companies, to  
+                        I'm Brandon Smith, a software developer in Austin, Texas.
 
-                        Below are some examples of services I can offer.
+                        I provide software consulting services, for everyone 
+                        from startups to enterprises. I've spent over a decade 
+                        developing web and mobile software for AI, 
+                        finance, and energy market companies. 
+
+                        I've always sought a 
+                        deep understanding of
+                        the technologies I work with, and I'll bring that understanding with
+                        me into my work.
+
+                        Here's what I offer:
+
+                        ## Codebase assessment
+
+                        If you're not sure yet what direction you want to take, or whether
+                        action needs to be taken at all, I can start by figuring out where 
+                        things stand. For whichever question you'd like answered, I'll spend
+                        two weeks looking through your code and talking with any relevant 
+                        stakeholders. You'll get a
+                        report on the current state of things and where I would go from
+                        here (or not), and sit down with you at the end to discuss it. The 
+                        report will contain justification for my recommendations.
 
                         ## Migrating front-end languages, frameworks, or tools
 
@@ -31,69 +47,68 @@ export default ({ allPosts, currentPost }: SimplePageProps) =>
                         about any of those and want some perspective, or 
                         curious to learn what they might do for you?
 
-                        I'll audit the state of your codebase, produce a report 
-                        on the costs and benefits of a migration, help you 
-                        decide whether it's worth moving forward with, and then 
-                        make an organization-wide plan, including any in-org 
-                        communication and training necessary to make sure it 
-                        goes smoothly. I can lead the process myself, or hand 
-                        off the plan for the engineering org to execute.
+                        I'll put together a migration plan, including code changes
+                        and organizational coordination, and then lead the process.
 
                         ## Building a front-end component library
 
                         Does your app have inconsistent UX patterns? Do the 
                         same wheels keep getting re-invented, in different 
-                        places by different people? Are some of those 
-                        re-invented wheels creaky? Or- maybe you're starting a 
-                        new product from scratch, or doing a brand re-fresh, 
+                        places by different people? Or- maybe you're starting a 
+                        new product from scratch, or doing a brand refresh, 
                         and you want to do it right this time?
 
-                        The foundations that an application is built on make 
-                        all the difference in velocity and quality, whether 
-                        it's humans or agents utilizing them. Not only by 
-                        enforcing a consistent look and feel, but also high 
-                        standards for accessibility, performance, and 
-                        testability.
-
                         I'll sit down with designers and product owners, 
-                        collaborate with them to come up with the best bones 
-                        for the application going forward, and then implement 
-                        those building-blocks in code, with an eye towards 
-                        performance, testing, and the right balance between 
-                        flexibility and strictness for your org's needs.
+                        collaborate with them to design the foundation your app 
+                        should be built on - with an eye towards performance, 
+                        accessibility, enforced consistency, and testability - and then implement it.
 
                         ## Solving deep UI performance issues
 
-                        Is your UI generally sluggish and nobody knows why? Or, 
-                        maybe you need to render huge datasets? Maybe you can 
+                        Is your UI generally sluggish and nobody knows why? Maybe 
+                        you need to render huge datasets? Or you can 
                         render the dataset, but when you interact with it the 
                         whole thing slows to a crawl?
 
                         I've worked on several data-intensive 
-                        applications, tackling performance challenges along the 
+                        applications, digging into performance challenges along the 
                         way. I have a deep grasp on the browser 
-                        platform, how different frameworks behave within it, 
-                        and how to squeeze the most out of both. I'll profile 
-                        and analyze what's going on, identify the bottlenecks, 
-                        and propose solutions, whether it's a spot-fix or an 
-                        organization-wide policy.
-
+                                                platform, how different frameworks behave within it, 
+                                                and how to squeeze the most out of both. 
+                        I'll profile and analyze what's going on, identify the bottlenecks, 
+                        and solve them, whether it's a matter of a spot-fix or an 
+                        organization-wide change in practice.
                         ## Developer workshops
+
+                        Is your team always getting hung up on sticky TypeScript errors? Or 
+                        React bugs and pitfalls? Are they starting to adopt Rust, and having
+                        a hard time with the new concepts?
+
+                        I'll give an interactive workshop, including live coding and coaching, that will 
+                        give your engineers a deep understanding of the 
+                        technologies they're building on.
 
                         ## Custom tooling or integrations
 
-                        Need to do code-generation, or static analysis on a
-                        domain-specific language? Could you use a custom
-                        CLI for your engineering org, or a specialized MCP or 
-                        suite of AI skills?
+                        Would having an MCP for one of your services
+                        accelerate your team's agentic flows? Does your organization have an
+                        internal rules language or config format
+                        that could use editor integration or CI/CD checks? Do you have
+                        a developer workflow that could be enshrined as a custom 
+                        command-line tool? 
 
-                        I'll work with your team to 
+                        I'll work with your team to identify what they need, build tooling that's 
+                        specifically tailored to how they work, and hand off a 
+                        documented and maintainable codebase.
 
+                        <hr style="margin-top: 2.5rem; margin-bottom: 2.5rem">
 
-                        <a href="mailto:mail@brandons.me">
-                            mail@brandons.me
-                        </a>
-
+                        <div style="text-align: center">
+                            <div class="im-fell-dw-pica-regular-italic">Get in touch</div>
+                            <a class="im-fell-great-primer-regular" href="mailto:mail@brandons.me">
+                                mail@brandons.me
+                            </a>
+                        </div>
                     `}
                 </article>
             `,

@@ -7,6 +7,10 @@ article>* {
     width: calc(min(var(--avail), var(--main-content-width)));
 }
 
+aside>* {
+    margin: 0;
+}
+
 h1 {
     margin-bottom: 1.75rem;
     line-height: 1.15;
@@ -27,7 +31,7 @@ h3 {
     /* 28px above — one body line */
 }
 
-p {
+p, aside {
     text-indent: 5%;
     line-height: 1.55;
 
@@ -38,15 +42,15 @@ p {
     text-wrap: pretty;
 }
 
-/* @media (max-width: 40rem) {
+@media (max-width: 700px) {
     article p {
         text-align: left;
     }
-} */
+}
 
 
 h1+p, h2+p, h3+p {
-    text-indent: 0;
+    /* text-indent: 0; */
 }
 
 code {
@@ -211,6 +215,14 @@ article img {
     width: 100%;
 }
 
+article aside {
+    margin-top: 1.55rem;
+    margin-bottom: 1.55rem;
+    padding: 0.78rem 5%;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+}
+
 p>code {
     font-style: italic;
 }
@@ -228,6 +240,10 @@ article a {
     color: var(--accent);
 }
 
+article a:hover {
+    text-decoration: underline;
+}
+
 .header-anchor {
     display: none;
 }
@@ -240,10 +256,4 @@ pre, code {
 abbr {
     font-variant: small-caps;
     text-transform: lowercase;
-}
-
-@media (max-width: 800px) {
-    article {
-        padding-top: calc(var(--main-padding) / 2);
-    }
 }

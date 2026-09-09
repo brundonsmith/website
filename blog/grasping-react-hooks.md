@@ -18,7 +18,9 @@ foundational (but still pragmatic) understanding of how hooks work, and what
 causes them to behave the way they do.
 
 <aside>
-    But what about the official docs?
+    <p>
+      But what about the official docs?
+    </p>
     <p>
         React's official docs are great, but when covering hooks they tend to focus on how to <i>use</i> hooks, rather than how they work or how to think about them. This is probably for the best as a starting point, but it leaves room for a different kind of explanation.
     </p>

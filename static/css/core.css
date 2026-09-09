@@ -1,5 +1,6 @@
 html {
-    background: #FBF8F3;
+    --background: #FBF8F3;
+    background: var(--background);
 }
 
 :root {

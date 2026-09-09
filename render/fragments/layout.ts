@@ -32,7 +32,7 @@ html`
                     <!-- <a href="#">Photos</a> -->
                     <!-- <a href="#">Music I'm listening to</a> -->
 
-                    <a href="/services">Contracting services</a>
+                    <a href="/services">Consulting services</a>
                     <a href="mailto:mail@brandons.me" style="color: var(--accent)">Get in touch</a>
                     
                     <div class="desktop-only">
@@ -51,6 +51,16 @@ html`
                 ${content}
             
                 ${footer()}
+
+                <div class="mobile-cta">
+                    <span>
+                        Available for <a href="/services">consulting</a>
+                    </span>
+                    <span style="color: var(--rule)">|</span>
+                    <a href="mailto:mail@brandons.me">
+                        mail@brandons.me
+                    </a>
+                </div>
             </div>
         </body>
         
