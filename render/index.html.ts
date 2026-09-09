@@ -9,6 +9,7 @@ export default (
   layout({
     url,
     title: 'Brandon Smith',
+    description: aboutMe,
     allPosts,
     content:
       // deno-fmt-disable
@@ -26,21 +27,7 @@ export default (
                   <!-- <hr /> -->
                 </div>
 
-                ${md`
-                  I'm Brandon! I'm a software developer living in Austin, Texas. 
-
-                  I've transitioned two companies from JavaScript to TypeScript,
-                  built full-stack tooling suites, given workshops and mentoring,
-                  solved tough UI performance problems, and built component
-                  libraries that entire orgs have relied on. I take on consulting
-                  work in those areas. [Ask me about it.](/services)
-
-                  My hobbies include TypeScript crimes, 
-                  Rust shenanigans, 
-                  making bad video games, and building programming languages 
-                  nobody's ever going to use. When not at a computer I love music, long bike rides, liminal
-                  spaces, and most recently, watercolor painting.
-                `}
+                ${aboutMe}
 
                 <div class="tablet-or-mobile-only" style="margin-top: 1.5rem">
                     <div class="section-heading">writing</div>
@@ -51,3 +38,20 @@ export default (
             </div>
         `,
   })
+
+const aboutMe = md`
+I'm Brandon! I'm a software developer living in Austin, Texas. 
+
+I've transitioned two companies from JavaScript to TypeScript,
+built full-stack tooling suites, given workshops and mentoring,
+solved tough UI performance problems, and built component
+libraries that entire orgs have relied on. I take on consulting
+work in those areas. [More here.](/services)
+
+My hobbies include TypeScript crimes, 
+Rust shenanigans, 
+making bad video games, and building programming languages 
+nobody's ever going to use. When not at a computer I love music, 
+long bike rides, liminal spaces, and most recently, watercolor 
+painting.
+`

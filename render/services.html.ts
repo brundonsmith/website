@@ -5,7 +5,8 @@ import layout from './fragments/layout.ts'
 export default ({ url, allPosts }: SimplePageProps) =>
     layout({
         url,
-        title: 'Services',
+        title: 'Services | Brandon Smith',
+        description: firstParagraph,
         allPosts,
         content:
             // deno-fmt-disable
@@ -16,10 +17,7 @@ export default ({ url, allPosts }: SimplePageProps) =>
 
                         I'm Brandon Smith, a software developer in Austin, Texas.
 
-                        I provide software consulting services, for everyone 
-                        from startups to enterprises. I've spent over a decade 
-                        developing web and mobile software for AI, 
-                        finance, and energy market companies. 
+                        ${firstParagraph}
 
                         I've always sought a 
                         deep understanding of
@@ -113,3 +111,9 @@ export default ({ url, allPosts }: SimplePageProps) =>
                 </article>
             `,
     })
+
+const firstParagraph = `
+I provide software consulting services, for everyone 
+from startups to enterprises. I've spent over a decade 
+developing web and mobile software for AI, 
+finance, and energy market companies.`

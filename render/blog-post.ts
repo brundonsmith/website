@@ -1,5 +1,5 @@
 import { LocalPost } from '../loadBlogPosts.ts'
-import { formatDate, html } from '../utils/misc.ts'
+import { formatDate, getFirstParagraph, html } from '../utils/misc.ts'
 import layout from './fragments/layout.ts'
 import writing from './fragments/writing.ts'
 
@@ -12,6 +12,7 @@ export default (
 ) => layout({
     url,
     title: post.meta.title,
+    description: getFirstParagraph(post.html),
     allPosts,
     content:
         // deno-fmt-ignore

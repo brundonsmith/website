@@ -6,8 +6,8 @@ export default (
   // deno-fmt-ignore
   html`
     <head>
-        <title>${title ? `${title} | Brandon's Website` : 'Brandon\'s Website'}</title>
-        <meta name="description" content="${description || 'Personal website of Brandon Smith'}">
+        ${title ? `<title>${title}</title>` : ''}
+        ${title ? `<meta name="description" content="${title}">` : ''}
     
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
