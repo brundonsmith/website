@@ -7,6 +7,12 @@ article>* {
     width: calc(min(var(--avail), var(--main-content-width)));
 }
 
+@media (min-width: 1101px) {
+    article {
+        padding-bottom: var(--main-padding);
+    }
+}
+
 aside>* {
     margin: 0;
 }
