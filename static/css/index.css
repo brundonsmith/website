@@ -29,6 +29,8 @@
 }
 
 .home .about {
+    font: var(--font-double-pica-italic);
+    line-height: normal;
     text-align: center;
     margin: 30px auto;
 }

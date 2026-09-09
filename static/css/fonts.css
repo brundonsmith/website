@@ -1,132 +1,52 @@
-.im-fell-english-regular {
-    font-family: "IM Fell English", serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 18px;
-}
+/**
+ * The type scale.
+ *
+ * IM Fell isn't one typeface with a size axis; it's five separate cuts, each
+ * made for one physical size. So a font here is a package - family, size and
+ * style together - not just a family name. Each of these is a `font` shorthand
+ * value, applied as `font: var(--font-english)`, so a rule can't take the
+ * family without the size its punches were cut for.
+ *
+ * Sizes are the ones each cut carries in its own metadata.
+ *
+ * Each carries the line-height that cut is normally set at, so `font:` applies
+ * a complete package. Where a context wants a different leading (list items
+ * are tighter than running prose, say), it sets `line-height` on the line
+ * AFTER the `font:` declaration - the shorthand resets it, so order matters.
+ *
+ * Order within the shorthand is: style weight size/line-height family.
+ */
+:root {
+    /* DW Pica - 16.7px. Body text, and short apparatus like nav and captions. */
+    --font-dw-pica: normal 400 16.7px/1.55 "IM Fell DW Pica", serif;
+    --font-dw-pica-italic: italic 400 16.7px/1.55 "IM Fell DW Pica", serif;
+    --font-dw-pica-sc: normal 400 16.7px/1.55 "IM Fell DW Pica SC", serif;
 
-.im-fell-english-regular-italic {
-    font-family: "IM Fell English", serif;
-    font-weight: 400;
-    font-style: italic;
-    font-size: 18px;
-}
+    /* English - 18px. The best letterforms in the set, largest x-height. */
+    --font-english: normal 400 18px/1.55 "IM Fell English", serif;
+    --font-english-italic: italic 400 18px/1.55 "IM Fell English", serif;
+    --font-english-sc: normal 400 18px/1.55 "IM Fell English SC", serif;
 
-.im-fell-english-sc-regular, .section-heading, th {
-    font-family: "IM Fell English SC", serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 18px;
-}
+    /* Great Primer - 22.7px. h3. */
+    --font-great-primer: normal 400 22.7px/1.55 "IM Fell Great Primer", serif;
+    --font-great-primer-italic: italic 400 22.7px/1.55 "IM Fell Great Primer", serif;
+    --font-great-primer-sc: normal 400 22.7px/1.55 "IM Fell Great Primer SC", serif;
 
-.im-fell-double-pica-regular, h2 {
-    font-family: "IM Fell Double Pica", serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 28px;
-}
+    /* Double Pica - 28px. h2, and the masthead in small caps. */
+    --font-double-pica: normal 400 28px/1.55 "IM Fell Double Pica", serif;
+    --font-double-pica-italic: italic 400 28px/1.55 "IM Fell Double Pica", serif;
+    --font-double-pica-sc: normal 400 28px/1.55 "IM Fell Double Pica SC", serif;
 
-.im-fell-double-pica-regular-italic, .home .about {
-    font-family: "IM Fell Double Pica", serif;
-    font-weight: 400;
-    font-style: italic;
-    font-size: 28px;
-}
+    /* French Canon - 52px. h1 only. */
+    --font-french-canon: normal 400 52px/1.15 "IM Fell French Canon", serif;
+    --font-french-canon-italic: italic 400 52px/1.15 "IM Fell French Canon", serif;
+    --font-french-canon-sc: normal 400 52px/1.15 "IM Fell French Canon SC", serif;
 
-.im-fell-double-pica-sc-regular {
-    font-family: "IM Fell Double Pica SC", serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 28px;
-}
-
-.im-fell-dw-pica-regular, p, aside, li, nav a, .writing a, .mobile-cta {
-    font-family: "IM Fell DW Pica", serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 16.7px;
-}
-
-.im-fell-dw-pica-regular-italic {
-    font-family: "IM Fell DW Pica", serif;
-    font-weight: 400;
-    font-style: italic;
-    font-size: 16.7px;
-}
-
-.im-fell-dw-pica-sc-regular {
-    font-family: "IM Fell DW Pica SC", serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 16.7px;
-}
-
-.im-fell-great-primer-regular, h3 {
-    font-family: "IM Fell Great Primer", serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 22.7px;
-}
-
-.im-fell-great-primer-regular-italic {
-    font-family: "IM Fell Great Primer", serif;
-    font-weight: 400;
-    font-style: italic;
-    font-size: 22.7px;
-}
-
-.im-fell-great-primer-sc-regular {
-    font-family: "IM Fell Great Primer SC", serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 22.7px;
-}
-
-.im-fell-french-canon-regular, h1 {
-    font-family: "IM Fell French Canon", serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 52px;
-}
-
-.im-fell-french-canon-regular-italic {
-    font-family: "IM Fell French Canon", serif;
-    font-weight: 400;
-    font-style: italic;
-    font-size: 52px;
-}
-
-.im-fell-french-canon-sc-regular {
-    font-family: "IM Fell French Canon SC", serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 52px;
-}
-
-.courier-prime-regular, pre, tbody {
-    font-family: "Courier Prime", monospace;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 0.9em;
-}
-
-.courier-prime-bold {
-    font-family: "Courier Prime", monospace;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 1em;
-}
-
-.courier-prime-regular-italic {
-    font-family: "Courier Prime", monospace;
-    font-weight: 400;
-    font-style: italic;
-    font-size: 0.9em;
-}
-
-.courier-prime-bold-italic {
-    font-family: "Courier Prime", monospace;
-    font-weight: 700;
-    font-style: italic;
-    font-size: 1em;
+    /* Courier Prime. x-height-matches English at the same nominal size, and is
+       the only face here with a real bold. Sized relative to its surroundings,
+       because it sits inside prose as often as it does in blocks. */
+    --font-courier: normal 400 0.9em/1.4 "Courier Prime", monospace;
+    --font-courier-italic: italic 400 0.9em/1.4 "Courier Prime", monospace;
+    --font-courier-bold: normal 700 0.9em/1.4 "Courier Prime", monospace;
+    --font-courier-bold-italic: italic 700 0.9em/1.4 "Courier Prime", monospace;
 }

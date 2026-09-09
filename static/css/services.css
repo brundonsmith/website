@@ -1,0 +1,10 @@
+/* The contact call-to-action at the foot of the prospectus. */
+.contact-label {
+    font: var(--font-dw-pica-italic);
+    line-height: normal;
+}
+
+.contact-address {
+    font: var(--font-great-primer);
+    line-height: normal;
+}

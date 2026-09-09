@@ -102,8 +102,8 @@ export default ({ url, allPosts }: SimplePageProps) =>
                         <hr style="margin-top: 2.5rem; margin-bottom: 2.5rem">
 
                         <div style="text-align: center; margin-bottom: 2.5rem">
-                            <div class="im-fell-dw-pica-regular-italic">Get in touch</div>
-                            <a class="im-fell-great-primer-regular" href="mailto:mail@brandons.me">
+                            <div class="contact-label">Get in touch</div>
+                            <a class="contact-address" href="mailto:mail@brandons.me">
                                 mail@brandons.me
                             </a>
                         </div>

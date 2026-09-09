@@ -193,7 +193,9 @@ tr>*:last-child {
 }
 
 td.num, th.num {
-    font-family: "Courier Prime", monospace;
+    font: var(--font-courier);
+    /* Slightly larger than the 0.9em default: these sit alone in a cell rather
+       than inside prose, so they don't need to match a surrounding x-height. */
     font-size: 0.94em;
     text-align: right;
 }

@@ -22,7 +22,7 @@ html`
         
         <body>
             <div class="sidebar desktop-only">
-                <a href="/" class="im-fell-double-pica-sc-regular" style="display: block; padding-top: 0.75em">
+                <a href="/" class="masthead" style="display: block; padding-top: 0.75em">
                     Brandon Smith
                 </a>
 
