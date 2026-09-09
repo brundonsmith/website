@@ -19,7 +19,7 @@ html {
 
 /* Kept next to the definition above so the bundle's file order can't affect
    which value wins. */
-@media (max-width: 800px) {
+@media (max-width: 1100px) {
     :root {
         --main-padding: 40px;
     }
@@ -75,26 +75,14 @@ body>.main-content {
     }
 }
 
-@media (min-width: 701px) {
+@media (min-width: 1101px) {
     .mobile-only {
         display: none;
     }
 }
 
-@media (max-width: 1210px) {
+@media (max-width: 1100px) {
     .desktop-only {
-        display: none;
-    }
-}
-
-@media (max-width: 800px) {
-    .desktop-or-tablet-only {
-        display: none;
-    }
-}
-
-@media (min-width: 1211px) {
-    .tablet-or-mobile-only {
         display: none;
     }
 }

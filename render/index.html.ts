@@ -27,23 +27,21 @@ export default (
                   <!-- <hr /> -->
                 </div>
 
-                ${aboutMe}
+               ${md`${aboutMe}`}
 
-                <div class="tablet-or-mobile-only" style="margin-top: 1.5rem">
+                <div class="mobile-only" style="margin-top: 1.5rem">
                     <div class="section-heading">writing</div>
                 </div>
-                ${
-        writing({ url, allPosts, className: 'tablet-or-mobile-only' })
-      }
+                ${writing({ url, allPosts, className: 'mobile-only' })}
             </div>
         `,
   })
 
-const aboutMe = md`
+const aboutMe = `
 I'm Brandon! I'm a software developer living in Austin, Texas. 
 
-I've transitioned two companies from JavaScript to TypeScript,
-built full-stack tooling suites, given workshops and mentoring,
+I've built full-stack tooling suites, transitioned two companies 
+from JavaScript to TypeScript, given workshops and mentoring,
 solved tough UI performance problems, and built component
 libraries that entire orgs have relied on. I take on consulting
 work in those areas. [More here.](/services)

@@ -1,0 +1,14 @@
+main.not-found {
+    text-align: center;
+    max-width: calc(var(--main-content-width) + var(--main-padding) * 2);
+    min-height: 500px;
+    padding-left: var(--main-padding);
+    padding-right: var(--main-padding);
+    padding-bottom: 2.5rem;
+}
+
+main.not-found p {
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
+}

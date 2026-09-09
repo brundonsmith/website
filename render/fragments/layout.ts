@@ -21,7 +21,7 @@ html`
         ${head({ title, description })}
         
         <body>
-            <div class="sidebar desktop-or-tablet-only">
+            <div class="sidebar desktop-only">
                 <a href="/" class="im-fell-double-pica-sc-regular" style="display: block; padding-top: 0.75em">
                     Brandon Smith
                 </a>

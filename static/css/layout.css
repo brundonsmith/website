@@ -29,18 +29,16 @@ nav a>span {
     /* padding-bottom: var(--main-padding); */
 }
 
-@media (min-width: 701px) {
-
+@media (min-width: 1101px) {
     .main-content {
         padding-top: var(--main-padding);
     }
 }
 
-@media (max-width: 1210px) {
+@media (max-width: 1100px) {
     .sidebar {
         padding-right: 0;
     }
-
 }
 
 .mobile-cta {

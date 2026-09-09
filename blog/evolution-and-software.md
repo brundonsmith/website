@@ -20,8 +20,7 @@ getting on its way:
 <img
     alt="Diagram"
     src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Recurrent_laryngeal_nerve.svg/500px-Recurrent_laryngeal_nerve.svg.png"
-    style="background-color: white"
-    height="300">
+    style="background-color: white">
 
 To quote Wikipedia:
 

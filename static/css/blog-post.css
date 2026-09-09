@@ -42,7 +42,7 @@ p, aside {
     text-wrap: pretty;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1100px) {
     article p {
         text-align: left;
     }
@@ -222,6 +222,10 @@ article aside {
     padding: 0.78rem 5%;
     border-top: 1px solid var(--rule);
     border-bottom: 1px solid var(--rule);
+}
+
+article blockquote {
+    padding: 0 5%;
 }
 
 p>code {
