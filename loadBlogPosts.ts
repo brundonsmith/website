@@ -3,6 +3,8 @@ import anchor from 'markdown-it-anchor'
 import meta from 'markdown-it-meta'
 import prism from 'markdown-it-prism'
 
+const DEV_MODE = Deno.env.get('DEV_MODE')?.toLocaleLowerCase() === 'true'
+
 export const markdownRenderer = new MarkdownIt({
   html: true,
 })
@@ -23,6 +25,10 @@ const getAllBlogPosts = () =>
     [...Deno.readDirSync('./blog')]
       .filter((file) => file.name.includes('.md'))
       .map(readBlogPostFile),
+  ).then((allPosts) =>
+    allPosts
+      .filter((p) => DEV_MODE || !p.meta.test) // filter out test-only posts
+      .toSorted((a, b) => b.meta.date.valueOf() - a.meta.date.valueOf())
   )
 
 /**

@@ -137,8 +137,8 @@ export const createFileMap = async () => {
     }
   }
 
-  const posts = await loadBlogPosts()
-  const allTags = posts
+  const allPosts = await loadBlogPosts()
+  const allTags = allPosts
     .filter((p) => !p.meta.test)
     .map((post) => post.meta.tags)
     .flat()
@@ -148,7 +148,7 @@ export const createFileMap = async () => {
   for (const { urls, render, contentType } of await loadSimplePages()) {
     const fileEntry = {
       content: encoder.encode(
-        render({ url: urls[0]!, allTags, allPosts: posts }),
+        render({ url: urls[0]!, allTags, allPosts }),
       ),
       headers: {
         'Content-Type': contentType,
@@ -165,7 +165,7 @@ export const createFileMap = async () => {
   for (const tag of allTags) {
     const file = {
       content: encoder.encode(
-        index({ url: `/tags/${tag}`, allTags, allPosts: posts, tag }),
+        index({ url: `/tags/${tag}`, allTags, allPosts, tag }),
       ),
       headers: {
         'Content-Type': CONTENT_TYPES.html,
@@ -178,10 +178,10 @@ export const createFileMap = async () => {
   }
 
   // generate blog post pages
-  for (const post of posts) {
+  for (const post of allPosts) {
     const file = {
       content: encoder.encode(
-        blogPost({ url: `/blog/${post.slug}`, post, allPosts: posts }),
+        blogPost({ url: `/blog/${post.slug}`, post, allPosts }),
       ),
       headers: {
         'Content-Type': CONTENT_TYPES.html,
