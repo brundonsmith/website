@@ -20,12 +20,24 @@
     background-repeat: repeat-x;
 }
 
-@media (max-width: 460px) {
+
+@media (max-width: 570px) {
+    .writing a>span {
+        flex-grow: 1;
+        flex-shrink: 1;
+    }
+
     .writing .leader {
         display: none;
     }
 
     .writing .date {
         display: none;
+    }
+}
+
+@media (max-width: 442px) {
+    .writing a {
+        margin-top: 0.3rem;
     }
 }

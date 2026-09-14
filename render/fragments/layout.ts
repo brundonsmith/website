@@ -71,11 +71,13 @@ html`
                     <span>
                         Available for <a href="/services">consulting</a>
                     </span>
-                    &nbsp;
-                    &nbsp;
-                    <span >•</span>
-                    &nbsp;
-                    &nbsp;
+                    <span class="dot">
+                        &nbsp;
+                        &nbsp;
+                        •
+                        &nbsp;
+                        &nbsp;
+                    </span>
                     <a href="mailto:mail@brandons.me">
                         mail@brandons.me
                     </a>

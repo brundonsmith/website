@@ -39,12 +39,23 @@ nav a>span {
 .mobile-cta {
     display: flex;
     justify-content: center;
-    width: calc(var(--measure) + 2 * var(--side-margin));
+    align-items: center;
+    width: calc(var(--available) + 2 * var(--side-margin));
     position: sticky;
     bottom: 0;
     border-top: 1px solid var(--rule);
     padding: 10px 0;
     background: var(--background);
+}
+
+@media (max-width: 380px) {
+    .mobile-cta {
+        flex-direction: column;
+    }
+
+    .mobile-cta .dot {
+        display: none;
+    }
 }
 
 .mobile-cta a {

@@ -11,6 +11,7 @@
     --top-margin: calc(var(--measure) / 6);
     --bottom-margin: calc(var(--measure) / 2);
     --side-margin: calc(var(--measure) / 4);
+    --available: calc(100cqi - var(--side-margin) * 2);
 }
 
 @media (max-width: 400px) {
@@ -246,7 +247,6 @@ pre, table {
        content, floored at the text-column width and clamped to --avail so it
        never pushes the page wider than the viewport. */
     width: max-content;
-    --available: calc(100cqi - var(--side-margin) * 2);
     min-width: min(var(--available), var(--measure));
     max-width: var(--available);
     overflow-x: auto;
