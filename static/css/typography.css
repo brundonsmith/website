@@ -246,8 +246,9 @@ pre, table {
        content, floored at the text-column width and clamped to --avail so it
        never pushes the page wider than the viewport. */
     width: max-content;
-    min-width: var(--measure);
-    max-width: calc(min(100cqi, var(--measure)));
+    --available: calc(100cqi - var(--side-margin) * 2);
+    min-width: min(var(--available), var(--measure));
+    max-width: var(--available);
     overflow-x: auto;
 }
 
