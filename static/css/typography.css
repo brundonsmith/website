@@ -13,6 +13,12 @@
     --side-margin: calc(var(--measure) / 4);
 }
 
+@media (max-width: 400px) {
+    :root {
+        --measure: calc(100vw * 3 / 4);
+    }
+}
+
 /*
 TODO: width and margins
 - Body text width should be between 328px and 547px
