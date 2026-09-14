@@ -1,15 +1,11 @@
-article {}
-
-article>* {
-    margin-left: var(--main-padding);
-    margin-right: var(--main-padding);
-    width: calc(min(var(--avail), var(--main-content-width)));
+article {
+    padding-top: var(--top-margin);
 }
 
-@media (min-width: 1101px) {
-    article {
-        padding-bottom: var(--main-padding);
-    }
+article>* {
+    margin-left: var(--side-margin);
+    margin-right: var(--side-margin);
+    width: var(--measure);
 }
 
 .header-anchor {

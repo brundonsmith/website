@@ -1,6 +1,8 @@
 .sidebar {
     max-width: 550px;
-    padding: var(--main-padding);
+    padding-left: var(--side-margin);
+    margin-right: calc(10rem - var(--side-margin));
+    padding-top: var(--top-margin);
 
     flex-grow: 0;
     flex-shrink: 0;
@@ -26,35 +28,18 @@ nav a>span {
     flex-shrink: 0;
 }
 
-.main-content {
-    /* padding-bottom: var(--main-padding); */
-}
-
-@media (min-width: 1101px) {
-    .main-content {
-        padding-top: var(--main-padding);
-    }
-}
-
-@media (max-width: 1200px) {
-    .sidebar {
-        padding-right: 0;
-    }
-}
+.main-content {}
 
 .mobile-cta {
     display: flex;
     justify-content: center;
-    width: calc(min(var(--avail), var(--main-content-width)) + 2 * var(--main-padding));
+    width: calc(var(--measure) + 2 * var(--side-margin));
     position: sticky;
     bottom: 0;
     border-top: 1px solid var(--rule);
-    padding: 10px var(--main-padding);
-    /* margin: 0 var(--main-padding); */
+    padding: 10px 0;
     background: var(--background);
 }
-
-
 
 .mobile-cta a {
     color: var(--accent);

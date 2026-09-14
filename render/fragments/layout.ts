@@ -6,23 +6,25 @@ import masthead from './masthead.ts'
 import writing from './writing.ts'
 
 export default (
-    { url, title, description, allPosts, content }: {
+    { url, title, description, allPosts, content, preloadImage }: {
         url: string
         title?: string
         description?: string
         allPosts: readonly LocalPost[]
         content: string
+        /** Hero image for this page, preloaded so it can paint with first paint. */
+        preloadImage?: string
     },
 ) => // deno-fmt-disable
 html`
         <!DOCTYPE html>
         <html lang="en">
         
-        ${head({ title, description })}
+        ${head({ title, description, preloadImage })}
         
         <body>
             <div class="sidebar desktop-only">
-                <a href="/" class="masthead" style="display: block; padding-top: 0.75em">
+                <a href="/" class="masthead" style="display: block">
                     Brandon Smith
                 </a>
 
@@ -55,9 +57,9 @@ html`
                 ${masthead()}
 
                 ${content}
-            
-                ${footer()}
 
+                <div style="height: var(--bottom-margin); flex-shrink: 0; flex-grow: 0;"></div>
+            
                 <div class="mobile-cta">
                     <span>
                         Available for <a href="/services">consulting</a>
@@ -72,6 +74,8 @@ html`
                     </a>
                 </div>
             </div>
+
+            ${footer()}
         </body>
         
         </html> 

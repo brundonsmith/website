@@ -22,9 +22,7 @@ export default ({ url, allPosts }: SimplePageProps) =>
                         I've always sought a 
                         deep understanding of
                         the technologies I work with, and I'll bring that understanding with
-                        me into my work.
-
-                        Here's what I offer:
+                        me into my work. Below are some services I offer.
 
                         ## Codebase assessment
 
@@ -98,16 +96,16 @@ export default ({ url, allPosts }: SimplePageProps) =>
                         I'll work with your team to identify what they need, build tooling that's 
                         specifically tailored to how they work, and hand off a 
                         documented and maintainable codebase.
-
-                        <hr style="margin-top: 2.5rem; margin-bottom: 2.5rem">
-
-                        <div style="text-align: center; margin-bottom: 2.5rem">
-                            <div class="contact-label">Get in touch</div>
-                            <a class="contact-address" href="mailto:mail@brandons.me">
-                                mail@brandons.me
-                            </a>
-                        </div>
                     `}
+                    
+                    <hr style="margin-top: 2.5rem; margin-bottom: 2.5rem">
+
+                    <div style="text-align: center">
+                        <div class="contact-label">Get in touch</div>
+                        <a class="contact-address" href="mailto:mail@brandons.me">
+                            mail@brandons.me
+                        </a>
+                    </div>
                 </article>
             `,
     })

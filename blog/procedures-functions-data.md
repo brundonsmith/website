@@ -16,8 +16,8 @@ reality, you can get some of the benefits of the functional style. Oh, and I’m
 also going to talk about data.
 
 <aside>
-    I'm using the word "procedural", but you may be more familiar with the word "imperative". I use
-    them interchangeably to talk about "traditional" code: a <strong>sequence</strong> of steps that
+    I'm using the word “procedural", but you may be more familiar with the word “imperative". I use
+    them interchangeably to talk about “traditional" code: a <strong>sequence</strong> of steps that
     accomplish their goal by <strong>changing</strong> things.
 </aside>
 

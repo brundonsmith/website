@@ -15,6 +15,37 @@ markdownRenderer.use(anchor, {
 })
 markdownRenderer.use(meta)
 markdownRenderer.use(prism)
+markdownRenderer.use(unwrapLoneImages)
+
+/** The slice of markdown-it's Token we touch; the package ships no types. */
+type Token = {
+  type: string
+  hidden: boolean
+  children?: Token[]
+}
+
+/**
+ * An image on its own line is still an *inline* token to markdown-it, so it
+ * gets wrapped in a paragraph like any other inline content. Block-level
+ * images are their own thing here (figures, full-measure), so strip the
+ * surrounding `<p>` when a paragraph holds nothing but one image.
+ */
+function unwrapLoneImages(md: MarkdownIt) {
+  md.core.ruler.push('unwrap_lone_images', (state: { tokens: Token[] }) => {
+    state.tokens.forEach((token, i) => {
+      const isLoneImage = token.type === 'inline' &&
+        token.children?.length === 1 &&
+        token.children[0]!.type === 'image' &&
+        state.tokens[i - 1]?.type === 'paragraph_open' &&
+        state.tokens[i + 1]?.type === 'paragraph_close'
+
+      if (isLoneImage) {
+        state.tokens[i - 1]!.hidden = true
+        state.tokens[i + 1]!.hidden = true
+      }
+    })
+  })
+}
 
 /**
  * Load all markdown files from disk and parse them into structured objects

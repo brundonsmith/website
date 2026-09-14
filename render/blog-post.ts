@@ -39,7 +39,7 @@ export default (
                 <script>window.postName = '${post.slug}'</script>
             </article>
 
-            <div class="mobile-only" style="max-width: var(--main-content-width); margin: 0 var(--main-padding); padding-bottom: var(--main-padding)">
+            <div class="mobile-only" style="max-width: var(--measure); margin: 0 var(--side-margin)">
                 <hr style="margin: 2.5rem 0"/>
                 <h2 style="margin: 0;">More thoughts</h2>
 

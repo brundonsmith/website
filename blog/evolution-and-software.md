@@ -17,10 +17,7 @@ humans, which instead of taking a very obvious direct path from source to
 destination, wraps hilariously around a major artery before doubling back and
 getting on its way:
 
-<img
-    alt="Diagram"
-    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Recurrent_laryngeal_nerve.svg/500px-Recurrent_laryngeal_nerve.svg.png"
-    style="background-color: white">
+![Diagram](https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Recurrent_laryngeal_nerve.svg/500px-Recurrent_laryngeal_nerve.svg.png)
 
 To quote Wikipedia:
 

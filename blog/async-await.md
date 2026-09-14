@@ -36,6 +36,7 @@ Do you see it now? It was actually tricky to even write this version, because
 this mistake is so hard to make _without_ async/await.
 
 Here’s what the above looks like in the network log:
+
 ![Staggered waterfall](/img/blog/async-await/staggered.png)
 
 We’ve taken two independent, asynchronous tasks, and put them into a
@@ -66,6 +67,7 @@ function getPeople() {
 ```
 
 And here’s what that looks like:
+
 ![Parallel waterfall](/img/blog/async-await/parallel.png)
 
 ## Easy mistakes

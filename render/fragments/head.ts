@@ -1,7 +1,12 @@
 import { html } from '../../utils/misc.ts'
 
 export default (
-  { title, description }: { title?: string; description?: string } = {},
+  { title, description, preloadImage }: {
+    title?: string
+    description?: string
+    /** Hero image for this page, preloaded so it can paint with first paint. */
+    preloadImage?: string
+  } = {},
 ) =>
   // deno-fmt-ignore
   html`
@@ -33,6 +38,8 @@ export default (
         <link rel="preload" href="/fonts/im-fell-dw-pica-regular.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="preload" href="/fonts/im-fell-french-canon-regular.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="preload" href="/fonts/im-fell-double-pica-sc-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+        ${preloadImage ? `<link rel="preload" href="${preloadImage}" as="image" fetchpriority="high">` : ''}
 
         <link rel="stylesheet" type="text/css" href="/css/_all.css">
     </head>

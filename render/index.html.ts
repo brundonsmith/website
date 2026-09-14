@@ -11,11 +11,13 @@ export default (
     title: 'Brandon Smith',
     description: aboutMe,
     allPosts,
+    preloadImage: portrait,
     content:
       // deno-fmt-disable
       html`
             <div class="home">
-                <img src="/img/me-3.jpeg" width="200" height="200" />
+                <img src="${portrait}" width="200" height="200" alt="Brandon Smith"
+                     fetchpriority="high" decoding="async" />
 
                 <h1 class="about">
                   About me
@@ -30,6 +32,9 @@ export default (
             </div>
         `,
   })
+
+/** Shared by the markup and the preload hint so the two can't drift apart. */
+const portrait = '/img/me-3-400.jpeg'
 
 const aboutMe = `
 I'm Brandon! I'm a software developer living in Austin, Texas. 

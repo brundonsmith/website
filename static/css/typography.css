@@ -1,21 +1,16 @@
 :root {
     --ink: #1a1512;
+    --secondary: color-mix(in srgb, var(--ink) 70%, transparent);
     --rule: color-mix(in srgb, var(--ink) 35%, transparent);
     --accent: hsl(220, 40%, 30%);
 
     font: var(--font-english);
     --indent: 1rem;
 
-    --main-padding: 60px;
-    --main-content-width: 600px;
-}
-
-/* Kept next to the definition above so the bundle's file order can't affect
-   which value wins. */
-@media (max-width: 1100px) {
-    :root {
-        --main-padding: 40px;
-    }
+    --measure: calc(min(547px, 100vw * 2 / 3));
+    --top-margin: calc(var(--measure) / 6);
+    --bottom-margin: calc(var(--measure) / 2);
+    --side-margin: calc(var(--measure) / 4);
 }
 
 /*
@@ -24,7 +19,8 @@ TODO: width and margins
 - This should take up the middle third of the horizontal page
 - top margin should be 1/4 text width
 - bottom margin should be 1/2 text width
-- the gutter margin should exceed the largest gap within the nav — otherwise the eye groups across the columns instead of down them.
+- the gutter margin should exceed the largest gap within the nav — otherwise the 
+eye groups across the columns instead of down them.
 - the nav should be 
 */
 
@@ -42,9 +38,10 @@ a:hover {
 }
 
 h1 {
-    font: var(--font-french-canon);
+    font: var(--font-double-pica);
     text-align: center;
     overflow-wrap: break-word;
+    margin-bottom: 1.5rem;
 }
 
 h2 {
@@ -102,6 +99,7 @@ p, aside {
 @media (max-width: 1100px) {
     p, aside {
         text-align: left;
+        hyphens: none;
     }
 }
 
@@ -112,6 +110,16 @@ aside {
 
 blockquote {
     padding: 0 var(--indent);
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+blockquote>p:first-child::before {
+    content: '“';
+}
+
+blockquote>p:last-child::after {
+    content: '”';
 }
 
 hr {
@@ -168,7 +176,7 @@ ol li::before {
     position: absolute;
     right: 100%;
     margin-right: 0.7em;
-    color: color-mix(in srgb, var(--ink) 70%, transparent);
+    color: var(--secondary);
 
 }
 
@@ -232,8 +240,8 @@ pre, table {
        content, floored at the text-column width and clamped to --avail so it
        never pushes the page wider than the viewport. */
     width: max-content;
-    min-width: calc(min(var(--avail), var(--main-content-width)));
-    max-width: var(--avail);
+    min-width: var(--measure);
+    max-width: calc(min(100cqi, var(--measure)));
     overflow-x: auto;
 }
 
@@ -244,8 +252,8 @@ table {
     border-collapse: collapse;
     width: fit-content;
     line-height: 1.4;
-    margin-top: 1.55rem;
-    margin-bottom: 1.55rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
     border-top: 1.5px solid var(--ink);
     border-bottom: 1.5px solid var(--ink);
 }
@@ -291,7 +299,6 @@ img {
 
 article img {
     display: block;
-    width: 100%;
 }
 
 abbr {
@@ -324,11 +331,11 @@ figure.table figcaption::before {
     letter-spacing: 0.06em;
 }
 
-h1+*, h2+*, h3+*, h4+*, h5+*, h6+* {
+h2+*, h3+*, h4+*, h5+*, h6+* {
     margin-top: 0;
-    /* text-indent: 0; */
 }
 
-:not(p)+p {
+:not(p)+p,
+p:first-child {
     text-indent: 0;
 }

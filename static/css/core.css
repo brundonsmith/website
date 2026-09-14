@@ -3,14 +3,6 @@ html {
     background: var(--background);
 }
 
-:root {
-
-    /* Horizontal space available to article content. Measured from the
-       article's own inline size (via container query units) rather than the
-       viewport, so it excludes both the nav and the scrollbar. */
-    --avail: calc(100cqi - 2 * var(--main-padding));
-}
-
 * {
     box-sizing: border-box;
     margin: 0;
