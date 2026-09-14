@@ -41,7 +41,8 @@ export default (
 
             <div class="mobile-only" style="max-width: var(--measure); margin: 0 var(--side-margin)">
                 <hr style="margin: 2.5rem 0"/>
-                <h2 style="margin: 0;">More thoughts</h2>
+                
+                <div style="font: var(--font-english-sc)">More thoughts</div>
 
                 ${writing({ url, allPosts })}
             </div>

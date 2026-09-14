@@ -1,6 +1,8 @@
 .writing a {
     display: flex;
     color: inherit;
+    font: var(--font-dw-pica);
+    line-height: normal;
 }
 
 .writing a>span {
