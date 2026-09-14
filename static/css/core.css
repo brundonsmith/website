@@ -63,13 +63,13 @@ body>.main-content {
     }
 }
 
-@media (min-width: 1101px) {
+@media (min-width: 1379px) {
     .mobile-only {
         display: none;
     }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1378px) {
     .desktop-only {
         display: none;
     }

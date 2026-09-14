@@ -9,7 +9,7 @@ main.not-found {
     align-items: stretch;
 }
 
-@media (min-width: 1101px) {
+@media (min-width: 1379px) {
     main.not-found p {
         text-align: center;
     }
