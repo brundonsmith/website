@@ -38,15 +38,15 @@
     --font-double-pica-sc: normal 400 28px/1.55 "IM Fell Double Pica SC", serif;
 
     /* French Canon - 52px. h1 only. */
-    --font-french-canon: normal 400 52px/1.15 "IM Fell French Canon", serif;
-    --font-french-canon-italic: italic 400 52px/1.15 "IM Fell French Canon", serif;
-    --font-french-canon-sc: normal 400 52px/1.15 "IM Fell French Canon SC", serif;
+    --font-french-canon: normal 400 52px/1.55 "IM Fell French Canon", serif;
+    --font-french-canon-italic: italic 400 52px/1.55 "IM Fell French Canon", serif;
+    --font-french-canon-sc: normal 400 52px/1.55 "IM Fell French Canon SC", serif;
 
     /* Courier Prime. x-height-matches English at the same nominal size, and is
        the only face here with a real bold. Sized relative to its surroundings,
        because it sits inside prose as often as it does in blocks. */
-    --font-courier: normal 400 0.9em/1.4 "Courier Prime", monospace;
-    --font-courier-italic: italic 400 0.9em/1.4 "Courier Prime", monospace;
-    --font-courier-bold: normal 700 0.9em/1.4 "Courier Prime", monospace;
-    --font-courier-bold-italic: italic 700 0.9em/1.4 "Courier Prime", monospace;
+    --font-courier: normal 400 0.75em/1.4 "Courier Prime", monospace;
+    --font-courier-italic: italic 400 0.75em/1.4 "Courier Prime", monospace;
+    --font-courier-bold: normal 700 0.75em/1.4 "Courier Prime", monospace;
+    --font-courier-bold-italic: italic 700 0.75em/1.4 "Courier Prime", monospace;
 }

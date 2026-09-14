@@ -1,0 +1,334 @@
+:root {
+    --ink: #1a1512;
+    --rule: color-mix(in srgb, var(--ink) 35%, transparent);
+    --accent: hsl(220, 40%, 30%);
+
+    font: var(--font-english);
+    --indent: 1rem;
+
+    --main-padding: 60px;
+    --main-content-width: 600px;
+}
+
+/* Kept next to the definition above so the bundle's file order can't affect
+   which value wins. */
+@media (max-width: 1100px) {
+    :root {
+        --main-padding: 40px;
+    }
+}
+
+/*
+TODO: width and margins
+- Body text width should be between 328px and 547px
+- This should take up the middle third of the horizontal page
+- top margin should be 1/4 text width
+- bottom margin should be 1/2 text width
+- the gutter margin should exceed the largest gap within the nav — otherwise the eye groups across the columns instead of down them.
+- the nav should be 
+*/
+
+body {
+    color: var(--ink);
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    font: var(--font-french-canon);
+    text-align: center;
+    overflow-wrap: break-word;
+}
+
+h2 {
+    font: var(--font-double-pica);
+    margin-top: 1.5rem;
+}
+
+h3 {
+    font: var(--font-great-primer);
+    margin-top: 1.25rem;
+}
+
+h4 {
+    font: var(--font-english-sc);
+    margin-top: 1rem;
+}
+
+h5 {
+    font: var(--font-english-sc);
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 1100px) {
+    h1 {
+        font: var(--font-double-pica);
+    }
+
+    h2 {
+        font: var(--font-great-primer);
+    }
+
+    h3 {
+        font: var(--font-english-sc);
+    }
+
+    h4 {
+        font: var(--font-english-sc);
+    }
+
+    h5 {
+        font: var(--font-english-sc);
+    }
+}
+
+p, aside {
+    text-indent: var(--indent);
+
+    text-align: justify;
+    hyphens: auto;
+    hyphenate-limit-chars: 6 3 3;
+    /* min word length, before break, after */
+    text-wrap: pretty;
+}
+
+@media (max-width: 1100px) {
+    p, aside {
+        text-align: left;
+    }
+}
+
+aside {
+    padding-left: var(--indent);
+    padding-right: var(--indent);
+}
+
+blockquote {
+    padding: 0 var(--indent);
+}
+
+hr {
+    color: var(--rule);
+}
+
+aside,
+article img,
+pre {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+}
+
+/* ----- LISTS ----- */
+
+ul, ol {
+    list-style: none;
+}
+
+ul {
+    /* rough width of bullet + indent */
+    padding-left: calc(14px + var(--indent));
+}
+
+ol {
+    /* rough width of number + indent */
+    padding-left: calc(27px + var(--indent));
+}
+
+li {
+    font: var(--font-dw-pica);
+    /* Lists sit tighter than running prose. Must come after `font:`, which
+       resets line-height. */
+    line-height: 1.45;
+}
+
+
+p:has(+ ul), p:has(+ ol) {
+    margin-bottom: 0;
+}
+
+ul li, ol li {
+    position: relative;
+    text-align: justify;
+    text-wrap: pretty;
+}
+
+ul li::before,
+ol li::before {
+    position: absolute;
+    right: 100%;
+    margin-right: 0.7em;
+    color: color-mix(in srgb, var(--ink) 70%, transparent);
+
+}
+
+ul li::before {
+    content: "—";
+}
+
+ol {
+    counter-reset: item;
+}
+
+ol li::before {
+    counter-increment: item;
+    content: counter(item) ".";
+}
+
+ol ol li::before {
+    content: "(" counter(item, lower-alpha) ")";
+}
+
+ol ol ol li::before {
+    content: "(" counter(item, lower-roman) ")";
+}
+
+li+li {
+    margin-top: 0.25em;
+}
+
+/* ----- CODE BLOCKS ----- */
+
+pre {
+    font: var(--font-courier);
+}
+
+code {
+    font-size: inherit;
+    font-family: inherit;
+    /* TODO: Line numbers and emphasized lines (bold) */
+}
+
+p>code {
+    font-style: italic;
+}
+
+pre, code {
+    text-align: left;
+    hyphens: none;
+}
+
+.token.keyword {
+    font-weight: bold;
+}
+
+.token.comment {
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.55);
+}
+
+pre, table {
+    /* Unlike other blocks, code is not capped at 600px: it sizes to its
+       content, floored at the text-column width and clamped to --avail so it
+       never pushes the page wider than the viewport. */
+    width: max-content;
+    min-width: calc(min(var(--avail), var(--main-content-width)));
+    max-width: var(--avail);
+    overflow-x: auto;
+}
+
+/* ----- TABLES ----- */
+
+table {
+    display: block;
+    border-collapse: collapse;
+    width: fit-content;
+    line-height: 1.4;
+    margin-top: 1.55rem;
+    margin-bottom: 1.55rem;
+    border-top: 1.5px solid var(--ink);
+    border-bottom: 1.5px solid var(--ink);
+}
+
+table thead th {
+    font: var(--font-english-sc);
+    letter-spacing: 0.06em;
+    /* Matches the table's leading. Must come after `font:`, which resets it. */
+    line-height: 1.4;
+}
+
+thead {
+    border-bottom: 1px solid var(--rule);
+}
+
+tbody {
+    font: var(--font-courier);
+}
+
+th, td {
+    padding: 0.35em 1.2em 0.35em 0;
+    vertical-align: baseline;
+}
+
+tr>*:last-child {
+    padding-right: 0;
+}
+
+td.num, th.num {
+    font: var(--font-courier);
+    /* Slightly larger than the 0.9em default: these sit alone in a cell rather
+       than inside prose, so they don't need to match a surrounding x-height. */
+    font-size: 0.94em;
+    text-align: right;
+}
+
+/* ----- MISC ----- */
+
+img {
+    mix-blend-mode: multiply;
+    /* filter: grayscale(1) contrast(1.06); */
+}
+
+article img {
+    display: block;
+    width: 100%;
+}
+
+abbr {
+    font-variant: small-caps;
+    text-transform: lowercase;
+}
+
+article {
+    counter-reset: figure;
+}
+
+figure {
+    counter-increment: figure;
+}
+
+figcaption::before {
+    content: "Fig. " counter(figure) ". — ";
+    font-family: "IM Fell English SC", serif;
+    letter-spacing: 0.06em;
+}
+
+figure.table {
+    counter-increment: table;
+    margin: 1.55rem 0;
+}
+
+figure.table figcaption::before {
+    content: "Table " counter(table) ". — ";
+    font-family: "IM Fell English SC", serif;
+    letter-spacing: 0.06em;
+}
+
+h1+*, h2+*, h3+*, h4+*, h5+*, h6+* {
+    margin-top: 0;
+    /* text-indent: 0; */
+}
+
+:not(p)+p {
+    text-indent: 0;
+}

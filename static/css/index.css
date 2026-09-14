@@ -30,28 +30,7 @@
 
 .home .about {
     font: var(--font-double-pica-italic);
-    line-height: normal;
-    text-align: center;
-    margin: 30px auto;
-}
-
-.home .about hr {
-    width: 50px;
-    margin: 8px auto;
-}
-
-.home p {
-    text-align: left;
-    hyphens: auto;
-    margin: 0;
-}
-
-.home p:first-of-type {
-    text-indent: 0;
-}
-
-.home p a {
-    color: var(--accent);
+    margin: 1rem auto;
 }
 
 @keyframes colorize {

@@ -4,12 +4,6 @@ html {
 }
 
 :root {
-    --ink: #1a1512;
-    --rule: color-mix(in srgb, var(--ink) 35%, transparent);
-    --accent: hsl(220, 40%, 30%);
-
-    --main-padding: 60px;
-    --main-content-width: 600px;
 
     /* Horizontal space available to article content. Measured from the
        article's own inline size (via container query units) rather than the
@@ -17,39 +11,16 @@ html {
     --avail: calc(100cqi - 2 * var(--main-padding));
 }
 
-/* Kept next to the definition above so the bundle's file order can't affect
-   which value wins. */
-@media (max-width: 1100px) {
-    :root {
-        --main-padding: 40px;
-    }
-}
-
 * {
     box-sizing: border-box;
+    margin: 0;
 }
 
 body {
     margin: 0;
     display: flex;
     flex-direction: row;
-    color: var(--ink);
     width: 100vw;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-/**
- * Which cut each kind of text is set in. See fonts.css for the scale itself;
- * `font` is a shorthand, so it resets line-height, and any rule that needs a
- * specific one sets it after the `font:` line.
- */
-p,
-aside {
-    font: var(--font-dw-pica);
 }
 
 /**
@@ -65,58 +36,17 @@ nav a,
     line-height: normal;
 }
 
-li {
-    font: var(--font-dw-pica);
-    /* Lists sit tighter than running prose. Must come after `font:`, which
-       resets line-height. */
-    line-height: 1.45;
-}
-
-h1 {
-    font: var(--font-french-canon);
-}
-
-h2 {
-    font: var(--font-double-pica);
-}
-
-h3 {
-    font: var(--font-great-primer);
-}
-
 .section-heading {
     font: var(--font-english-sc);
     line-height: normal;
-}
-
-th {
-    font: var(--font-english-sc);
-    /* Matches the table's leading. Must come after `font:`, which resets it. */
-    line-height: 1.4;
-}
-
-pre,
-tbody {
-    font: var(--font-courier);
-    /* Code blocks and tables set their own leading in blog-post.css; the
-       shorthand above would otherwise reset it. */
-    line-height: inherit;
 }
 
 /* Site identity, as title-page matter: the sidebar heading on desktop and the
    masthead on mobile are the same thing set the same way. */
 .masthead {
     font: var(--font-double-pica-sc);
+    color: inherit;
     line-height: normal;
-}
-
-img {
-    mix-blend-mode: multiply;
-    /* filter: grayscale(1) contrast(1.06); */
-}
-
-hr {
-    color: var(--rule);
 }
 
 nav a.current {

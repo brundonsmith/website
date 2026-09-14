@@ -15,17 +15,11 @@ export default (
       // deno-fmt-disable
       html`
             <div class="home">
-                <!-- <h1>
-                  About me
-                </h1> -->
-
                 <img src="/img/me-3.jpeg" width="200" height="200" />
 
-                <div class="about">
-                  <!-- <hr /> -->
+                <h1 class="about">
                   About me
-                  <!-- <hr /> -->
-                </div>
+                </h1>
 
                ${md`${aboutMe}`}
 
