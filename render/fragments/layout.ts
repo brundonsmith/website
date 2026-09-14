@@ -54,12 +54,9 @@ html`
 
                     <a href="mailto:mail@brandons.me" style="color: var(--accent)">Get in touch</a>
 
-
-                    <div class="desktop-only">
-                        <hr size="1" />
-                        <div class="section-heading">Writing</div>
-                    </div>
-                    ${writing({ url, allPosts, className: 'desktop-only' })}
+                    <hr size="1" />
+                    <div class="section-heading">Writing</div>
+                    ${writing({ url, allPosts })}
                 </nav>
             </div>
 

@@ -25,6 +25,10 @@ nav a {
     line-height: normal;
 }
 
+nav hr {
+    margin: 0.5rem 0;
+}
+
 nav a>span {
     flex-grow: 0;
     flex-shrink: 0;

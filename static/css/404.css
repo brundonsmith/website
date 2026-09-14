@@ -1,12 +1,31 @@
 main.not-found {
-    text-align: center;
     max-width: calc(var(--measure) + var(--side-margin) * 2);
     padding-left: var(--side-margin);
     padding-right: var(--side-margin);
+    padding-top: var(--top-margin);
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+@media (min-width: 1101px) {
+    main.not-found p {
+        text-align: center;
+    }
 }
 
 main.not-found p {
-    text-align: center;
-    max-width: 400px;
     margin: 0 auto;
+    max-width: 400px;
+}
+
+main.not-found a {
+    font: var(--font-dw-pica);
+    line-height: normal;
+}
+
+main.not-found hr {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
 }
