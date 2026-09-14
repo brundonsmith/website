@@ -1,5 +1,6 @@
 .writing a {
     display: flex;
+    color: inherit;
 }
 
 .writing a>span {
