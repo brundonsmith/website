@@ -14,9 +14,10 @@
     --available: calc(100cqi - var(--side-margin) * 2);
 }
 
-@media (max-width: 400px) {
+@media (max-width: 430px) {
     :root {
-        --measure: calc(100vw * 3 / 4);
+        --measure: calc(100vw * 4 / 5);
+        --side-margin: calc((100cqi - var(--measure)) / 2);
     }
 }
 
