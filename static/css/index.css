@@ -8,6 +8,11 @@
     padding-right: var(--side-margin);
 }
 
+.home a {
+    font: var(--font-dw-pica);
+    line-height: normal;
+}
+
 .home img {
     animation: colorize 1s ease-out 1s;
     animation-fill-mode: both;

@@ -21,8 +21,6 @@ body {
  * prose is set at. `normal` here is that metric leading; it has to come after
  * `font:`, which resets line-height to whatever the shorthand carries.
  */
-nav a,
-.writing a,
 .mobile-cta {
     font: var(--font-dw-pica);
     line-height: normal;

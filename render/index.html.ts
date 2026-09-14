@@ -25,8 +25,21 @@ export default (
 
                ${md`${aboutMe}`}
 
-                <div class="mobile-only" style="margin-top: 1.5rem">
-                    <div class="section-heading">writing</div>
+
+                <div class="mobile-only" style="margin-top: 1rem; font: var(--font-english-sc)">
+                    Links
+                </div>
+
+                <a class="mobile-only" href="https://github.com/brundonsmith" style="color: inherit" target="_blank" rel="noreferrer">
+                    GitHub
+                </a>
+
+                <a class="mobile-only" href="https://www.linkedin.com/in/brandon-smith-9589706b" style="color: inherit" target="_blank" rel="noreferrer">
+                    LinkedIn
+                </a>
+
+                <div class="mobile-only" style="margin-top: 0.5rem; font: var(--font-english-sc)">
+                    Writing
                 </div>
                 ${writing({ url, allPosts, className: 'mobile-only' })}
             </div>

@@ -21,6 +21,8 @@ nav {}
 nav a {
     color: inherit;
     display: flex;
+    font: var(--font-dw-pica);
+    line-height: normal;
 }
 
 nav a>span {

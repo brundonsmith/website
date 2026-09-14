@@ -38,16 +38,26 @@ html`
                     <!-- <a href="#">Photos</a> -->
                     <!-- <a href="#">Music I'm listening to</a> -->
 
+                    <a href="https://github.com/brundonsmith" target="_blank" rel="noreferrer">
+                        GitHub
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/brandon-smith-9589706b" target="_blank" rel="noreferrer">
+                        LinkedIn
+                    </a>
+                    
                     <a 
                         href="/services" 
                         class="${url === '/services' ? 'current' : ''}">
                         Consulting services
                     </a>
+
                     <a href="mailto:mail@brandons.me" style="color: var(--accent)">Get in touch</a>
-                    
+
+
                     <div class="desktop-only">
                         <hr size="1" />
-                        <div class="section-heading">writing</div>
+                        <div class="section-heading">Writing</div>
                     </div>
                     ${writing({ url, allPosts, className: 'desktop-only' })}
                 </nav>
