@@ -16,12 +16,16 @@ markdownRenderer.use(anchor, {
 markdownRenderer.use(meta)
 markdownRenderer.use(prism)
 markdownRenderer.use(unwrapLoneImages)
+markdownRenderer.use(openLinksInNewTab)
 
 /** The slice of markdown-it's Token we touch; the package ships no types. */
 type Token = {
   type: string
   hidden: boolean
   children?: Token[]
+  content: string
+  attrGet(name: string): string | null
+  attrSet(name: string, value: string): void
 }
 
 /**
@@ -46,6 +50,82 @@ function unwrapLoneImages(md: MarkdownIt) {
     })
   })
 }
+
+/**
+ * Open links in a new tab, and stop external destinations from learning where
+ * the visitor came from or reaching back into this page through
+ * `window.opener`.
+ *
+ * Fragment links are skipped: they jump within the current page, so a new tab
+ * would be nonsense. That covers the `#` permalinks `markdown-it-anchor` adds
+ * to every heading, which are ordinary link tokens at this point.
+ *
+ * Raw `<a>` tags written directly in a post arrive as opaque HTML rather than
+ * link tokens, so they're rewritten as text.
+ */
+function openLinksInNewTab(md: MarkdownIt) {
+  md.core.ruler.push('links_in_new_tab', (state: { tokens: Token[] }) => {
+    const applyToLinks = (tokens: readonly Token[]) =>
+      tokens.forEach((token) => {
+        if (token.type === 'link_open') {
+          const href = token.attrGet('href') ?? ''
+
+          if (!href.startsWith('#') && !isHandoff(href)) {
+            token.attrSet('target', '_blank')
+
+            if (isExternal(href)) {
+              token.attrSet('rel', 'noopener noreferrer')
+            }
+          }
+        }
+
+        if (token.type === 'html_inline' || token.type === 'html_block') {
+          token.content = addAttributesToRawAnchors(token.content)
+        }
+
+        if (token.children) {
+          applyToLinks(token.children)
+        }
+      })
+
+    applyToLinks(state.tokens)
+  })
+}
+
+/**
+ * Links are external when they point at another origin, whether they name a
+ * scheme ("https://x") or inherit the page's ("//x"). Site-relative paths
+ * ("/services") stay internal, so they keep their referrer and don't need the
+ * opener guard.
+ */
+const isExternal = (href: string) =>
+  /^[a-z][a-z0-9+.-]*:\/\//i.test(href) || href.startsWith('//')
+
+/**
+ * Schemes that hand off to another application rather than navigating. A new
+ * tab would be opened and then immediately orphaned, so they're left alone.
+ */
+const isHandoff = (href: string) => /^(mailto|tel|sms):/i.test(href)
+
+/**
+ * Add the same attributes to hand-written `<a>` tags. Only opening tags that
+ * don't already set `target` are touched, so a post can still opt out by
+ * writing the attribute itself.
+ */
+const addAttributesToRawAnchors = (html: string) =>
+  html.replace(/<a\s([^>]*)>/gi, (tag, attrs: string) => {
+    const href = attrs.match(/href\s*=\s*["']([^"']*)["']/i)?.[1] ?? ''
+
+    if (
+      /\btarget\s*=/i.test(attrs) || href.startsWith('#') || isHandoff(href)
+    ) {
+      return tag
+    }
+
+    const rel = isExternal(href) ? ' rel="noopener noreferrer"' : ''
+
+    return `<a ${attrs.trim()} target="_blank"${rel}>`
+  })
 
 /**
  * Load all markdown files from disk and parse them into structured objects
