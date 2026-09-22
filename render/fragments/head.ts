@@ -2,11 +2,11 @@ import { html } from '../../utils/misc.ts'
 
 export default (
   { title, description, preloadImage }: {
-    title?: string
-    description?: string
+    title: string
+    description: string
     /** Hero image for this page, preloaded so it can paint with first paint. */
     preloadImage?: string
-  } = {},
+  },
 ) =>
   // deno-fmt-ignore
   html`
@@ -25,8 +25,8 @@ export default (
         <meta name="theme-color" content="#FBF8F3">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="${title ? `${title} | Brandon's Website` : 'Brandon\'s Website'}">
-        <meta property="og:description" content="${description || 'Personal website of Brandon Smith'}">
+        <meta property="og:title" content="${title}">
+        <meta property="og:description" content="${description}">
         <meta property="og:image" content="https://www.brandons.me/icons/og-image.png">
         <meta name="twitter:card" content="summary">
         <meta name="twitter:image" content="https://www.brandons.me/icons/og-image.png">

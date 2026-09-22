@@ -8,8 +8,8 @@ import writing from './writing.ts'
 export default (
     { url, title, description, allPosts, content, preloadImage }: {
         url: string
-        title?: string
-        description?: string
+        title: string
+        description: string
         allPosts: readonly LocalPost[]
         content: string
         /** Hero image for this page, preloaded so it can paint with first paint. */

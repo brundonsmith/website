@@ -7,6 +7,7 @@ export default ({ url, allPosts }: SimplePageProps) =>
     layout({
         url,
         title: 'Page not found',
+        description: '',
         allPosts,
         content:
             // deno-fmt-ignore

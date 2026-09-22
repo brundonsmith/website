@@ -5,7 +5,7 @@ import layout from './fragments/layout.ts'
 export default ({ url, allPosts }: SimplePageProps) =>
     layout({
         url,
-        title: 'Services | Brandon Smith',
+        title: 'Brandon Smith - Services',
         description: firstParagraph,
         allPosts,
         content:
@@ -22,7 +22,7 @@ export default ({ url, allPosts }: SimplePageProps) =>
                         I've always sought a 
                         deep understanding of
                         the technologies I work with, and I'll bring that understanding with
-                        me into my work. Below are some services I offer.
+                        me into my work. Below are some of the services I offer.
 
                         ## Codebase assessment
 
@@ -111,7 +111,7 @@ export default ({ url, allPosts }: SimplePageProps) =>
     })
 
 const firstParagraph = `
-I provide software consulting services, for everyone 
+I provide software contracting and consulting services, for everyone 
 from startups to enterprises. I've spent over a decade 
 developing web and mobile software for AI, 
 finance, and energy market companies.`

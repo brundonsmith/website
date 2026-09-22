@@ -12,7 +12,7 @@ export default (
 ) => layout({
     url,
     title: post.meta.title,
-    description: getFirstParagraph(post.html),
+    description: getFirstParagraph(post.html) ?? '',
     allPosts,
     content:
         // deno-fmt-ignore
