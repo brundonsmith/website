@@ -104,13 +104,6 @@ p, aside {
     text-wrap: pretty;
 }
 
-@media (max-width: 430px) {
-    p, aside {
-        text-align: left;
-        hyphens: none;
-    }
-}
-
 aside {
     padding-left: var(--indent);
     padding-right: var(--indent);
@@ -162,7 +155,6 @@ ol {
 }
 
 li {
-    font: var(--font-dw-pica);
     /* Lists sit tighter than running prose. Must come after `font:`, which
        resets line-height. */
     line-height: 1.45;
@@ -177,6 +169,13 @@ ul li, ol li {
     position: relative;
     text-align: justify;
     text-wrap: pretty;
+}
+
+@media (max-width: 430px) {
+    p, aside, ul li, ol li {
+        text-align: left;
+        hyphens: none;
+    }
 }
 
 ul li::before,
