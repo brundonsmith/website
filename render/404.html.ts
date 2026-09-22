@@ -43,6 +43,10 @@ export default ({ url, allPosts }: SimplePageProps) =>
                     <a class="mobile-only" href="https://www.linkedin.com/in/brandon-smith-9589706b" style="color: inherit" target="_blank" rel="noreferrer">
                         LinkedIn
                     </a>
+
+                    <a class="mobile-only" href="/feed.xml" rel="noopener" title="RSS Feed" aria-label="RSS Feed">
+                        RSS Feed
+                    </a>
     
                     <div class="mobile-only" style="margin-top: 1rem; font: var(--font-english-sc)">
                         Writing

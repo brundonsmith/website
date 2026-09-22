@@ -45,11 +45,17 @@ html`
                     <a href="https://www.linkedin.com/in/brandon-smith-9589706b" target="_blank" rel="noreferrer">
                         LinkedIn
                     </a>
+
+                    <a href="/feed.xml" rel="noopener" title="RSS Feed" aria-label="RSS Feed">
+                        RSS Feed
+                    </a>
+                    
+                    <hr size="1" />
                     
                     <a 
                         href="/services" 
                         class="${url === '/services' ? 'current' : ''}">
-                        Consulting services
+                        Services
                     </a>
 
                     <a href="mailto:mail@brandons.me" style="color: var(--accent)">Get in touch</a>

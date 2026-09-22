@@ -38,6 +38,10 @@ export default (
                     LinkedIn
                 </a>
 
+                <a class="mobile-only" href="/feed.xml" rel="noopener" style="color: inherit" title="RSS Feed" aria-label="RSS Feed">
+                    RSS Feed
+                </a>
+
                 <div class="mobile-only" style="margin-top: 0.5rem; font: var(--font-english-sc)">
                     Writing
                 </div>
