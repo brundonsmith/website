@@ -7,12 +7,14 @@ export default (
     /** Hero image for this page, preloaded so it can paint with first paint. */
     preloadImage?: string
   },
-) =>
+) => {
+  description = description.replaceAll(/[\s\n]+/g, ' ')
+
   // deno-fmt-ignore
-  html`
+  return html`
     <head>
         ${title ? `<title>${title}</title>` : ''}
-        ${title ? `<meta name="description" content="${title}">` : ''}
+        ${description ? `<meta name="description" content="${description}">` : ''}
     
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -43,4 +45,5 @@ export default (
 
         <link rel="stylesheet" type="text/css" href="/css/_all.css">
     </head>
-`
+  `
+}
