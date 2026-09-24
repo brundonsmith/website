@@ -8,6 +8,6 @@ article>* {
     width: var(--measure);
 }
 
-.header-anchor {
+/* .header-anchor {
     display: none;
-}
+} */

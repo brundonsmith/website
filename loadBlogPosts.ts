@@ -1,5 +1,5 @@
 import MarkdownIt from 'markdown-it'
-import anchor from 'markdown-it-anchor'
+// import anchor from 'markdown-it-anchor'
 import meta from 'markdown-it-meta'
 import prism from 'markdown-it-prism'
 
@@ -8,11 +8,11 @@ const DEV_MODE = Deno.env.get('DEV_MODE')?.toLocaleLowerCase() === 'true'
 export const markdownRenderer = new MarkdownIt({
   html: true,
 })
-markdownRenderer.use(anchor, {
-  level: 2,
-  permalinkSymbol: '#',
-  permalink: true,
-})
+// markdownRenderer.use(anchor, {
+//   level: 2,
+//   permalinkSymbol: '#',
+//   permalink: true,
+// })
 markdownRenderer.use(meta)
 markdownRenderer.use(prism)
 markdownRenderer.use(unwrapLoneImages)

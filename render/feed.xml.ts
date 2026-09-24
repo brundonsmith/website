@@ -1,9 +1,5 @@
 import { SimplePageProps } from '../loadBlogPosts.ts'
-import {
-    BASE_URL,
-    DEFAULT_DESCRIPTION,
-    DEFAULT_TITLE,
-} from '../utils/constants.ts'
+import { BASE_URL } from '../utils/constants.ts'
 import { getFirstParagraph } from '../utils/misc.ts'
 
 const description = `
