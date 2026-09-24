@@ -14,7 +14,7 @@ export default ({ allPosts }: SimplePageProps) =>
     // deno-fmt-ignore
     `
     <?xml version="1.0" encoding="utf-8"?>
-    <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
         <channel>
             <title>Brandon Smith</title>
             <description>${description}</description>
@@ -28,6 +28,7 @@ export default ({ allPosts }: SimplePageProps) =>
                     <guid>${BASE_URL + "/blog/" + post.slug}</guid>
                     <pubDate>${post.meta.date.toUTCString()}</pubDate>
                     <description>${getFirstParagraph(post.html)}</description>
+                    <content:encoded><![CDATA[${post.html}]]></content:encoded>
                 </item>
             `)
             .join('\n')}
