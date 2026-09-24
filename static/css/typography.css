@@ -16,7 +16,7 @@
 
 @media (max-width: 430px) {
     :root {
-        --measure: calc(100vw * 4 / 5);
+        --measure: calc(100vw * 6 / 7);
         --side-margin: calc((100cqi - var(--measure)) / 2);
     }
 }
