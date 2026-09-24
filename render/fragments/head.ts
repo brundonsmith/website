@@ -8,7 +8,7 @@ export default (
     preloadImage?: string
   },
 ) => {
-  description = description.replaceAll(/[\s\n]+/g, ' ')
+  description = description.trim().replaceAll(/[\s\n]+/g, ' ')
 
   // deno-fmt-ignore
   return html`
@@ -18,6 +18,8 @@ export default (
     
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="alternate" type="application/rss+xml" title="Brandon Smith" href="/feed.xml">
     
         <link rel="icon" href="/favicon.ico" sizes="any">
         <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png">

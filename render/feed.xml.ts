@@ -6,14 +6,18 @@ import {
 } from '../utils/constants.ts'
 import { getFirstParagraph } from '../utils/misc.ts'
 
+const description = `
+    Code and words enthusiast. Staff-level engineer available for 
+    contracting and consulting.`.trim().replaceAll(/[\s\n]+/g, ' ')
+
 export default ({ allPosts }: SimplePageProps) =>
     // deno-fmt-ignore
     `
     <?xml version="1.0" encoding="utf-8"?>
     <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
         <channel>
-            <title>${DEFAULT_TITLE}</title>
-            <description>${DEFAULT_DESCRIPTION}</description>
+            <title>Brandon Smith</title>
+            <description>${description}</description>
             <link>${BASE_URL}</link>
             <atom:link href="${BASE_URL + '/feed.xml'}" rel="self" type="application/rss+xml" />
 
