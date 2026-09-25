@@ -1,5 +1,5 @@
 import { LocalPost } from '../../loadBlogPosts.ts'
-import { formatDate, html, log } from '../../utils/misc.ts'
+import { formatDate, html } from '../../utils/misc.ts'
 
 export default (
   { url, allPosts, className }: {
