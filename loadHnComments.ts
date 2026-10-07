@@ -6,6 +6,7 @@ import {
   ONE_MONTH,
   ONE_YEAR,
 } from './utils/misc.ts'
+import { logEvent } from './utils/log.ts'
 
 type PostComments = {
   postId: string
@@ -39,6 +40,12 @@ export default async function getCommentsCached(postName: string) {
         try {
           const data = await loadAndRender(postName)
           COMMENTS_CACHE.set(postName, { data, timestamp: Date.now() })
+        } catch (error) {
+          // keep serving the stale cached copy; the next request will retry
+          logEvent('warn', 'hn_comments.refresh_failed', {
+            post: postName,
+            error,
+          })
         } finally {
           POST_COMMENTS_LOADING.set(postName, false)
         }
